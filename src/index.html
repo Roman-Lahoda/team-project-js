@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>example title1</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>example title1</title>
-</head>
+  <body>
+    <!--MODAL WINDOW (draft)-->
+    <div class="modal-overlay">
+      <!-- add css class - is-open -->
+      <div class="modal">
+        <h2 class="modal__title visually-hidden">Buy tickets</h2>
+        <div class="modal__wrapper"></div>
+        <div class="modal__container modal-img"></div>
+        <div class="modal__container modal-info"></div>
 
-<body>
-  <script src="./index.js"></script>
-</body>
+        <!--think how to differ buy-btns for js. Will there be additional functionality? -->
+        <button class="modal__btn-buy btn-standart">Buy tickets</button>
+        <button class="modal__btn-buy btn-vip">Buy tickets</button>
+        <button class="modal__btn-more">More from this author</button>
+        <button class="modal__btn-close" data-action="close-modal"></button>
+      </div>
+    </div>
 
+    <script src="./index.js"></script>
+  </body>
 </html>
