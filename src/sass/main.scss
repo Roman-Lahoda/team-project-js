@@ -12,6 +12,10 @@
 @import './base/container';
 @import './base/common';
 
+// components styles
+
 // layout styles
+@import './layouts/footer';
 @import './layouts/body';
 @import './layouts/search-fields';
+
