@@ -1,0 +1,117 @@
+// ! Удалить потом сделано для теста
+body {
+  background-color: #000000;
+}
+// -----
+
+// .events {
+// }
+
+.events__list {
+  display: grid;
+
+  @media screen and (max-width: 767.98px) {
+    grid-template-columns: repeat(2, 128px);
+    column-gap: 15px;
+    row-gap: 40px;
+  }
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(3, 180px);
+    column-gap: 30px;
+    row-gap: 60px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    grid-template-columns: repeat(4, 180px);
+    column-gap: 70px;
+    row-gap: 65px;
+  }
+}
+
+.events__item {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 10;
+    border: 1px solid rgba(220, 86, 197, 0.3);
+    box-sizing: border-box;
+    border-radius: 50px 0px;
+
+    @media screen and (min-width: 768px) {
+      width: 153px;
+      height: 143px;
+      top: -13px;
+      right: -14px;
+    }
+
+    @media screen and (max-width: 767.98px) {
+      width: 108px;
+      height: 101px;
+      top: -10px;
+      right: -10px;
+    }
+  }
+}
+
+.events__image-wrap {
+  background-color: #cabbbb;
+  border-radius: 50px 0px;
+  overflow: hidden;
+}
+
+.events__descr {
+  text-align: center;
+  padding-top: 5px;
+}
+
+.events__name {
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 5px;
+
+  @media screen and (max-width: 767.98px) {
+    font-size: 14px;
+    line-height: 1.214;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+.events__date {
+  color: var(--main-text-color);
+  margin-bottom: 5px;
+
+  @media screen and (max-width: 767.98px) {
+    font-size: 14px;
+    line-height: 1.214;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+.events__location {
+  color: var(--main-text-color);
+  font-weight: 600;
+
+  @media screen and (max-width: 767.98px) {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.214;
+  }
+}
+
+// .events__location-icon {
+// }
