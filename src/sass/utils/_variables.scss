@@ -1,0 +1,13 @@
+:root {
+  // text color
+  --main-text-color: #ffffff;
+  --secondary-color: #dc56c5;
+  --input-placeholder-text-color: #939393;
+  --input-text-color: #cccccc;
+  //bg colors
+  --input-bg-color: rgba(255, 255, 255, 0.2);
+  --main-bg-color: rgba(11, 11, 11, 0.5);
+  //for animation
+  --transition-delay: 200ms;
+  --transition-cube-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
