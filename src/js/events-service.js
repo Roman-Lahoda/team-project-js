@@ -15,18 +15,23 @@ class EventService {
     fetchEvents(EventService) {
         console.log (this)
 
-    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?size=${eventsOnOnePage}&keyword=${this.searchQuery}&countryCode=${country}&page=${this.page}&apikey=${apikey}`)
+    return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?size=${eventsOnOnePage}&keyword=${this.searchQuery}&countryCode=${country}&page=${this.page}&apikey=${apikey}`)
         .then(response => response.json())
         .then(data => {
             this.incrementPage();
-            console.log('data._embedded.events =',
-                data._embedded.events)
+            // console.log('data._embedded.events =');
+            
+            return data._embedded.events
         })
      }
 
     incrementPage() {
         this.page += 1;
     };
+
+    resetPage() {
+         this.page = 1;
+     }
 
     get query() {
         return this.searchQuery;

@@ -3,7 +3,7 @@ import EventService from './js/events-service'
 
 
 console.log('Test')
-
+ 
 /*   868TLNpZS8ooK19OYaEFOMlNAj6HNSqy  */
 
 // Search for events sourced by Universe in the United States with keyword “devjam”
@@ -37,13 +37,14 @@ function onSearchForm (e) {
     e.preventDefault();
   
     eventService.query = e.currentTarget.elements.query.value;
-    eventService.fetchEvents(EventService)
+    eventService.resetPage();
+    eventService.fetchEvents(EventService).then(Events => console.log(Events))
    
 }
 
 
 function onLoadMore() {
-     eventService.fetchEvents(EventService)
+     eventService.fetchEvents(EventService).then(Events => console.log(Events))
  }
 
     
