@@ -6,13 +6,32 @@
     <title>example title1</title>
   </head>
 
-  <body>
-    <header>
-      <h1>TEST PULL REQUEST</h1>
-    </header>
-    <p>Тестовый Pull Request</p>
-    <include src="./partials/test_git.html"></include>
-    <include src="./partials/footer.html"></include>
-    <script src="./index.js"></script>
-  </body>
+
+<body class="body">
+  <header>     
+      <!-- <img src="./images/svg/sprite.svg" alt="logo"> -->
+      <a href="">
+        <svg class="icon-logo">
+          <use href="./images/svg/sprite.svg"></use>
+        </svg>
+      </a>
+      <svg><use href="./images/svg/sprite.svg"></use></svg>
+      <h1>FIND BEST EVENTS AROUND THE WORLD</h1>
+  </header>
+  
+<include src="./partials/test_git.html"></include>
+
+<form class='js-search-form'>
+  <input type="text" class='js-search-input' name="query" />
+</form>
+
+<ul class='js-events-container'> Список для отображения карточек </ul>
+
+<button type="button" class='js-load-more'> Search More </button>
+
+
+
+  <script src="./index.js"></script>
+</body>
 </html>
+
