@@ -7,8 +7,9 @@
   </head>
 
 
-<body class="body">
-  <header>     
+  <body class="body">
+    <header>
+
       <!-- <img src="./images/svg/sprite.svg" alt="logo"> -->
       <a href="">
         <svg class="icon-logo">
@@ -17,8 +18,7 @@
       </a>
       <svg><use href="./images/svg/sprite.svg"></use></svg>
       <h1>FIND BEST EVENTS AROUND THE WORLD</h1>
-
-      
+  
   </header>
   
 <include src="./partials/test_git.html"></include>
@@ -33,13 +33,14 @@
 
 </form>
 
-<ul class='js-events-container'> Список для отображения карточек </ul>
+    <form class="js-search-form">
+      <input type="text" class="js-search-input" name="query" />
+    </form>
+    <!-- Сетка с карточками -->
+    <include src="./partials/event-grid.html"></include>
 
-<button type="button" class='js-load-more'> Search More </button>
+    <button type="button" class="js-load-more">Search More</button>
 
-
-
-  <script src="./index.js"></script>
-</body>
+    <script src="./index.js"></script>
+  </body>
 </html>
-

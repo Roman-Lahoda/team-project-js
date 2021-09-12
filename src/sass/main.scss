@@ -5,6 +5,8 @@
 
 // Стили для файла с примером HTML-фрагмента
 // @import './example';
+// utils
+@import './utils/variables';
 
 // base styles
 @import './base/fonts';
@@ -12,10 +14,13 @@
 @import './base/container';
 @import './base/common';
 
+
 // components styles
 
 // layout styles
 @import './layouts/footer';
 @import './layouts/body';
+@import './layouts/event-grid';
 @import './layouts/search-fields';
+
 
