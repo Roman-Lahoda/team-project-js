@@ -1,18 +1,11 @@
-// .body {
-//   background-image: url(../images/background-desktop/background-img.jpg);
-// }
+.body {
+  font-family: var(--main-font);
+  background-color: #0e0e0e;
 
-// .icon-logo {
-//   position: absolute;
-//   width: 402px;
-//   height: 477px;
-//   left: 239px;
-//   top: -201px;
-//   background: linear-gradient(
-//     136.07deg,
-//     rgba(196, 196, 196, 0.03) 10.75%,
-//     rgba(196, 196, 196, 0) 92.33%
-//   );
-//   backdrop-filter: blur(30px);
-//   transform: rotate(90deg);
-// }
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url(../images/background-desktop/background-img.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}

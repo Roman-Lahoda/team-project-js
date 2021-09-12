@@ -6,31 +6,33 @@
     <title>example title1</title>
   </head>
 
-<body class="body">
-  <header>     
-      <!-- <img src="./images/svg/sprite.svg" alt="logo"> -->
-      <a href="">
-        <svg class="icon-logo">
-          <use href="./images/svg/sprite.svg"></use>
-        </svg>
-      </a>
-      <svg><use href="./images/svg/sprite.svg"></use></svg>
-      <h1>FIND BEST EVENTS AROUND THE WORLD</h1>
-  </header>
-  
-<include src="./partials/test_git.html"></include>
 
-<form class='js-search-form'>
-  <input type="text" class='js-search-input' name="query" />
-</form>
+  <body class="body">
+ 
+  
+<!-- <include src="./partials/test_git.html"></include> -->
+<include src="./partials/header.html"></include>
+
 
 <ul class='js-events-container'> Список для отображения карточек! </ul>
 
-<button type="button" class='js-load-more'> Search More </button>
+<form class='js-search-form'>
+  <div class="search">
+     <input name="query" id="query" type="search" placeholder="Start searching" class="select search-event js-search-input">
+    <div id='select' class="select">
+    </div>
+  </div>
 
+</form>
 
+    <form class="js-search-form">
+      <input type="text" class="js-search-input" name="query" />
+    </form>
+    <!-- Сетка с карточками -->
+    <include src="./partials/event-grid.html"></include>
 
-  <script src="./index.js"></script>
-</body>
+    <button type="button" class="js-load-more">Search More</button>
+
+    <script src="./index.js"></script>
+  </body>
 </html>
-
