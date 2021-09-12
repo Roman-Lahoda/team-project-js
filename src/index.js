@@ -1,5 +1,6 @@
 import './sass/main.scss';
 import EventService from './js/events-service'
+import eventTpl from  './templates/eventTpl.hbs'
 
 
 console.log('Test')
@@ -36,15 +37,29 @@ refs.loadMore.addEventListener('click', onLoadMore);
 function onSearchForm (e) {
     e.preventDefault();
   
+   
     eventService.query = e.currentTarget.elements.query.value;
     eventService.resetPage();
-    eventService.fetchEvents(EventService).then(Events => console.log(Events))
-   
+    // eventService.fetchEvents(EventService).then(Events => console.log(Events))
+    eventService.fetchEvents(EventService).then(Events => {
+        clearEventsContainer();
+        eventsMarkUp(Events);
+        console.log(Events);
+    })
 }
 
 
 function onLoadMore() {
-     eventService.fetchEvents(EventService).then(Events => console.log(Events))
+    // eventService.fetchEvents(EventService).then(Events => console.log(Events))
+     eventService.fetchEvents(EventService).then(eventsMarkUp)
  }
+
+function eventsMarkUp(array) {
+    refs.eventsContainer.insertAdjacentHTML ('beforeend', eventTpl (array) )
+}
+
+function clearEventsContainer() {
+    refs.eventsContainer.innerHTML = '';
+}
 
     
