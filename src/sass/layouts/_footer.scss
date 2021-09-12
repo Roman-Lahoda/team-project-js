@@ -1,0 +1,71 @@
+.footer-wrapper {
+  display: block;
+  display: flex;
+  justify-content: center;
+
+  padding: 60px 34px 27px 34px;
+  // padding-bottom: 27px;
+
+  @media screen and (min-width: 768px) {
+    padding: 60px 0 18px 0;
+    // padding-bottom: 18px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 80px 0 19px 0;
+    // padding-bottom: 19px;
+  }
+}
+
+.footer-content {
+  display: block;
+  width: 252px;
+  height: 34px;
+
+  font-family: 'Montserrat';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  // line-height: 17px;
+  text-align: center;
+  color: #939393;
+  margin: 0;
+
+  @media screen and (min-width: 768px) {
+    width: 521px;
+    height: 20px;
+    font-size: 16px;
+    line-height: 1.25;
+    // line-height: 20px;
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.25);
+  }
+  40% {
+    transform: scale(1.15);
+  }
+
+  60% {
+    transform: scale(1.35);
+  }
+
+  80% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.85);
+  }
+}
+
+.footer-heart {
+  animation: heartbeat 1s infinite;
+  display: inline-block;
+  margin: 0 5px 0 5px;
+}
