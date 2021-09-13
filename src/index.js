@@ -30,18 +30,17 @@ const options = {
 const selectCountry = new Select('#select', options);
 
 
-//  -------------- первая загрузка сайта   ------------------
-document.addEventListener('DOMContentLoaded', (event) => {
+//  -------------- Первая загрузка сайта   ------------------
+document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM полностью загружен и разобран');
     eventService.fetchEventsFirstLoad().then(Events => {
         clearEventsContainer();
         eventsMarkUp(Events);
-        console.log(Events);
-    });
+        });
 });
 
 
-// Функция поиска по заданному слову
+// Функция поиска по заданному слову (по умолчанию  указана страна США)
 function onSearchForm (e) {
     e.preventDefault();
     
@@ -52,14 +51,12 @@ function onSearchForm (e) {
     eventService.fetchEvents(EventService).then(Events => {
         clearEventsContainer();
         eventsMarkUp(Events);
-        console.log(Events);
     })
 }
 
 
  //  Функция рендеринга(отрисовки) массива событий/концертов
 function eventsMarkUp(array) {
-    console.log('eventsMarkUp  array = ', array)
     refs.eventsContainer.insertAdjacentHTML ('beforeend', eventTpl (array) )
 }
 
@@ -68,6 +65,8 @@ function clearEventsContainer() {
     refs.eventsContainer.innerHTML = '';
 }
 
-function onLoadMore() {
-     eventService.fetchEvents(EventService).then(eventsMarkUp)
- }
+
+// //
+// function onLoadNext() {
+//      eventService.fetchEvents(EventService).then(eventsMarkUp)
+//  }

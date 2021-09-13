@@ -48,7 +48,7 @@ class EventService {
       return fetch(`${BASE_URL}/events.json?size=${this.eventsOnOnePage}&preferredCountry=${ "us", "ca" }&page=${this.page}&apikey=${apikey}`)
             .then(response => response.json())
             .then(data => {
-                console.log('События по пополярности (только США и Канада) : ', data._embedded.events);
+                // console.log('События по популярности (только США и Канада) : ', data._embedded.events);
                 return data._embedded.events
             })
             .catch(error => console.log(error))
