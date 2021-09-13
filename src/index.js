@@ -6,6 +6,8 @@ import Select from './js/search-fields';
 
 import refs from './js/refs';
 
+import './js/scrollUp';
+
 const eventService = new EventService();
 
 
