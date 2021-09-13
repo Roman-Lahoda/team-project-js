@@ -1,7 +1,12 @@
 {{#each this}}
-<li>
-   <p> Name: {{name}} </p>
-   <p> ID: {{id}}</p>
-   <p> Description {{info}}</p>
+<li class="list">
+   <div class="card">
+      <img class="card__img" src="{{this.images.[0].url}}" alt="" title="" width="180" />
+      <div class="card__info">
+         <p class=""> {{this.name}} </p>
+         <p class=""> {{this.dates.start.localDate}} </p>
+         <p class=""> {{this.dates.timezone}} </p>
+      </div>
+   </div>
 </li>
 {{/each}}
