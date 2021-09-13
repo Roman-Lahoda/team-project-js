@@ -40,9 +40,27 @@ class EventService {
         .catch(error => console.log(error))
      }
 
+    
+    // Функция для первой загрузки картинок, до того как пользователь вводил запросы.
+    // Использовано API с ключём preferredCountry:  Popularity boost by country, default is us. (Повышение популярности по странам, по умолчанию мы.)
+    // возможны значения только 2 стран: String enum:["us", " ca"]
+    fetchEventsFirstLoad() {
+      return fetch(`${BASE_URL}/events.json?size=${this.eventsOnOnePage}&preferredCountry=${ "us", "ca" }&page=${this.page}&apikey=${apikey}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log('События по пополярности (только США и Канада) : ', data._embedded.events);
+                return data._embedded.events
+            })
+            .catch(error => console.log(error))
+     }
+   
 
     incrementPage() {
         this.page += 1;
+    };
+
+        decrementPage() {
+        this.page -= 1;
     };
 
     resetPage() {
@@ -80,6 +98,15 @@ class EventService {
     set numberOfEventsOnOnePage(newValue) {
         this.eventsOnOnePage = newValue;
     }
+
+     get EventID() {
+        return this.eventID;
+    }
+
+    set EventID(newID) {
+        this.eventID = newID;
+    }
+
 
 }
 
