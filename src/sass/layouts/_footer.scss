@@ -1,5 +1,4 @@
 .footer-wrapper {
-  display: block;
   display: flex;
   justify-content: center;
 
@@ -18,9 +17,8 @@
 }
 
 .footer-content {
-  display: block;
-  width: 252px;
-  height: 34px;
+  // width: 252px;
+  // height: 34px;
 
   font-family: 'Montserrat';
   font-weight: 400;
@@ -32,8 +30,9 @@
   margin: 0;
 
   @media screen and (min-width: 768px) {
-    width: 521px;
-    height: 20px;
+    // width: 521px;
+    // height: 20px;
+
     font-size: 16px;
     line-height: 1.25;
     // line-height: 20px;
@@ -68,4 +67,12 @@
   animation: heartbeat 1s infinite;
   display: inline-block;
   margin: 0 5px 0 5px;
+}
+
+.footer-modal {
+  cursor: pointer;
+  background-color: Transparent;
+  border-style: none;
+  margin: 0;
+  padding: 0;
 }
