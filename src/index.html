@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>example title1</title>
-  </head>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>example title1</title>
+</head>
 
 <body class="body">
- 
-  
-<!-- <include src="./partials/test_git.html"></include> -->
-<include src="./partials/header.html"></include>
 
 
-<ul class='js-events-container'> Список для отображения карточек! </ul>
+  <!-- <include src="./partials/test_git.html"></include> -->
+  <include src="./partials/header.html"></include>
 
-<form class='js-search-form'>
-  <div class="search">
-     <input name="query" id="query" type="search" placeholder="Start searching" class="select search-event js-search-input">
-    <div id='select' class="select">
+
+  <form class='js-search-form'>
+    <div class="search">
+      <input name="query" id="query" type="search" placeholder="Start searching"
+        class="select search-event js-search-input">
+      <div id='select' class="select">
+      </div>
     </div>
-  </div>
 
-</form>
+  </form>
 
-    <form class="js-search-form">
-      <input type="text" class="js-search-input" name="query" />
-    </form>
-    <!-- Сетка с карточками -->
-    <include src="./partials/event-grid.html"></include>
+  <!-- Сетка с карточками -->
+  <!--<include src="./partials/event-grid.html"></include> -->
 
-    <button type="button" class="js-load-more">Search More</button>
+  <ul class='js-events-container events__list '> Список для отображения карточек! </ul>
 
-    <script src="./index.js"></script>
-  </body>
+
+  <!-- <button type="button" class="js-load-more">Search More</button> -->
+
+  <script src="./index.js"></script>
+</body>
+
 </html>
