@@ -1,6 +1,8 @@
 :root {
   // colors
   --accent-color: #dc56c5;
+  --modal-accent-color: #4c00fe;
+  --modal-bcg-color: #fff2fd;
   // fonts
   --main-font: 'Montserrat', sans-serif;
   // grid
@@ -16,5 +18,4 @@
   //for animation
   --transition-delay: 200ms;
   --transition-cube-function: cubic-bezier(0.4, 0, 0.2, 1);
-
 }
