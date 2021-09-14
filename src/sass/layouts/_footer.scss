@@ -1,7 +1,7 @@
 .footer-wrapper {
   display: flex;
   justify-content: center;
-
+  flex-wrap: wrap;
   padding: 60px 34px 27px 34px;
   // padding-bottom: 27px;
 
@@ -23,8 +23,7 @@
   font-family: 'Montserrat';
   font-weight: 400;
   font-size: 14px;
-  line-height: 1.21;
-  // line-height: 17px;
+  line-height: 1.21; // line-height: 17px;
   text-align: center;
   color: #939393;
   margin: 0;
@@ -34,9 +33,13 @@
     // height: 20px;
 
     font-size: 16px;
-    line-height: 1.25;
-    // line-height: 20px;
+    line-height: 1.25; // line-height: 20px;
   }
+}
+
+.line {
+  margin-left: 7px;
+  margin-right: 7px;
 }
 
 @keyframes heartbeat {
