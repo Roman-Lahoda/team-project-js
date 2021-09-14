@@ -91,6 +91,7 @@ class EventService {
      };
         
     get numberOfEventsOnOnePage() {
+        console.log(" Test numberOfEventsOnOnePage() ");
         return this.numberOfEventsOnOnePage;
     }
         
