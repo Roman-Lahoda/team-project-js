@@ -7,7 +7,6 @@ import Select from './js/search-fields';
 import refs from './js/refs';
 
 import './js/scrollUp';
-import './js/team-modal';
 
 const eventService = new EventService();
 
@@ -35,13 +34,6 @@ const selectCountry = new Select('#select', options);
 
 //  -------------- Первая загрузка сайта   ------------------
 document.addEventListener('DOMContentLoaded', () => {
-
-    //Проверка ширины экрана. Если Tablet-версия, то грузим 21 картинку, для остальных версий 20 картинок
-      if (document.documentElement.clientWidth > 768 && document.documentElement.clientWidth < 1280) {
-        console.log('document.documentElement.clientWidth');
-         eventService.eventsOnOnePage =21;
-        } else { eventService.eventsOnOnePage = 20 }
-    
     console.log('DOM полностью загружен и разобран');
     eventService.fetchEventsFirstLoad().then(Events => {
         clearEventsContainer();
@@ -58,13 +50,6 @@ function onSearchForm (e) {
 
     if (eventService.query === '') { return alert ('Введите что-то нормальное')}
     eventService.resetPage();
-
-    //Проверка ширины экрана. Если Tablet-версия, то грузим 21 картинку, для остальных версий 20 картинок
-    if (document.documentElement.clientWidth > 768 && document.documentElement.clientWidth < 1280) {
-        console.log('document.documentElement.clientWidth');
-         eventService.eventsOnOnePage =21;
-    } else { eventService.eventsOnOnePage = 20 }
-    
     eventService.fetchEvents(EventService).then(Events => {
         clearEventsContainer();
         eventsMarkUp(Events);
@@ -83,9 +68,6 @@ function clearEventsContainer() {
 }
 
 
-
-// ==================== Тестовые функции.  ============
-
 // Функция для пагинации, когда кликаем на СЛЕДУЮЩУЮ страничку и догружаем
 // следующую порцию карточек с событиями / концертами
 function onNextPage() {
@@ -96,7 +78,8 @@ function onNextPage() {
 
 // Функция для пагинации, когда кликаем на ПРЕДЫДУЩУЮ страничку
 function onPreviousPage() {
-  if (eventService.page > 1) { eventService.decrementPage(); } 
+
+  if (eventService.page < 1) { eventService.decrementPage(); } 
   eventService.fetchEvents(EventService).then(eventsMarkUp)
  }
-// ===============================================================
+
