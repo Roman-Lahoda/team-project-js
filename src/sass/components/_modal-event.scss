@@ -4,7 +4,18 @@
 //   border-bottom-right-radius: 50%;
 //   background-color: var(--modal-bcg-color);
 // }
-
+// .event {
+//   background-color: var(--modal-bcg-color);
+//   @media screen and(max-width:767.98px) {
+//     max-width: 272px;
+//   }
+//   @media screen and (min-width: 768px) {
+//     max-width: 595px;
+//   }
+//   @media screen and (min-width: 1280px) {
+//     max-width: 942px;
+//   }
+// }
 .event__img--circle {
   margin-left: auto;
   margin-right: auto;
