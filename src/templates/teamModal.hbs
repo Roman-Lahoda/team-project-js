@@ -1,0 +1,18 @@
+<div class='content'>
+    <button class='close'></button>
+    {{#each this}}
+    <figure class='snip1344'>
+        <img src='{{photo}}' class='background' />
+        <img src='{{photo}}' alt={{fullName}} class='profile' />
+        <figcaption>
+            <h3>{{fullName}}<span>{{position}}</span></h3>
+            <div class='icons'>
+                <a href='#'>
+                    <i class='ion-social-linkedin-outline'></i></a>
+                <a href='#'> 
+                    <i class='ion-social-github-outline'></i></a>
+            </div>
+        </figcaption>
+    </figure>
+    {{/each}}
+</div>
