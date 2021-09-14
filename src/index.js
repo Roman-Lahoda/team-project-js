@@ -95,7 +95,7 @@ function onNextPage() {
 
 // Функция для пагинации, когда кликаем на ПРЕДЫДУЩУЮ страничку
 function onPreviousPage() {
-  if (eventService.page > 1) { eventService.decrementPage(); } 
+  if (eventService.page > 0) { eventService.decrementPage(); } 
   eventService.fetchEvents(EventService).then(eventsMarkUp)
  }
 // ===============================================================
