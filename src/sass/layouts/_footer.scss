@@ -1,8 +1,7 @@
 .footer-wrapper {
-  display: block;
   display: flex;
   justify-content: center;
-
+  flex-wrap: wrap;
   padding: 60px 34px 27px 34px;
   // padding-bottom: 27px;
 
@@ -18,26 +17,29 @@
 }
 
 .footer-content {
-  display: block;
-  width: 252px;
-  height: 34px;
+  // width: 252px;
+  // height: 34px;
 
   font-family: 'Montserrat';
   font-weight: 400;
   font-size: 14px;
-  line-height: 1.21;
-  // line-height: 17px;
+  line-height: 1.21; // line-height: 17px;
   text-align: center;
   color: #939393;
   margin: 0;
 
   @media screen and (min-width: 768px) {
-    width: 521px;
-    height: 20px;
+    // width: 521px;
+    // height: 20px;
+
     font-size: 16px;
-    line-height: 1.25;
-    // line-height: 20px;
+    line-height: 1.25; // line-height: 20px;
   }
+}
+
+.line {
+  margin-left: 7px;
+  margin-right: 7px;
 }
 
 @keyframes heartbeat {
@@ -68,4 +70,12 @@
   animation: heartbeat 1s infinite;
   display: inline-block;
   margin: 0 5px 0 5px;
+}
+
+.footer-modal {
+  cursor: pointer;
+  background-color: Transparent;
+  border-style: none;
+  margin: 0;
+  padding: 0;
 }
