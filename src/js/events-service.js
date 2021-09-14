@@ -95,6 +95,7 @@ class EventService {
     }
         
     set numberOfEventsOnOnePage(newValue) {
+        console.log(" Test numberOfEventsOnOnePage(newValue) ");
         this.eventsOnOnePage = newValue;
     }
 
