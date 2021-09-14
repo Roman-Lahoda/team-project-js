@@ -139,12 +139,6 @@
   overflow: hidden;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 img {
   display: block;
   height: auto;
@@ -301,13 +295,70 @@ p {
 
 .body {
   font-family: var(--main-font);
+  background-image: url("../images/body-bg/noise-body.png");
   background-color: #0e0e0e;
-  max-width: 100%;
-  margin: 0 auto;
 }
 
-body {
-  background-color: #000000;
+.bg {
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media screen and (min-width: 1280px) {
+  .bg {
+    width: 1280px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279.98px) {
+  .bg {
+    width: 768px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767.98px) {
+  .bg {
+    width: 320px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279.98px) {
+  .bg::after {
+    content: '';
+    background: url("../images/body-bg/Ellipse.png"), url("../images/body-bg/Group.png"), url("../images/body-bg/Ellipse2.png"), url("../images/body-bg/Group.png"), url("../images/body-bg/Ellipse.png"), url("../images/body-bg/Group.png");
+    background-repeat: no-repeat;
+    background-size: 232px auto, 126px auto, 232px auto, 126px auto, 232px auto, 126px auto;
+    background-position: top 420px right 10px, top 85px left 23px, top 1221px left 10px, top 1221px right 23px, top 2147px right 10px, top 2519px left 23px;
+    position: absolute;
+    top: 364px;
+    left: 0;
+    width: 768px;
+    height: 2582px;
+    z-index: -1;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .bg::after {
+    content: '';
+    background: url("../images/body-bg/Ellipse.png"), url("../images/body-bg/Group.png"), url("../images/body-bg/Ellipse2.png"), url("../images/body-bg/Group.png"), url("../images/body-bg/Ellipse.png"), url("../images/body-bg/Group.png"), url("../images/body-bg/decor.png");
+    background-repeat: no-repeat;
+    background-size: 334px auto, 216px auto, 334px auto, 216px auto, 334px auto, 216px auto, 1050px 2376px, cover;
+    background-position: top 490px right 30px, top 742px left 10px, top 1254px left 30px, top 1267px right 10px, top 1884px right 30px, top 2268px left 10px, top center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2376px;
+    z-index: 10;
+    overflow: visible;
+  }
+}
+
+.events {
+  position: relative;
+  z-index: 10;
 }
 
 .events__list {
@@ -558,19 +609,14 @@ body {
   margin-right: auto;
   overflow: hidden;
   max-width: 1280px;
+  background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, black 50%), url("../images/background-mobile/bg-m.jpg"), url("../images/body-bg/noise-body.png");
+  height: 364px;
+  background-position: top center, bottom center, center center;
+  background-repeat: no-repeat;
+  background-size: cover, 767.98px 100px, cover;
 }
 
-@media screen and (max-width: 767.98px) {
-  .head {
-    background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, black 50%), url("../images/background-mobile/bg-m.jpg");
-    height: 364px;
-    background-position: top center, bottom center, center center;
-    background-repeat: no-repeat;
-    background-size: cover, 767.98px 100px, cover;
-  }
-}
-
-@media screen and (max-width: 767.98px) and (min-device-pixel-ratio: 2), screen and (max-width: 767.98px) and (min-resolution: 192dpi), screen and (max-width: 767.98px) and (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
   .head {
     background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, black 50%), url("../images/background-mobile/bg-m@2x.jpg");
   }
@@ -599,6 +645,7 @@ body {
     background-position: top center, bottom center, center center;
     background-repeat: no-repeat;
     background-size: cover, 1280px 100px, cover;
+    box-shadow: 0px 0px 67px 59px rgba(0, 0, 0, 0.82) inset, 0px 0px 60px 31px rgba(0, 0, 0, 0.7);
   }
 }
 
@@ -614,6 +661,7 @@ body {
   background: linear-gradient(90deg, rgba(196, 196, 196, 0.03) 10.75%, rgba(196, 196, 196, 0) 92.33%);
   background-color: rgba(14, 14, 14, 0.2);
   position: absolute;
+  z-index: 100;
   width: 210px;
   height: 180px;
   top: -90px;

@@ -1,9 +1,9 @@
 .body {
   font-family: var(--main-font);
-  background-color: #0e0e0e;
+  // background-color: #0e0e0e;
 
-  max-width: 100%;
-  margin: 0 auto;
+  // max-width: 100%;
+  // margin: 0 auto;
   //   background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
   //     url(../images/background-mobile/back-mobile.jpg);
   //   background-size: contain;
@@ -46,4 +46,64 @@
   //         url(../images/background-desktop/back-desktop@2x.jpg);
   //     }
   //   }
+  background-image: url('../images/body-bg/noise-body.png');
+  background-color: #0e0e0e;
+}
+
+.bg {
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279.98px) {
+    width: 768px;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767.98px) {
+    width: 320px;
+  }
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279.98px) {
+  .bg::after {
+    content: '';
+    background: url('../images/body-bg/Ellipse.png'), url('../images/body-bg/Group.png'),
+      url('../images/body-bg/Ellipse2.png'), url('../images/body-bg/Group.png'),
+      url('../images/body-bg/Ellipse.png'), url('../images/body-bg/Group.png');
+    background-repeat: no-repeat;
+    background-size: 232px auto, 126px auto, 232px auto, 126px auto, 232px auto, 126px auto;
+    background-position: top 420px right 10px, top 85px left 23px, top 1221px left 10px,
+      top 1221px right 23px, top 2147px right 10px, top 2519px left 23px;
+    position: absolute;
+    top: 364px;
+    left: 0;
+    width: 768px;
+    height: 2582px;
+    z-index: -1;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .bg::after {
+    content: '';
+    background: url('../images/body-bg/Ellipse.png'), url('../images/body-bg/Group.png'),
+      url('../images/body-bg/Ellipse2.png'), url('../images/body-bg/Group.png'),
+      url('../images/body-bg/Ellipse.png'), url('../images/body-bg/Group.png'),
+      url('../images/body-bg/decor.png');
+    background-repeat: no-repeat;
+    background-size: 334px auto, 216px auto, 334px auto, 216px auto, 334px auto, 216px auto,
+      1050px 2376px, cover;
+    background-position: top 490px right 30px, top 742px left 10px, top 1254px left 30px,
+      top 1267px right 10px, top 1884px right 30px, top 2268px left 10px, top center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2376px;
+    z-index: 10;
+    overflow: visible;
+  }
 }
