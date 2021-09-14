@@ -37,8 +37,10 @@
   }
 }
 .event-wrap {
+  margin-bottom: 25px;
   @media screen and(min-width:768px) {
     display: flex;
+    margin-bottom: 45px;
   }
 }
 .event__img {
@@ -111,23 +113,24 @@
 }
 
 .event__button {
-  margin-bottom: 20px;
+  // margin-bottom: 25px;
   width: 145px;
 
   background-color: var(--modal-accent-color);
   color: #ffffff;
   border: transparent;
 
-  @media screen and (min-width: 1280px) {
-    margin-bottom: 31px;
-  }
+  // @media screen and (min-width: 768px) {
+  //   margin-bottom: 45px;
+  // }
 }
 
 .modal__btn-more {
+  display: block;
   margin-right: auto;
   margin-left: auto;
   margin-top: 5px;
-  width: 230px;
+  min-width: 230px;
   background-color: transparent;
   color: var(--modal-accent-color);
   border: solid 1px var(--modal-accent-color);
