@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,25 +9,15 @@
 <body class="body">
 <header>
 
-  <!-- <include src="./partials/test_git.html"></include> -->
-  <include src="./partials/header.html"></include>
 
-</header>
+<!-- Поля для поиска -->
+<include src="./partials/search-fields.html"></include>
 
-  <form class='js-search-form'>
-    <div class="search">
-      <input name="query" id="query" type="search" placeholder="Start searching"
-        class="select search-event js-search-input">
-      <div id='select' class="select">
-      </div>
-    </div>
+    <!-- Сетка с карточками -->
+    <include src="./partials/event-grid.html"></include>
 
-  </form>
+    <!-- <button type="button" class="js-load-more">Search More</button> -->
 
-  <!-- Сетка с карточками -->
-  <include src="./partials/event-grid.html"></include> 
-
-  <!--<ul class='js-events-container events__list '> Список для отображения карточек! </ul> -->
 
 
   <!-- <button type="button" class="js-load-more">Search More</button> -->
