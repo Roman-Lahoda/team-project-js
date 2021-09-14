@@ -12,6 +12,7 @@
       referrerpolicy="no-referrer"
     />
   </head>
+
   <body class="body">
     <div class="bg"></div>
     <header>
@@ -28,6 +29,14 @@
 
     <!-- Footer-->
     <include src="./partials/footer.html"></include>
+
+    <!--Модальное окно-->
+    <div class="modal-overlay js-modal visually-hidden">
+      <div class="modal">
+        <button type="button" class="modal__btn-close" data-action="close-modal">X</button>
+        <!-- Данные о событии рендерятся сюда -->
+      </div>
+    </div>
 
     <script src="./index.js"></script>
   </body>
