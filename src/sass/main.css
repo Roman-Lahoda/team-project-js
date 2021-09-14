@@ -870,6 +870,12 @@ body {
   }
 }
 
+.event_more-info::before {
+  display: block;
+  content: '';
+  background-image: url();
+}
+
 .button {
   height: 40px;
   font-family: inherit;

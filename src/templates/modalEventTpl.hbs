@@ -1,5 +1,5 @@
 <article class="event">
-    <img class="event__img--circle" src="" alt="">
+    <img class="event__img--circle" src="{{ this.images.[0].url}}" alt="Event poster">
     <div class="event-wrap">
         <div class="event__img-wrap">
             <img class="event__img" 
@@ -41,6 +41,9 @@
                 <li class="event__info-item">
                     <h2 class="event__subtitle">prices</h2>
                     <p class="event__text">
+                        <svg class="event__price-icon">
+                            <use href="../images/svg/sprite.svg#icon-ticket"></use>
+                        </svg>
                         {{this.priceRanges.type}} {{this.priceRanges.min}} - {{this.priceRanges.max}}
                         {{this.priceRanges.currency}}
                     </p>
