@@ -3,6 +3,7 @@ import EventService from './js/events-service';
 import eventTpl from './templates/eventTpl.hbs';
 import countries from './js/data/countryList.json';
 import Select from './js/search-fields';
+import onEventClick from './js/modal.js';
 
 import refs from './js/refs';
 
@@ -92,4 +93,3 @@ function onPreviousPage() {
   eventService.fetchEvents(EventService).then(eventsMarkUp);
 }
 
-// ===============================================================
