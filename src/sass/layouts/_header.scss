@@ -1,18 +1,40 @@
-.heading {
+.head {
   display: flex;
-  justify-content: center;
+}
+
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .title {
-  width: calc(100% / 12 * 5);
+  width: calc((100% - 1 * 30px) / 1);
 
-  font-style: normal;
   font-weight: 900;
-  font-size: 50px;
-  line-height: 61px;
+  font-size: 18px;
+  line-height: 1.22;
   text-align: center;
-  margin-top: 40px;
-  margin-bottom: 52px;
+  padding-top: 78px;
+  margin-right: auto;
+  margin-left: auto;
 
   color: var(--secondary-color);
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    width: calc(100% / 6 * 4);
+    font-size: 30px;
+    line-height: 1.23;
+    padding-top: 40px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .title {
+    font-size: 50px;
+    line-height: 1.22;
+    width: calc(100% / 12 * 8);
+  }
 }
