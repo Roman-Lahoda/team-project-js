@@ -6,24 +6,26 @@
     <title>example title1</title>
   </head>
 
-
   <body class="body">
- 
-  
-<!-- <include src="./partials/test_git.html"></include> -->
-<include src="./partials/header.html"></include>
+    <!-- <include src="./partials/test_git.html"></include> -->
+    <include src="./partials/header.html"></include>
 
+    <ul class="js-events-container">
+      Список для отображения карточек!
+    </ul>
 
-<ul class='js-events-container'> Список для отображения карточек! </ul>
-
-<form class='js-search-form'>
-  <div class="search">
-     <input name="query" id="query" type="search" placeholder="Start searching" class="select search-event js-search-input">
-    <div id='select' class="select">
-    </div>
-  </div>
-
-</form>
+    <form class="js-search-form">
+      <div class="search">
+        <input
+          name="query"
+          id="query"
+          type="search"
+          placeholder="Start searching"
+          class="select search-event js-search-input"
+        />
+        <div id="select" class="select"></div>
+      </div>
+    </form>
 
     <form class="js-search-form">
       <input type="text" class="js-search-input" name="query" />
@@ -32,6 +34,14 @@
     <include src="./partials/event-grid.html"></include>
 
     <button type="button" class="js-load-more">Search More</button>
+
+    <!--Модальное окно-->
+    <div class="modal-overlay js-modal visually-hidden">
+      <div class="modal">
+        <button type="button" class="modal__btn-close" data-action="close-modal">X</button>
+        <!-- Данные о событии рендерятся сюда -->
+      </div>
+    </div>
 
     <script src="./index.js"></script>
   </body>
