@@ -1,11 +1,108 @@
 .head {
   display: flex;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  max-width: 1280px;
+  // box-shadow: 0px 0px 67px 59px rgba(0, 0, 0, 0.82) inset;
+  @media screen and (max-width: 767.98px) {
+    background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+      linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%),
+      url('../images/background-mobile/bg-m.jpg');
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+        linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%),
+        url('../images/background-mobile/bg-m@2x.jpg');
+    }
+    height: 364px;
+    background-position: top center, bottom center, center center;
+    background-repeat: no-repeat;
+    background-size: cover, 767.98px 100px, cover;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279.98px) {
+    background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+      linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%),
+      url('../images/background-tablet/bg-t.jpg');
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+        linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%),
+        url('../images/background-tablet/bg-t@2x.jpg');
+    }
+    height: 364px;
+    background-position: top center, bottom center, center center;
+    background-repeat: no-repeat;
+    background-size: cover, 1279.98px 100px, cover;
+  }
+
+  @media screen and (min-width: 1280px) {
+    background: linear-gradient(rgba(11, 11, 11, 0.2), rgba(11, 11, 11, 0.2)),
+      linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%),
+      url('../images/background-desktop/bg-d.jpg');
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+        linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%),
+        url('../images/background-desktop/bg-d@2x.jpg');
+    }
+
+    height: 446px;
+    background-position: top center, bottom center, center center;
+    background-repeat: no-repeat;
+    background-size: cover, 1280px 100px, cover;
+  }
+}
+
+.box-blur {
+  border-radius: 50%;
+  backdrop-filter: blur(30px);
+  // backdrop-filter: blur(10px);
+  background: linear-gradient(
+    90deg,
+    rgba(196, 196, 196, 0.03) 10.75%,
+    rgba(196, 196, 196, 0) 92.33%
+  );
+  background-color: rgba(14, 14, 14, 0.2);
+  position: absolute;
+
+  width: 210px;
+  height: 180px;
+  top: -90px;
+  left: -105px;
+
+  @media screen and (min-width: 768px) and (max-width: 1279.98px) {
+    width: 360px;
+    height: 300px;
+    top: -150px;
+    left: -180px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 480px;
+    height: 400px;
+    top: -200px;
+    left: -240px;
+  }
 }
 
 .logo {
   position: absolute;
-  top: 0;
-  left: 0;
+  width: 60px;
+  height: 30px;
+  top: 115px;
+  left: 120px;
+  @media screen and (min-width: 768px) and (max-width: 1279.98px) {
+    width: 100px;
+    height: 49px;
+    top: 190px;
+    left: 200px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 136px;
+    height: 67px;
+    top: 240px;
+    left: 280px;
+  }
 }
 
 .title {
