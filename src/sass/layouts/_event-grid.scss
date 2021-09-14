@@ -1,11 +1,13 @@
 // ! Удалить потом сделано для теста
 body {
-  background-color: #000000;
+  // background-color: #000000;
 }
 // -----
 
-// .events {
-// }
+.events {
+  position: relative;
+  z-index: 10;
+}
 
 .events__list {
   display: grid;
