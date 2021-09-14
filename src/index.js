@@ -29,6 +29,7 @@ const selectCountry = new Select('#select', options);
 
 //  -------------- Первая загрузка сайта   ------------------
 document.addEventListener('DOMContentLoaded', () => {
+
   //Проверка ширины экрана. Если Tablet-версия, то грузим 21 картинку, для остальных версий 20 картинок
   if (document.documentElement.clientWidth > 768 && document.documentElement.clientWidth < 1280) {
     console.log('document.documentElement.clientWidth');
@@ -42,8 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
     clearEventsContainer();
     eventsMarkUp(Events);
   });
+
 });
 // Функция поиска по заданному слову (по умолчанию  указана страна США)
+
 function onSearchForm(e) {
   e.preventDefault();
 
@@ -66,6 +69,7 @@ function onSearchForm(e) {
     clearEventsContainer();
     eventsMarkUp(Events);
   });
+
 }
 //  Функция рендеринга(отрисовки) массива событий/концертов
 function eventsMarkUp(array) {
@@ -76,7 +80,9 @@ function clearEventsContainer() {
   refs.eventsContainer.innerHTML = '';
 }
 
+
 // ==================== Тестовые функции.  ============
+
 
 // Функция для пагинации, когда кликаем на СЛЕДУЮЩУЮ страничку и догружаем
 // следующую порцию карточек с событиями / концертами
@@ -87,9 +93,11 @@ function onNextPage() {
 
 // Функция для пагинации, когда кликаем на ПРЕДЫДУЩУЮ страничку
 function onPreviousPage() {
+
   if (eventService.page > 1) {
     eventService.decrementPage();
   }
   eventService.fetchEvents(EventService).then(eventsMarkUp);
 }
+
 
