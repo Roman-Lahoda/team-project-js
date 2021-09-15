@@ -5,6 +5,7 @@
   // 2 cols * 128px + 1 gap * 15px + 2 paddings * 7.5px = 286px
   @media screen and (min-width: 320px) {
     width: 286px;
+    padding-top: 50px;
     padding-right: 7.5px;
     padding-left: 7.5px;
   }
@@ -12,6 +13,7 @@
   // 3 cols * 180px + 2 gaps * 30px + 2 paddings * 15px = 630 px
   @media screen and (min-width: 768px) {
     width: 630px;
+    padding-top: 120px;
     padding-right: 15px;
     padding-left: 15px;
   }
@@ -19,6 +21,7 @@
   // 4 cols * 180px + 3 gaps * 70px + 2 paddings * 35px = 630 px
   @media screen and (min-width: 1280px) {
     width: 1000px;
+    padding-top: 130px;
     padding-right: 35px;
     padding-left: 35px;
   }

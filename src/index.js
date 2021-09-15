@@ -31,6 +31,7 @@ const selectCountry = new Select('#select', options);
 //  -------------- Первая загрузка сайта   ------------------
 document.addEventListener('DOMContentLoaded', () => {
 
+
   //Проверка ширины экрана. Если Tablet-версия, то грузим 21 картинку, для остальных версий 20 картинок
   if (document.documentElement.clientWidth > 768 && document.documentElement.clientWidth < 1280) {
     console.log('document.documentElement.clientWidth');
@@ -72,6 +73,7 @@ function onSearchForm(e) {
   });
 
 }
+
 //  Функция рендеринга(отрисовки) массива событий/концертов
 function eventsMarkUp(array) {
   refs.eventsContainer.insertAdjacentHTML('beforeend', eventTpl(array));
@@ -84,7 +86,6 @@ function clearEventsContainer() {
 
 // ==================== Тестовые функции.  ============
 
-
 // Функция для пагинации, когда кликаем на СЛЕДУЮЩУЮ страничку и догружаем
 // следующую порцию карточек с событиями / концертами
 function onNextPage() {
@@ -94,11 +95,16 @@ function onNextPage() {
 
 // Функция для пагинации, когда кликаем на ПРЕДЫДУЩУЮ страничку
 function onPreviousPage() {
+  if (eventService.page < 1) {
+    eventService.decrementPage();
+  }
+  eventService.fetchEvents(EventService).then(eventsMarkUp);
+}
+
 
   if (eventService.page > 1) {
     eventService.decrementPage();
   }
   eventService.fetchEvents(EventService).then(eventsMarkUp);
 }
-
 
