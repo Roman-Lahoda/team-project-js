@@ -6,23 +6,40 @@ const BASE_URL = 'https://app.ticketmaster.com/discovery/v2'
 class EventService {
     constructor() {
         this.searchQuery = '';      //поиск по ключевому слову. Проверял на именах исполнителей: Bob, Martim, Iglesias
-        this.country = 'US';        // поиск по странам. Пока по умолчанию США. Здесь нужно указывать код страны (перечень на сайте с API). Подвязать их к выпадающему инпуту.
-        this.page = 1;              // номер страницы (для пагинации)
-        this.eventsOnOnePage = 20;  // число карточек о событиях на одной странице. ВНИМАНИЕ для экрана размера Tablet должно быть 21 карточка событий
-        this.eventID =''
+        this.country = null;        // ключ для поиска по странам.  
+        this.page = 0;              // номер страницы (для пагинации)
+        this.eventsOnOnePage = 100;  // число карточек о событиях на одной странице. ВНИМАНИЕ для экрана размера Tablet должно быть 21 карточка событий
+        this.eventID = ''           // переменная с ID события/концерта (возможно совсем не понадобится при работе с данным классом)
+        this.numberOfEvens = 0;     // число событий/концертов, которіе вернулись от бекенда
     }
 
     //Эта функция возвращает промис с массивом данных (события/концерты)
     fetchEvents() {
-        // console.log (this)
-        return fetch(`${BASE_URL}/events.json?size=${this.eventsOnOnePage}&keyword=${this.searchQuery}&countryCode=${this.country}&page=${this.page}&apikey=${apikey}`)
-        .then(response => response.json())
-        .then(data => {
-            // this.incrementPage();
-            return data._embedded.events
-        })
-        .catch(error => console.log(error))
 
+        if (this.country === null) {
+                return fetch(`${BASE_URL}/events.json?size=${this.eventsOnOnePage}&keyword=${this.searchQuery}&page=${this.page}&apikey=${apikey}`)
+                .then(response => response.json())
+                .then(data => {
+                    this.numberOfEvens = data.page.totalElements;
+                    return data._embedded.events
+                })
+                .catch(error => {
+                    console.log('Упс! Событий с заданным поисковым словом не найдено!',error);
+                    return alert('Упс! Событий с заданным поисковым словом не найдено!');
+                })
+
+        } else {
+                return fetch(`${BASE_URL}/events.json?size=${this.eventsOnOnePage}&keyword=${this.searchQuery}&countryCode=${this.country}&page=${this.page}&apikey=${apikey}`)
+                .then(response => response.json())
+                .then(data => {  
+                    this.numberOfEvens = data.page.totalElements;
+                    return data._embedded.events
+                })
+                .catch(error => {
+                    console.log('Упс! В данной стране событий с заданным поисковым словом не найдено!', error);
+                    return alert('Упс! В данной стране событий с заданным поисковым словом не найдено!');
+                })    
+        }
     }
     
 
@@ -44,22 +61,24 @@ class EventService {
     // Использовано API с ключём preferredCountry:  Popularity boost by country, default is us. (Повышение популярности по странам, по умолчанию мы.)
     // возможны значения только 2 стран: String enum:["us", " ca"]
     fetchEventsFirstLoad() {
-      return fetch(`${BASE_URL}/events.json?size=${this.eventsOnOnePage}&preferredCountry=${ "us", "ca" }&page=${this.page}&apikey=${apikey}`)
+        return fetch(`${BASE_URL}/events.json?size=${this.eventsOnOnePage}&preferredCountry=${"us", "ca"}&page=${this.page}&apikey=${apikey}`)
             .then(response => response.json())
             .then(data => {
                 // console.log('События по популярности (только США и Канада) : ', data._embedded.events);
                 return data._embedded.events
             })
-            .catch(error => console.log(error))
+            .catch(error => console.log(error) )
      }
    
 
     incrementPage() {
         this.page += 1;
+         console.log ("Сработала функция incrementPage()   this.page= ", this.page)
     };
 
         decrementPage() {
-        this.page -= 1;
+            this.page -= 1;
+            console.log ("Сработала функция decrementPage() this.page= ", this.page)
     };
 
     resetPage() {
@@ -74,11 +93,11 @@ class EventService {
         this.searchQuery = newQuery;
     }
 
-    get queryByCountry() {
+    get сountryQueryKey() {
         return this.country;
     }
 
-    set queryByCountry(newCountry) {
+    set сountryQueryKey(newCountry) {
         this.country = newCountry;
     }
     
@@ -91,7 +110,7 @@ class EventService {
      };
         
     get numberOfEventsOnOnePage() {
-        return this.numberOfEventsOnOnePage;
+        return this.eventsOnOnePage ;
     }
         
     set numberOfEventsOnOnePage(newValue) {

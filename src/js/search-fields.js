@@ -7,6 +7,7 @@ export default class Select {
     this.selectEl = document.querySelector(selector);
     this.options = options;
     this.selectedCode = null;
+    this.countryCode = null;
     this.#render();
     this.#setup();
   }
@@ -33,21 +34,39 @@ export default class Select {
     this.arrow.classList.remove('close');
   }
 
-  async handlerClick(e) {
-    const { type } = e.target.dataset;
-    if (type === 'input' || type === 'arrow') {
-      this.toggle();
-    } else if (type === 'item') {
-      eventService.country = e.target.dataset.code;
-      this.select(eventService.country);
-      eventService.page = 1;
-      await eventService.fetchEvents();
+  // async handlerClick(e) {
+  //   const { type } = e.target.dataset;
+  //   if (type === 'input' || type === 'arrow') {
+  //     this.toggle();
+  //   } else if (type === 'item') {
+  //     eventService.country = e.target.dataset.code;
+  //     this.select(eventService.country);
+  //     eventService.page = 1;
+  //     await eventService.fetchEvents();
+  //   }
+  // }
+
+   // //-------------------------
+  handlerClick(e) {
+        e.preventDefault();
+      const { type } = e.target.dataset;
+
+      if (type === 'input' || type === 'arrow') {
+        this.toggle();
+      } else if (type === 'item') {
+        this.countryCode = e.target.dataset.code;
+        this.select(this.countryCode);
     }
+    // console.log('this.countryCode = ', this.countryCode)
+    
   }
+  // //-------------------------
 
   get current() {
     return this.options.data.find(item => item.countryCode === this.selectedCode);
   }
+
+
   select(code) {
     this.selectedCode = code;
     this.selectValue.textContent = this.current.name;
