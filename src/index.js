@@ -41,14 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {
     eventService.eventsOnOnePage = 20;
   }
 
-  console.log('DOM полностью загружен и разобран');
+  // Загрузка происходит по событию  DOMContentLoaded
+  //console.log('DOM полностью загружен и разобран');
   eventService.fetchEventsFirstLoad().then(Events => {
     clearEventsContainer();
     eventsMarkUp(Events);
   });
 });
-// Функция поиска по заданному слову (по умолчанию  указана страна США)
 
+
+// Функция поиска по заданному слову
 function onSearchForm(e) {
   e.preventDefault();
 
@@ -65,9 +67,7 @@ function onSearchForm(e) {
 
   // в этой строке связывает выбранную страну с классом, который отправляет запрос на бекенд
     eventService.сountryQueryKey = selectCountry.countryCode;
-    console.log ('состоялось присвоение  eventService.queryByCountry = selectCountry.countryCode  :', eventService.queryByCountry) 
   
-
    if (eventService.query === '') {return alert('Введите что-то нормальное'); }
   eventService.resetPage();
   eventService.fetchEvents(EventService).then(Events => {

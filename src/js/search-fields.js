@@ -48,17 +48,17 @@ export default class Select {
 
    // //-------------------------
   handlerClick(e) {
-      e.preventDefault();
-    const { type } = e.target.dataset;
+        e.preventDefault();
+      const { type } = e.target.dataset;
 
-    if (type === 'input' || type === 'arrow') {
-      this.toggle();
-    } else if (type === 'item') {
-      this.countryCode = e.target.dataset.code;
-      this.select(this.countryCode);
-  }
-  console.log('this.countryCode = ', this.countryCode)
-  
+      if (type === 'input' || type === 'arrow') {
+        this.toggle();
+      } else if (type === 'item') {
+        this.countryCode = e.target.dataset.code;
+        this.select(this.countryCode);
+    }
+    // console.log('this.countryCode = ', this.countryCode)
+    
   }
   // //-------------------------
 
@@ -66,7 +66,7 @@ export default class Select {
     return this.options.data.find(item => item.countryCode === this.selectedCode);
   }
 
-  
+
   select(code) {
     this.selectedCode = code;
     this.selectValue.textContent = this.current.name;

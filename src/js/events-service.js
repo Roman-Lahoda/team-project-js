@@ -17,41 +17,29 @@ class EventService {
     fetchEvents() {
 
         if (this.country === null) {
-            //  console.log("Сработала функцияfetchEvents() БЕЗ указания страны this = ", this)
-            // return fetch(`${BASE_URL}/events.json?size=${this.eventsOnOnePage}&keyword=${this.searchQuery}&countryCode=${this.country}&page=${this.page}&apikey=${apikey}`)
-            return fetch(`${BASE_URL}/events.json?size=${this.eventsOnOnePage}&keyword=${this.searchQuery}&page=${this.page}&apikey=${apikey}`)
+                return fetch(`${BASE_URL}/events.json?size=${this.eventsOnOnePage}&keyword=${this.searchQuery}&page=${this.page}&apikey=${apikey}`)
                 .then(response => response.json())
                 .then(data => {
-                    // console.log(data._embedded.events)
                     this.numberOfEvens = data.page.totalElements;
-                    // console.log (' numberOfEvens = ', data.page.totalElements );
-                    // if (!data._embedded.hasOwnProperty('events')) {
-                    //     // return alert('По таким параметрам поиска событий не найдено!')
-                    //     // console.log (' По таким параметрам поиска событий не найдено! ' );
-                    // }
                     return data._embedded.events
-            })
-            .catch(error => console.log(error)) 
+                })
+                .catch(error => {
+                    console.log('Упс! Событий с заданным поисковым словом не найдено!',error);
+                    return alert('Упс! Событий с заданным поисковым словом не найдено!');
+                })
 
         } else {
-                // console.log("Сработала функцияfetchEvents() с ключём поиска по СТРАНЕ  this = ", this)
-             return fetch(`${BASE_URL}/events.json?size=${this.eventsOnOnePage}&keyword=${this.searchQuery}&countryCode=${this.country}&page=${this.page}&apikey=${apikey}`)
-            // return fetch(`${BASE_URL}/events.json?size=${this.eventsOnOnePage}&keyword=${this.searchQuery}&page=${this.page}&apikey=${apikey}`)
+                return fetch(`${BASE_URL}/events.json?size=${this.eventsOnOnePage}&keyword=${this.searchQuery}&countryCode=${this.country}&page=${this.page}&apikey=${apikey}`)
                 .then(response => response.json())
-                .then(data => {
-                         
-                        this.numberOfEvens = data.page.totalElements;
-                        // console.log (' numberOfEvens = ', data.page.totalElements );
-                    // if (!data._embedded.hasOwnProperty('events')) {
-                    //     // return alert('По таким параметрам поиска событий не найдено!');
-                    //     // console.log (' По таким параметрам поиска событий не найдено! ' );
-                    // }
-                      console.log(data._embedded.events) 
-                        return data._embedded.events
-            })
-            .catch(error => console.log(error)) }
- 
-
+                .then(data => {  
+                    this.numberOfEvens = data.page.totalElements;
+                    return data._embedded.events
+                })
+                .catch(error => {
+                    console.log('Упс! В данной стране событий с заданным поисковым словом не найдено!', error);
+                    return alert('Упс! В данной стране событий с заданным поисковым словом не найдено!');
+                })    
+        }
     }
     
 
