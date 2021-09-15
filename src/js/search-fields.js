@@ -1,5 +1,7 @@
 import SelectTemplate from '../templates/countryList.hbs';
+import EventService from './events-service';
 
+const eventService = new EventService();
 export default class Select {
   constructor(selector, options) {
     this.selectEl = document.querySelector(selector);
@@ -31,14 +33,15 @@ export default class Select {
     this.arrow.classList.remove('close');
   }
 
-  handlerClick(e) {
+  async handlerClick(e) {
     const { type } = e.target.dataset;
     if (type === 'input' || type === 'arrow') {
       this.toggle();
     } else if (type === 'item') {
-      const countryCode = e.target.dataset.code;
-
-      this.select(countryCode);
+      eventService.country = e.target.dataset.code;
+      this.select(eventService.country);
+      eventService.page = 1;
+      await eventService.fetchEvents();
     }
   }
 
