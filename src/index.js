@@ -21,12 +21,15 @@ const options = {
   data: countries,
 };
 
-// // Пример доступа к фотографии события/концерта c  ID = 'vvG10Zpi2x1xYd'
-// eventService.fetchEventById('vvG10Zpi2x1xYd').then(data => {
-//     console.log('Это ссылка на фоторграфию события с указанным ID : ', data[0].images[0].url)
-// })
 
 const selectCountry = new Select('#select', options);
+
+// // ----------------------
+const countrySelectorRef = document.querySelector('#select');
+countrySelectorRef.addEventListener('click', selectCountry.handlerClick);
+// // ----------------------------
+
+
 
 //  -------------- Первая загрузка сайта   ------------------
 document.addEventListener('DOMContentLoaded', () => {
@@ -51,11 +54,6 @@ function onSearchForm(e) {
 
   eventService.query = e.currentTarget.elements.query.value;
 
-  if (eventService.query === '') {
-    return alert('Введите что-то нормальное');
-  }
-  eventService.resetPage();
-
   //Проверка ширины экрана. Если Tablet-версия, то грузим 21 картинку, для остальных версий 20 картинок
   if (document.documentElement.clientWidth > 768 && document.documentElement.clientWidth < 1280) {
     console.log('document.documentElement.clientWidth');
@@ -64,6 +62,14 @@ function onSearchForm(e) {
     eventService.eventsOnOnePage = 20;
   }
 
+
+  // в этой строке связывает выбранную страну с классом, который отправляет запрос на бекенд
+    eventService.сountryQueryKey = selectCountry.countryCode;
+    console.log ('состоялось присвоение  eventService.queryByCountry = selectCountry.countryCode  :', eventService.queryByCountry) 
+  
+
+   if (eventService.query === '') {return alert('Введите что-то нормальное'); }
+  eventService.resetPage();
   eventService.fetchEvents(EventService).then(Events => {
     clearEventsContainer();
     eventsMarkUp(Events);
