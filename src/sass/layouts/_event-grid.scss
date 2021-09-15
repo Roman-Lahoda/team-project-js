@@ -32,6 +32,11 @@ body {
 .events__item {
   position: relative;
 
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
+
   &::after {
     content: '';
     position: absolute;
@@ -63,9 +68,17 @@ body {
 
   @media screen and (min-width: 320px) {
     height: 161px;
+    &:hover,
+    &:focus {
+      box-shadow: 2px 2px 8px 4px rgba(220, 86, 197, 0.5);
+    }
   }
   @media screen and (min-width: 768px) {
     height: 227px;
+    &:hover,
+    &:focus {
+      box-shadow: 3px 3px 8px 5px rgba(220, 86, 197, 0.5);
+    }
   }
 }
 
