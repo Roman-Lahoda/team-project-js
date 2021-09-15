@@ -1,50 +1,63 @@
 <article class="event">
-    <img class="event__img--circle" src="" alt="">
+    <img class="event__img--circle" src="{{ this.images.[0].url}}" alt="Event poster">
     <div class="event-wrap">
-    <img class="event__img" src="" alt="">
-    <div class="event__text-content">
-        <ul class="event__info list">
-            <li class="event__info-item">
-                <h2 class="event__subtitle">info</h2>
-                <p class="event__text">
-                {{this.description}}
-                </p>
-            </li>
-            <li class="event__info-item">
-                <h2 class="event__subtitle">when</h2>
-                <p class="event__text event__text--first-string">
-                {{this.dates.start.localDate}}
-                </p>
-                <p class="event__text">
-                    {{this.dates.start.localTime}} {{this.dates.timezone}} 
-                </p>
-            </li>
-            <li class="event__info-item">
-                <h2 class="event__subtitle">where</h2>
-                <p class="event__text event__text--first-string">
-                    {{this._embedded.venues.0.city}}, {{this._embedded.venues.0.country}}
-                </p>
-                <p class="event__text">
-                    {{this._embedded.venues.0.name}}
-                </p>
-            </li>
-            <li class="event__info-item">
-                <h2 class="event__subtitle">who</h2>
-                <p class="event__text">
-                    {{this.name}}
-                </p>
-            </li>
-            <li class="event__info-item">
-                <h2 class="event__subtitle">prices</h2>
-                <p class="event__text"> 
-                    {{this.priceRanges.type}} {{this.priceRanges.min}} - {{this.priceRanges.max}} {{this.priceRanges.currency}}
-                </p>
-                <button class="event__button button">buy tickets</button>
-                {{!-- <p class="event__text"> VIP from 50 to 500 usd</p>
-                <button class="event__button button">buy tickets</button> --}}
-            </li>
-        </ul>
+        <div class="event__img-wrap">
+            <img class="event__img" 
+            src="{{ this.images.[0].url}} "
+            alt="Event poster">
+        </div>
+        <div class="event__text-content">
+            <ul class="event__info list">
+                <li class="event__info-item">
+                    <h2 class="event__subtitle">info</h2>
+                    <p class="event__text">
+                        {{this.description}}
+                    </p>
+                </li>
+                <li class="event__info-item">
+                    <h2 class="event__subtitle">when</h2>
+                    <p class="event__text event__text--first-string">
+                        {{this.dates.start.localDate}}
+                    </p>
+                    <p class="event__text">
+                        {{this.dates.start.localTime}} {{this.dates.timezone}}
+                    </p>
+                </li>
+                <li class="event__info-item">
+                    <h2 class="event__subtitle">where</h2>
+                    <p class="event__text event__text--first-string">
+                        {{this._embedded.venues.0.city}}, {{this._embedded.venues.0.country}}
+                    </p>
+                    <p class="event__text">
+                        {{this._embedded.venues.0.name}}
+                    </p>
+                </li>
+                <li class="event__info-item">
+                    <h2 class="event__subtitle">who</h2>
+                    <p class="event__text">
+                        {{this.name}}
+                    </p>
+                </li>
+                <li class="event__info-item">
+                    <h2 class="event__subtitle">prices</h2>
+                    <p class="event__text">
+                        <svg class="event__price-icon">
+                            <use href="../images/svg/sprite.svg#icon-ticket"></use>
+                        </svg>
+                        {{this.priceRanges.type}} {{this.priceRanges.min}} - {{this.priceRanges.max}}
+                        {{this.priceRanges.currency}}
+                    </p>
+                </li>
+            </ul>
+            <button class="event__button button"> buy tickets</button>
+            <!-- <a class="event__link link" rel="noopener noreferrer nofollow" target="_blank href={{this.url}} >
+                      buy tickets</a>
+                 
+                  
+                  <p class=" event__text"> VIP from 50 to 500 usd</p>
+              <button class="event__button button">buy tickets</button> -->
+
+        </div>
     </div>
-    </div>
-    <button class="modal-btn button">more from this author</button>
+    <button class="modal__btn-more button">more from this author</button>
 </article>

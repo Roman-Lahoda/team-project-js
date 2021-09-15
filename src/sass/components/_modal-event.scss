@@ -1,0 +1,126 @@
+.event__img--circle {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  @media screen and (max-width: 767.98px) {
+    width: 102px;
+    height: 102px;
+    margin-bottom: 20px;
+  }
+  @media screen and(min-width:768px) {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 40px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 132px;
+    height: 132px;
+  }
+}
+.event-wrap {
+  margin-bottom: 25px;
+  @media screen and(min-width:768px) {
+    display: flex;
+    margin-bottom: 45px;
+  }
+}
+.event__img {
+  @media screen and (max-width: 767.98px) {
+    display: none;
+  }
+  @media screen and (min-width: 768px) {
+    width: 233px;
+    height: 416px;
+    margin-right: 30px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 360px;
+    height: 641px;
+    margin-right: 60px;
+  }
+}
+
+.event__text-content {
+  text-align: center;
+  @media screen and(min-width:768px) {
+    text-align: left;
+  }
+}
+.event__info-item {
+  margin-bottom: 10px;
+  @media screen and(min-width:1280px) {
+    margin-bottom: 20px;
+  }
+}
+.event__subtitle {
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #dc56c5;
+  font-size: 20px;
+  line-height: 1.2;
+
+  @media screen and (min-width: 1280px) {
+    font-size: 24px;
+    margin-bottom: 7px;
+  }
+}
+
+.event__text {
+  color: var(--modal-text-color);
+  font-size: 16px;
+  line-height: 1.25;
+
+  @media screen and(min-width:1280px) {
+    font-size: 18px;
+    line-height: 1.22;
+  }
+}
+.event__text--first-string {
+  margin-bottom: 3px;
+  @media screen and(min-width:1280px) {
+    margin-bottom: 5px;
+  }
+}
+.button {
+  height: 40px;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  text-transform: uppercase;
+
+  border-radius: 5px;
+}
+
+.event__button {
+  // margin-bottom: 25px;
+  width: 145px;
+
+  background-color: var(--modal-accent-color);
+  color: #ffffff;
+  border: transparent;
+
+  // @media screen and (min-width: 768px) {
+  //   margin-bottom: 45px;
+  // }
+}
+
+.modal__btn-more {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 5px;
+  min-width: 230px;
+  background-color: transparent;
+  color: var(--modal-accent-color);
+  border: solid 1px var(--modal-accent-color);
+
+  @media screen and (min-width: 768px) {
+    width: 255px;
+    border-color: var(--accent-color);
+  }
+  @media screen and (min-width: 1280px) {
+    border-color: var(--modal-accent-color);
+  }
+}
