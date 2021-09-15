@@ -1,4 +1,3 @@
-
 .list {
   list-style: none;
   margin: 0;
@@ -23,16 +22,18 @@
 
 // при подключении normalize удалить
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+// html {
+//   box-sizing: border-box;
+// }
+// *,
+// *::before,
+// *::after {
+//   box-sizing: inherit;
+//   border: 1px solid red;
+// }
 
 img {
   display: block;
-  height: auto;
-  max-width: 100%;
 }
 
 h1,

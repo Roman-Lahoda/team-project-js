@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>example title1</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>example title1</title>
-</head>
+  <body class="body">
+    <div class="bg"></div>
+    <header>
+      <include src="./partials/header.html"></include>
+    </header>
 
-<body class="body">
-<header>
+    <!-- Поля для поиска -->
+    <include src="./partials/search-fields.html"></include>
 
-  <!-- <include src="./partials/test_git.html"></include> -->
-  <include src="./partials/header.html"></include>
+    <!-- Сетка с карточками -->
+    <include src="./partials/event-grid.html"></include>
 
-</header>
+    <!-- <button type="button" class="js-load-more">Search More</button> -->
 
-  <form class='js-search-form'>
-    <div class="search">
-      <input name="query" id="query" type="search" placeholder="Start searching"
-        class="select search-event js-search-input">
-      <div id='select' class="select">
+    <!-- Footer-->
+    <include src="./partials/footer.html"></include>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!--Модальное окно-->
+    <div class="modal-overlay js-modal visually-hidden">
+      <div class="modal">
+        <button type="button" class="modal__btn-close" data-action="close-modal">X</button>
+        <!-- Данные о событии рендерятся сюда -->
       </div>
     </div>
 
-  </form>
-
-  <!-- Сетка с карточками -->
-  <include src="./partials/event-grid.html"></include> 
-
-  <!--<ul class='js-events-container events__list '> Список для отображения карточек! </ul> -->
-
-
-  <!-- <button type="button" class="js-load-more">Search More</button> -->
-
-  <!-- Footer-->
-  <include src="./partials/footer.html"></include>
-  
-  <script src="./index.js"></script>
-</body>
-
+    <script src="./index.js"></script>
+  </body>
 </html>

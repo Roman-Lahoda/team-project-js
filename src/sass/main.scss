@@ -15,6 +15,7 @@
 @import './base/common';
 
 // components styles
+@import './components/modal';
 @import './components/scroll-up';
 
 // layout styles
@@ -24,3 +25,4 @@
 @import './layouts/search-fields';
 @import './layouts/header';
 @import './layouts/modal-event';
+@import './layouts/team-modal';
