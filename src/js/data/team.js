@@ -62,7 +62,7 @@ export default [
     fullName: 'Aleksey Dibikov',
     position: "Developer",
     photo: `./${img7}`,
-    linkedIn: '#',
+    linkedIn: 'https://www.linkedin.com/in/aleksey-dibikov-377a6921a/',
     gitHub: 'https://github.com/Aleksey-Dibikov', 
   },
   {
