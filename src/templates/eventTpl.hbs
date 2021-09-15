@@ -1,28 +1,19 @@
-{{!-- {{#each this}}
-<li class="list">
-   <div class="card">
-      <img class="card__img" src="{{this.images.[0].url}}" alt="" title="" width="180" />
-      <div class="card__info">
-         <p class="events__name"> {{this.name}} </p>
-         <p class="events__date"> {{this.dates.start.localDate}} </p>
-         <p class="events__location"> {{this.dates.timezone}} </p>
-      </div>
-   </div>
-</li>
-{{/each}} --}}
-
 {{#each this}}
 <li class="events__item">
    <a href="" class="link events__link" target="_blank" rel="noreferrer noopener">
       <div class="events__image-wrap">
          <picture>
-            <img src="{{ this.images.[0].url}}" alt="" title="" class="events__image" />
+            <img src="{{ this.images.[3].url}}" alt="" title="" class="events__image" />
          </picture>
       </div>
       <div class="events__descr">
          <h3 class="events__name">{{this.name}}</h3>
          <p class="events__date">{{this.dates.start.localDate}}</p>
-         <p class="events__location"> {{this.dates.timezone}} </p>
+         <p class="events__location">
+            <svg class="events__location-icon" width="16" height="12">
+               <use href="./images/svg/symbol-defs.svg#icon-map"></use>
+            </svg>
+         {{this._embedded.venues.[0].name}} </p>
       </div>
    </a>
 </li>
