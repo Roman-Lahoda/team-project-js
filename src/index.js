@@ -7,7 +7,8 @@ import onEventClick from './js/modal.js';
 
 import refs from './js/refs';
 
-import './js/scrollUp';
+import './js/scrollUp'; 
+import './js/team-modal';
 
 const eventService = new EventService();
 
