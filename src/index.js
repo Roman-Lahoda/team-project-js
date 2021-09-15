@@ -22,41 +22,37 @@ const options = {
   data: countries,
 };
 
-// // Пример доступа к фотографии события/концерта c  ID = 'vvG10Zpi2x1xYd'
-// eventService.fetchEventById('vvG10Zpi2x1xYd').then(data => {
-//     console.log('Это ссылка на фоторграфию события с указанным ID : ', data[0].images[0].url)
-// })
-
 const selectCountry = new Select('#select', options);
 
+// // ----------------------
+const countrySelectorRef = document.querySelector('#select');
+countrySelectorRef.addEventListener('click', selectCountry.handlerClick);
+// // ----------------------------
+
 //  -------------- Первая загрузка сайта   ------------------
+
 // document.addEventListener('DOMContentLoaded', () => {
 //   //Проверка ширины экрана. Если Tablet-версия, то грузим 21 картинку, для остальных версий 20 картинок
 //   if (document.documentElement.clientWidth > 768 && document.documentElement.clientWidth < 1280) {
 //     console.log('document.documentElement.clientWidth');
 //     eventService.eventsOnOnePage = 21;
 //   } else {
-//     // eventService.eventsOnOnePage = 20;
-//     eventService.eventsOnOnePage = 200;
+//     eventService.eventsOnOnePage = 20;
 //   }
 
-//   console.log('DOM полностью загружен и разобран');
+//   // Загрузка происходит по событию  DOMContentLoaded
+//   //console.log('DOM полностью загружен и разобран');
 //   eventService.fetchEventsFirstLoad().then(Events => {
 //     clearEventsContainer();
 //     eventsMarkUp(Events);
 //   });
 // });
-// Функция поиска по заданному слову (по умолчанию  указана страна США)
 
+// Функция поиска по заданному слову
 function onSearchForm(e) {
   e.preventDefault();
 
   eventService.query = e.currentTarget.elements.query.value;
-
-  if (eventService.query === '') {
-    return alert('Введите что-то нормальное');
-  }
-  eventService.resetPage();
 
   //Проверка ширины экрана. Если Tablet-версия, то грузим 21 картинку, для остальных версий 20 картинок
   if (document.documentElement.clientWidth > 768 && document.documentElement.clientWidth < 1280) {
@@ -66,11 +62,19 @@ function onSearchForm(e) {
     eventService.eventsOnOnePage = 20;
   }
 
+  // в этой строке связывает выбранную страну с классом, который отправляет запрос на бекенд
+  eventService.сountryQueryKey = selectCountry.countryCode;
+
+  if (eventService.query === '') {
+    return alert('Введите что-то нормальное');
+  }
+  eventService.resetPage();
   eventService.fetchEvents(EventService).then(Events => {
     clearEventsContainer();
     eventsMarkUp(Events);
   });
 }
+
 //  Функция рендеринга(отрисовки) массива событий/концертов
 export function eventsMarkUp(array) {
   refs.eventsContainer.insertAdjacentHTML('beforeend', eventTpl(array));
@@ -91,8 +95,13 @@ function onNextPage() {
 
 // Функция для пагинации, когда кликаем на ПРЕДЫДУЩУЮ страничку
 function onPreviousPage() {
-  if (eventService.page > 1) {
+  if (eventService.page < 1) {
     eventService.decrementPage();
   }
   eventService.fetchEvents(EventService).then(eventsMarkUp);
 }
+
+// if (eventService.page > 1) {
+//   eventService.decrementPage();
+// }
+// eventService.fetchEvents(EventService).then(eventsMarkUp);

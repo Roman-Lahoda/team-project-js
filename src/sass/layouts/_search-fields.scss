@@ -1,10 +1,23 @@
 .search {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 
 .search-event {
-  margin-right: 30px;
+  margin-bottom: 25px;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 30px;
+    margin-bottom: 0;
+  }
 }
 
 .search-event::placeholder,
