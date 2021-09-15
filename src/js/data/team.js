@@ -21,7 +21,7 @@ export default [
   },
   {
     fullName: 'Anna Prutnik',
-    position: 'Scream master',
+    position: 'Scrum master',
     photo: `./${img2}`,
     linkedIn: '#',
     gitHub: 'https://github.com/AnnaPrutnik',
