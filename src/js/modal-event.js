@@ -1,3 +1,4 @@
+// файл черновой для отработки моих попыток достучаться до событий, не подключен в index.js
 import EventService from "./events-service";
 import modalEventTpl from  "../templates/modalEventTpl.hbs"
 
@@ -6,18 +7,24 @@ const refs = {
     eventsItem: document.querySelector('.events__list'),
     modalOverlay: document.querySelector('.js-modal'),
     modalCloseBtn: document.querySelector('button[data-action="close-modal"]'),
-    event: document.querySelector('.events__image'),
+  event: document.querySelector('.events__image'),
+  eventCard:document.querySelector(".events__link"),
     modal: document.querySelector('.modal'),
     modalContainer: document.querySelector('.modal__event-card')
 }   
 const modalEventService = new EventService();
+// const eventId = modalEventService.eventID;
 
-// refs.event.addEventListener('click', onEventCardClick);
+// refs.eventCard.addEventListener('click', onEventCardClick);
 // function onEventCardClick(e) {
-//     e.preventDefault();
+//   e.preventDefault();
+//   if (e.target.nodeName !== a) {
+//     return;
+//   }
+//   onEventClick;
     
-//     const eventId = modalEventService.eventID;
-//     console.log(eventId);
+    
+// //     console.log(eventId);
 // }
 
 
@@ -32,7 +39,7 @@ function onEventClick(e) {
   refs.body.classList.add("overflow-hidden");
     
     const eventId = e.target.getAttribute("id");
-    console.log(eventId);
+  console.log(eventId);
     modalEventService.fetchEventById(eventId)
         .then((event) => renderMarkupInModal(event));
     
