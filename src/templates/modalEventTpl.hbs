@@ -1,3 +1,4 @@
+
 <article class="event">
     <img class="event__img--circle" src="{{ this.images.[0].url}}" alt="Event poster">
     <div class="event-wrap">
@@ -26,7 +27,7 @@
                 <li class="event__info-item">
                     <h2 class="event__subtitle">where</h2>
                     <p class="event__text event__text--first-string">
-                        {{this._embedded.venues.0.city}}, {{this._embedded.venues.0.country}}
+                        {{this._embedded.venues.0.city.name}}, {{this._embedded.venues.0.country.name}}
                     </p>
                     <p class="event__text">
                         {{this._embedded.venues.0.name}}
@@ -41,11 +42,12 @@
                 <li class="event__info-item">
                     <h2 class="event__subtitle">prices</h2>
                     <p class="event__text">
-                        <svg class="event__price-icon">
+                        {{!-- <svg class="event__price-icon">
                             <use href="../images/svg/sprite.svg#icon-ticket"></use>
-                        </svg>
-                        {{this.priceRanges.type}} {{this.priceRanges.min}} - {{this.priceRanges.max}}
-                        {{this.priceRanges.currency}}
+                        </svg> --}}
+
+                        {{this.priceRanges.0.type}} {{this.priceRanges.0.min}} - {{this.priceRanges.0.max}}
+                        {{this.priceRanges.0.currency}}
                     </p>
                 </li>
             </ul>

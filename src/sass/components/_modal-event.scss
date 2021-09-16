@@ -56,7 +56,7 @@
   margin-bottom: 5px;
   text-transform: uppercase;
   font-weight: 600;
-  color: #dc56c5;
+  color: var(--accent-color);
   font-size: 20px;
   line-height: 1.2;
 
@@ -70,6 +70,7 @@
   color: var(--modal-text-color);
   font-size: 16px;
   line-height: 1.25;
+  text-transform: capitalize;
 
   @media screen and(min-width:1280px) {
     font-size: 18px;
@@ -81,6 +82,9 @@
   @media screen and(min-width:1280px) {
     margin-bottom: 5px;
   }
+}
+.event__price-icon {
+  fill: var(--modal-text-color);
 }
 .button {
   height: 40px;
