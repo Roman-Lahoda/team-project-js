@@ -34,6 +34,7 @@
 .event__img--circle {
   margin-left: auto;
   margin-right: auto;
+  object-fit: cover;
   border-radius: 50%;
   @media screen and (max-width: 767.98px) {
     width: 102px;
@@ -180,7 +181,9 @@
   border: transparent;
   text-align: center;
   text-decoration: none;
-  padding: 12px 0;
+  padding: 10px 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 // .event__button {
 //   // margin-bottom: 25px;

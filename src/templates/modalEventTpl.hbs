@@ -12,6 +12,7 @@
                 <li class="event__info-item">
                     <h2 class="event__subtitle">info</h2>
                     <p class="event__text">
+                        {{this.description}}
                         {{this.promoter.description}}
                     </p>
                 </li>
@@ -27,7 +28,7 @@
                 <li class="event__info-item">
                     <h2 class="event__subtitle">where</h2>
                     <p class="event__text event__text--first-string">
-                        {{this._embedded.venues.0.city.name}}, {{this._embedded.venues.0.country.name}}
+                        {{this._embedded.venues.0.city.name}} {{this.place.city.name}}, {{this._embedded.venues.0.country.name}} {{this.place.area.name}}
                     </p>
                     <p class="event__text">
                         {{this._embedded.venues.0.name}}
@@ -51,8 +52,10 @@
                     </p>
                     {{/each}}
                     </li>
+                    <a href="{{this.url}}" class="event__link button" rel="noopener noreferrer nofollow" target="_blank">
+                        buy tickets</a>
             </ul>
-                <a href="{{this.url}}" class="event__link button" rel="noopener noreferrer nofollow" target="_blank">buy tickets</a>
+                
                 {{!-- <button class="event__button button" > buy tickets</button> --}}
                    
            
