@@ -21,7 +21,7 @@ export default [
   },
   {
     fullName: 'Anna Prutnik',
-    position: 'Scream master',
+    position: 'Scrum master',
     photo: `./${img2}`,
     linkedIn: '#',
     gitHub: 'https://github.com/AnnaPrutnik',
@@ -62,7 +62,7 @@ export default [
     fullName: 'Aleksey Dibikov',
     position: "Developer",
     photo: `./${img7}`,
-    linkedIn: '#',
+    linkedIn: 'https://www.linkedin.com/in/aleksey-dibikov-377a6921a/',
     gitHub: 'https://github.com/Aleksey-Dibikov', 
   },
   {
