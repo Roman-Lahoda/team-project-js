@@ -49,10 +49,13 @@
                         {{this.type}} {{this.min}} - {{this.max}}
                         {{this.currency}}
                     </p>
-                    <button class="event__button button" onclick = "this.url"> buy tickets</button>
                     {{/each}}
-                </li>
+                    </li>
             </ul>
+                <a href="{{this.url}}" class="event__link button" rel="noopener noreferrer nofollow" target="_blank">buy tickets</a>
+                {{!-- <button class="event__button button" > buy tickets</button> --}}
+                   
+           
             {{!-- <button class="event__button button"> buy tickets</button> --}}
             <!-- <a class="event__link link" rel="noopener noreferrer nofollow" target="_blank href={{this.url}} >
                       buy tickets</a>
