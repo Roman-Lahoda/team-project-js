@@ -1,0 +1,304 @@
+.hero-bg {
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  display: flex;
+
+  @media screen and (max-width: 320px) {
+    padding-top: 78px;
+    height: 364px;
+    background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
+      url('../images/background-mobile/back-mobile.jpg');
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
+        url('../images/background-mobile/back-mobile@2x.jpg');
+      background-size: cover;
+    }
+  }
+
+  @media screen and (min-width: 321px) {
+    padding-top: 78px;
+    height: 364px;
+    background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
+      url('../images/background-tablet/back-tablet.jpg');
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
+        url('../images/background-tablet/back-tablet@2x.jpg');
+      background-size: cover;
+    }
+  }
+
+  @media screen and (min-width: 769px) {
+    padding-top: 40px;
+    height: 446px;
+    background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
+      url('../images/background-desktop/back-desktop.jpg');
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
+        url('../images/background-desktop/back-desktop@2x.jpg');
+      background-size: cover;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
+        url('../images/background-desktop/back-desktop@2x.jpg');
+      background-size: contain;
+    }
+  }
+}
+
+// Light theme
+
+body.light-theme {
+  background-color: #fae0f6;
+
+  @media screen and (max-width: 319px) {
+    background-image: url(../images/body-element/noise-body.png);
+    background-size: cover;
+    background-position: center;
+  }
+  @media screen and (min-width: 320px) {
+    background-image: url(../images/body-element/noise-body.png);
+    background-size: cover;
+    background-position: center;
+  }
+  @media screen and (min-width: 768px) {
+    background-image: url(../images/body-element/noise-body.png);
+    background-size: cover;
+    background-position: center;
+  }
+  @media screen and (min-width: 1280px) {
+    background-image: url(../images/body-element/noise-body.png);
+    background-size: cover;
+    background-position: center;
+  }
+
+  // @media screen and (min-width: 768px) {
+  //   background-image: url(../images/body-element/ellipseLightTheme-2.svg),
+  //     url(../images/body-element/ellipse-5.svg), url(../images/body-element/ellipse-6.svg),
+  //     url(../images/body-element/ellipseLightTheme-11.svg),
+  //     url(../images/body-element/ellipse-10.svg), url(../images/body-element/ellipse-4.svg),
+  //     url(../images/body-element/ellipseLightTheme-2.svg), url(../images/body-element/ellipse-5.svg),
+  //     url(../images/body-element/ellipse-4.svg), url(../images/body-element/line-1.svg),
+  //     url(../images/body-element/line-1.svg), url(../images/body-element/line-1.svg),
+  //     url(../images/body-element/line-1.svg), url(../images/body-element/line-1.svg),
+  //     url(../images/body-element/line-6.svg), url(../images/body-element/line-6.svg),
+  //     url(../images/body-element/noise-body.png);
+  //   background-size: 610px;
+  //   background-size: 80px, 126px, 237px, 80px, 126px, 237px, 80px, 126px, 237px, 1px, 1px, 1px, 1px,
+  //     1px, 1px, 1px, cover;
+  //   background-repeat: no-repeat;
+  //   background-position: center;
+  //   background-position: left 46px top 602px, left 26px top 582px, left 26px top 1882px,
+  //     left 46px bottom 0px, left 26px bottom 0px, right 25px top 1010px, right 45px top 1910px,
+  //     right 25px top 1890px, right 25px top 3020px, left 86px top -160px, left 86px top 708px,
+  //     left 86px top 1450px, left 86px top 2150px, left 86px top 2651px, right 86px top -405px,
+  //     right 86px top 2015px, center;
+  // }
+
+  // @media screen and (min-width: 1280px) {
+  //   background-image: url(../images/body-element/ellipseLightTheme-2.svg),
+  //     url(../images/body-element/ellipse-5.svg), url(../images/body-element/ellipse-6.svg),
+  //     url(../images/body-element/ellipseLightTheme-11.svg),
+  //     url(../images/body-element/ellipse-10.svg), url(../images/body-element/ellipse-4.svg),
+  //     url(../images/body-element/ellipseLightTheme-2.svg), url(../images/body-element/ellipse-7.svg),
+  //     url(../images/body-element/ellipse-9.svg), url(../images/body-element/line-1.svg),
+  //     url(../images/body-element/line-3.svg), url(../images/body-element/line-3.svg),
+  //     url(../images/body-element/line-2.svg), url(../images/body-element/line-2.svg),
+  //     url(../images/body-element/line-2.svg), url(../images/body-element/noise-body.png);
+
+  //   background-size: 136px, 216px, 334px, 136px, 216px, 334px, 136px, 216px, 334px, 1px, 1px, 1px,
+  //     1px, 1px, 1px, cover;
+  //   background-repeat: no-repeat;
+  //   background-position: left 47px top 882px, left 7px top 842px, left 23px top 1554px,
+  //     left 47px bottom 0px, left 7px bottom 0px, right 36px top 528px, right 96px top 1989px,
+  //     right 56px top 1949px, right 36px top 2252px, left 115px top 100px, left 115px top 1057px,
+  //     left 115px top 1287px, right 163px top 110px, right 163px top 754px, right 163px top 1860px,
+  //     center;
+  // }
+
+  & .hero-bg {
+    background-image: linear-gradient(
+        165deg,
+        rgba(14, 14, 14, 1) 0%,
+        rgba(14, 14, 14, 1) 18%,
+        rgba(207, 36, 168, 0.4042661009716386) 72%,
+        rgba(62, 62, 62, 1) 100%
+      ),
+      url('../images/background-mobile/back-mobile.jpg');
+  }
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 320px),
+    screen and (min-resolution: 192dpi) and (min-width: 320px),
+    screen and (min-resolution: 2dppx) and (min-width: 320px) {
+    .hero-bg {
+      background-image: linear-gradient(
+          165deg,
+          rgba(14, 14, 14, 1) 0%,
+          rgba(14, 14, 14, 1) 18%,
+          rgba(207, 36, 168, 0.4042661009716386) 72%,
+          rgba(62, 62, 62, 1) 100%
+        ),
+        url('../images/background-mobile/back-mobile@2x.jpg');
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .hero-bg {
+      background-image: linear-gradient(
+          165deg,
+          rgba(14, 14, 14, 1) 0%,
+          rgba(14, 14, 14, 1) 18%,
+          rgba(207, 36, 168, 0.4042661009716386) 72%,
+          rgba(62, 62, 62, 1) 100%
+        ),
+        url('../images/background-tablet/back-tablet.jpg');
+    }
+  }
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+    screen and (min-resolution: 192dpi) and (min-width: 768px),
+    screen and (min-resolution: 2dppx) and (min-width: 768px) {
+    .hero-bg {
+      background-image: linear-gradient(
+          165deg,
+          rgba(14, 14, 14, 1) 0%,
+          rgba(14, 14, 14, 1) 18%,
+          rgba(207, 36, 168, 0.4042661009716386) 72%,
+          rgba(62, 62, 62, 1) 100%
+        ),
+        url('../images/background-tablet/back-tablet@2x.jpg');
+    }
+  }
+  @media screen and (min-width: 1280px) {
+    .hero-bg {
+      background-image: linear-gradient(
+          165deg,
+          rgba(14, 14, 14, 1) 0%,
+          rgba(14, 14, 14, 1) 18%,
+          rgba(207, 36, 168, 0.4042661009716386) 72%,
+          rgba(62, 62, 62, 1) 100%
+        ),
+        url('../images/background-desktop/back-desktop.jpg');
+    }
+  }
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
+    screen and (min-resolution: 192dpi) and (min-width: 1280px),
+    screen and (min-resolution: 2dppx) and (min-width: 1280px) {
+    .hero-bg {
+      background-image: linear-gradient(
+          165deg,
+          rgba(14, 14, 14, 1) 0%,
+          rgba(14, 14, 14, 1) 18%,
+          rgba(207, 36, 168, 0.4042661009716386) 72%,
+          rgba(62, 62, 62, 1) 100%
+        ),
+        url('../images/background-desktop/back-desktop@2x.jpg');
+    }
+  }
+}
+
+.toolbar {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  right: 100px;
+  top: 20px;
+  padding: 16px 24px;
+}
+
+/* THEME SWITCH */
+.theme-switch {
+  display: flex;
+  align-items: center;
+}
+
+.moon {
+  position: absolute;
+  background-color: none;
+  color: rgb(255, 13, 191);
+  right: -10px;
+  z-index: 2;
+  border-radius: 50%;
+}
+
+.sun {
+  position: absolute;
+  background-color: none;
+  color: rgb(255, 13, 191);
+  right: -85px;
+  z-index: 2;
+  border-radius: 50%;
+}
+
+.theme-switch__control {
+  display: flex;
+  right: -60px;
+  align-items: center;
+  flex-shrink: 0;
+  position: absolute;
+  width: 50px;
+  height: 26px;
+  border-radius: 25px;
+  padding: 3px 0;
+}
+
+.theme-switch__toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+.theme-switch__track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  user-select: none;
+  background-color: #333;
+  border-radius: inherit;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.theme-switch__marker {
+  position: relative;
+  background-color: #dc56c5;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  transform: translateX(3px);
+  transition: transform 250ms;
+}
+
+.theme-switch__toggle:checked + .theme-switch__track {
+  background-color: rgba(51, 51, 51, 0.568);
+}
+
+.theme-switch__toggle:checked ~ .theme-switch__marker {
+  transform: translateX(26px);
+}
+
+.theme-switch__toggle:focus + .theme-switch__track,
+.theme-switch__toggle:active + .theme-switch__track {
+  box-shadow: 0 0 0 1px rgb(255, 13, 191);
+}
