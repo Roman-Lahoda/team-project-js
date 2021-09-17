@@ -51,6 +51,10 @@
 //   box-shadow: 0px 0px 67px 59px rgba(0, 0, 0, 0.82) inset, 0px 0px 60px 31px rgba(0, 0, 0, 0.7);
 // }
 // }
+.head {
+  position: relative;
+  z-index: 5;
+}
 
 .box-blur {
   border-radius: 50%;
@@ -68,6 +72,7 @@
   height: 180px;
   top: -90px;
   left: -105px;
+  z-index: 20;
 
   @media screen and (min-width: 768px) and (max-width: 1279.98px) {
     width: 360px;
@@ -90,6 +95,7 @@
   height: 30px;
   top: 115px;
   left: 120px;
+  z-index: 15;
 
   @media screen and (min-width: 768px) and (max-width: 1279.98px) {
     width: 100px;
@@ -136,9 +142,4 @@
     line-height: 1.22;
     width: calc(100% / 12 * 8);
   }
-}
-
-.head {
-  position: relative;
-  z-index: 5;
 }
