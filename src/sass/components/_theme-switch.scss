@@ -1,8 +1,6 @@
 .hero-bg {
   background-repeat: no-repeat;
   background-position: center;
-  position: relative;
-  display: flex;
 
   @media screen and (max-width: 320px) {
     padding-top: 78px;
@@ -58,75 +56,13 @@
   }
 }
 
-// Light theme
+/* LIGHT THEME*/
 
 body.light-theme {
   background-color: #fae0f6;
-
-  @media screen and (max-width: 319px) {
-    background-image: url(../images/body-element/noise-body.png);
-    background-size: cover;
-    background-position: center;
-  }
-  @media screen and (min-width: 320px) {
-    background-image: url(../images/body-element/noise-body.png);
-    background-size: cover;
-    background-position: center;
-  }
-  @media screen and (min-width: 768px) {
-    background-image: url(../images/body-element/noise-body.png);
-    background-size: cover;
-    background-position: center;
-  }
-  @media screen and (min-width: 1280px) {
-    background-image: url(../images/body-element/noise-body.png);
-    background-size: cover;
-    background-position: center;
-  }
-
-  // @media screen and (min-width: 768px) {
-  //   background-image: url(../images/body-element/ellipseLightTheme-2.svg),
-  //     url(../images/body-element/ellipse-5.svg), url(../images/body-element/ellipse-6.svg),
-  //     url(../images/body-element/ellipseLightTheme-11.svg),
-  //     url(../images/body-element/ellipse-10.svg), url(../images/body-element/ellipse-4.svg),
-  //     url(../images/body-element/ellipseLightTheme-2.svg), url(../images/body-element/ellipse-5.svg),
-  //     url(../images/body-element/ellipse-4.svg), url(../images/body-element/line-1.svg),
-  //     url(../images/body-element/line-1.svg), url(../images/body-element/line-1.svg),
-  //     url(../images/body-element/line-1.svg), url(../images/body-element/line-1.svg),
-  //     url(../images/body-element/line-6.svg), url(../images/body-element/line-6.svg),
-  //     url(../images/body-element/noise-body.png);
-  //   background-size: 610px;
-  //   background-size: 80px, 126px, 237px, 80px, 126px, 237px, 80px, 126px, 237px, 1px, 1px, 1px, 1px,
-  //     1px, 1px, 1px, cover;
-  //   background-repeat: no-repeat;
-  //   background-position: center;
-  //   background-position: left 46px top 602px, left 26px top 582px, left 26px top 1882px,
-  //     left 46px bottom 0px, left 26px bottom 0px, right 25px top 1010px, right 45px top 1910px,
-  //     right 25px top 1890px, right 25px top 3020px, left 86px top -160px, left 86px top 708px,
-  //     left 86px top 1450px, left 86px top 2150px, left 86px top 2651px, right 86px top -405px,
-  //     right 86px top 2015px, center;
-  // }
-
-  // @media screen and (min-width: 1280px) {
-  //   background-image: url(../images/body-element/ellipseLightTheme-2.svg),
-  //     url(../images/body-element/ellipse-5.svg), url(../images/body-element/ellipse-6.svg),
-  //     url(../images/body-element/ellipseLightTheme-11.svg),
-  //     url(../images/body-element/ellipse-10.svg), url(../images/body-element/ellipse-4.svg),
-  //     url(../images/body-element/ellipseLightTheme-2.svg), url(../images/body-element/ellipse-7.svg),
-  //     url(../images/body-element/ellipse-9.svg), url(../images/body-element/line-1.svg),
-  //     url(../images/body-element/line-3.svg), url(../images/body-element/line-3.svg),
-  //     url(../images/body-element/line-2.svg), url(../images/body-element/line-2.svg),
-  //     url(../images/body-element/line-2.svg), url(../images/body-element/noise-body.png);
-
-  //   background-size: 136px, 216px, 334px, 136px, 216px, 334px, 136px, 216px, 334px, 1px, 1px, 1px,
-  //     1px, 1px, 1px, cover;
-  //   background-repeat: no-repeat;
-  //   background-position: left 47px top 882px, left 7px top 842px, left 23px top 1554px,
-  //     left 47px bottom 0px, left 7px bottom 0px, right 36px top 528px, right 96px top 1989px,
-  //     right 56px top 1949px, right 36px top 2252px, left 115px top 100px, left 115px top 1057px,
-  //     left 115px top 1287px, right 163px top 110px, right 163px top 754px, right 163px top 1860px,
-  //     center;
-  // }
+  background-image: url(../images/body-element/noise-body.png);
+  background-size: cover;
+  background-position: center;
 
   & .hero-bg {
     background-image: linear-gradient(
