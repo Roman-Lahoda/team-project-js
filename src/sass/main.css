@@ -210,13 +210,14 @@ p {
 
 .modal__btn-close {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 25px;
+  right: 25px;
   width: 20px;
   height: 20px;
   background: transparent;
   border: none;
   cursor: pointer;
+  padding: 0;
 }
 
 .overflow-hidden {
@@ -380,22 +381,6 @@ p {
   }
 }
 
-.modal {
-  position: absolute;
-  z-index: 1001;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  -webkit-transition: all 400ms var(--transition-cube-function);
-  transition: all 400ms var(--transition-cube-function);
-  width: 85%;
-  max-width: 270px;
-  max-height: 915px;
-  background: #fff2fd;
-  border-radius: 150px 0px;
-}
-
 .event__img--circle {
   margin-left: auto;
   margin-right: auto;
@@ -506,12 +491,12 @@ p {
   }
 }
 
-.event__info-item:not(:last-child) {
+.event__info-item {
   margin-bottom: 10px;
 }
 
 @media screen and (min-width: 1280px) {
-  .event__info-item:not(:last-child) {
+  .event__info-item {
     margin-bottom: 20px;
   }
 }
@@ -556,25 +541,6 @@ p {
   }
 }
 
-.event__price-icon {
-  display: inline-block;
-  fill: var(--modal-text-color);
-}
-
-@media screen and (max-width: 1279.98px) {
-  .event__price-icon {
-    width: 24px;
-    height: 16px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .event__price-icon {
-    width: 30px;
-    height: 20px;
-  }
-}
-
 .button {
   height: 40px;
   font-family: inherit;
@@ -596,6 +562,16 @@ p {
   padding: 10px 0;
   margin-left: auto;
   margin-right: auto;
+  -webkit-transition: background-color var(--transition-delay) var(--transition-cube-function), -webkit-transform var(--transition-delay) var(--transition-cube-function);
+  transition: background-color var(--transition-delay) var(--transition-cube-function), -webkit-transform var(--transition-delay) var(--transition-cube-function);
+  transition: background-color var(--transition-delay) var(--transition-cube-function), transform var(--transition-delay) var(--transition-cube-function);
+  transition: background-color var(--transition-delay) var(--transition-cube-function), transform var(--transition-delay) var(--transition-cube-function), -webkit-transform var(--transition-delay) var(--transition-cube-function);
+}
+
+.event__link:hover {
+  background-color: var(--accent-color);
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
 }
 
 .modal__btn-more {
@@ -607,6 +583,10 @@ p {
   background-color: transparent;
   color: var(--modal-accent-color);
   border: solid 1px var(--modal-accent-color);
+  -webkit-transition: border-color var(--transition-delay) var(--transition-cube-function), color var(--transition-delay) var(--transition-cube-function), -webkit-transform var(--transition-delay) var(--transition-cube-function);
+  transition: border-color var(--transition-delay) var(--transition-cube-function), color var(--transition-delay) var(--transition-cube-function), -webkit-transform var(--transition-delay) var(--transition-cube-function);
+  transition: border-color var(--transition-delay) var(--transition-cube-function), transform var(--transition-delay) var(--transition-cube-function), color var(--transition-delay) var(--transition-cube-function);
+  transition: border-color var(--transition-delay) var(--transition-cube-function), transform var(--transition-delay) var(--transition-cube-function), color var(--transition-delay) var(--transition-cube-function), -webkit-transform var(--transition-delay) var(--transition-cube-function);
 }
 
 @media screen and (min-width: 768px) {
@@ -618,6 +598,20 @@ p {
 
 @media screen and (min-width: 1280px) {
   .modal__btn-more {
+    border-color: var(--modal-accent-color);
+  }
+}
+
+.modal__btn-more:hover {
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279.8px) {
+  .modal__btn-more:hover {
+    color: var(--accent-color);
     border-color: var(--modal-accent-color);
   }
 }
