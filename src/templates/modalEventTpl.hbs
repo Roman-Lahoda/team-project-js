@@ -1,9 +1,10 @@
+
 <article class="event">
     <img class="event__img--circle" src="{{ this.images.[0].url}}" alt="Event poster">
     <div class="event-wrap">
         <div class="event__img-wrap">
             <img class="event__img" 
-            src="{{ this.images.[0].url}} "
+            src="{{ this.images.[1].url}} "
             alt="Event poster">
         </div>
         <div class="event__text-content">
@@ -11,7 +12,7 @@
                 <li class="event__info-item">
                     <h2 class="event__subtitle">info</h2>
                     <p class="event__text">
-                        {{this.description}}
+                        {{this.promoter.description}}
                     </p>
                 </li>
                 <li class="event__info-item">
@@ -26,7 +27,7 @@
                 <li class="event__info-item">
                     <h2 class="event__subtitle">where</h2>
                     <p class="event__text event__text--first-string">
-                        {{this._embedded.venues.0.city}}, {{this._embedded.venues.0.country}}
+                        {{this._embedded.venues.0.city.name}}, {{this._embedded.venues.0.country.name}}
                     </p>
                     <p class="event__text">
                         {{this._embedded.venues.0.name}}
@@ -40,16 +41,19 @@
                 </li>
                 <li class="event__info-item">
                     <h2 class="event__subtitle">prices</h2>
-                    <p class="event__text">
-                        <svg class="event__price-icon">
-                            <use href="../images/svg/sprite.svg#icon-ticket"></use>
+                    {{#each this.priceRanges}}
+                    <p class="event__text event__text-icon">
+                        <svg class="event__price-icon" width = "24" height = "16">
+                            <use href="../images/svg/symbol-defs.svg#icon-ticket"></use>
                         </svg>
-                        {{this.priceRanges.type}} {{this.priceRanges.min}} - {{this.priceRanges.max}}
-                        {{this.priceRanges.currency}}
+                        {{this.type}} {{this.min}} - {{this.max}}
+                        {{this.currency}}
                     </p>
+                    <button class="event__button button" onclick = "this.url"> buy tickets</button>
+                    {{/each}}
                 </li>
             </ul>
-            <button class="event__button button"> buy tickets</button>
+            {{!-- <button class="event__button button"> buy tickets</button> --}}
             <!-- <a class="event__link link" rel="noopener noreferrer nofollow" target="_blank href={{this.url}} >
                       buy tickets</a>
                  
