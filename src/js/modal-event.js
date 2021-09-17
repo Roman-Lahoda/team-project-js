@@ -1,4 +1,4 @@
-// Импорт класса и шаблона
+// файл черновой для отработки моих попыток достучаться до событий, не подключен в index.js
 import EventService from "./events-service";
 import modalEventTpl from  "../templates/modalEventTpl.hbs"
 
@@ -6,46 +6,57 @@ const refs = {
     body: document.querySelector("body"),
     eventsItem: document.querySelector('.events__list'),
     modalOverlay: document.querySelector('.js-modal'),
-  modalCloseBtn: document.querySelector('button[data-action="close-modal"]'),
-    // добавила ссылки для события в модалке
-    event: document.querySelector('.events__image'),
-    eventCard:document.querySelector(".events__link"),
+    modalCloseBtn: document.querySelector('button[data-action="close-modal"]'),
+  event: document.querySelector('.events__image'),
+  eventCard:document.querySelector(".events__link"),
     modal: document.querySelector('.modal'),
     modalContainer: document.querySelector('.modal__event-card')
 }   
 const modalEventService = new EventService();
+// const eventId = modalEventService.eventID;
+
+// refs.eventCard.addEventListener('click', onEventCardClick);
+// function onEventCardClick(e) {
+//   e.preventDefault();
+//   if (e.target.nodeName !== a) {
+//     return;
+//   }
+//   onEventClick;
+    
+    
+// //     console.log(eventId);
+// }
+
 
 refs.eventsItem.addEventListener('click', onEventClick);
 
 // открытие модального окна при клике на галерею
 function onEventClick(e) {
-   e.preventDefault();
+    e.preventDefault();
 
   refs.modalOverlay.classList.remove("visually-hidden");
   refs.modalOverlay.classList.add("is-open");
   refs.body.classList.add("overflow-hidden");
-// добавила строки для рендеринга события в модалке
-  const eventId = e.target.getAttribute("id");
+    
+    const eventId = e.target.getAttribute("id");
   console.log(eventId);
     modalEventService.fetchEventById(eventId)
         .then((event) => renderMarkupInModal(event));
-
+    
 }
-// функция рендеринга
 function renderMarkupInModal(arr) {
     const markup = modalEventTpl(arr[0]);
     refs.modalContainer.insertAdjacentHTML("beforeend", markup);
 }
-
 
 function onModalCloseBtn() {
   refs.modalOverlay.classList.remove("is-open");
   refs.modalOverlay.classList.add("visually-hidden");
   refs.body.classList.remove("overflow-hidden");
 
-  refs.modalOverlay.removeEventListener("click", onModalCloseBtn);
-  refs.modalContainer.innerHTML = ''; 
-  // очистка контейнера, чтобы карточка исчезала при закрытии окна
+    refs.modalOverlay.removeEventListener("click", onModalCloseBtn);
+    
+    refs.modalContainer.innerHTML = '';
 }
 
 

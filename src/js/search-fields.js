@@ -30,6 +30,7 @@ export default class Select {
     this.arrow.classList.add('open');
   }
 
+
   handlerClick(e) {
     const { type } = e.target.dataset;
 
@@ -44,12 +45,18 @@ export default class Select {
   alreadyChooseCountry() {
     if (!this.selectValue.classList.contains('choose')) {
       this.selectValue.classList.add('choose');
+
     }
+    // console.log('this.countryCode = ', this.countryCode)
+    
   }
+  // //-------------------------
 
   get current() {
     return this.options.data.find(item => item.countryCode === this.selectedCode);
   }
+
+
   select(code) {
     this.selectedCode = code;
     this.selectValue.textContent = this.current.name;
