@@ -32,6 +32,7 @@
   }
 
   @media screen and (min-width: 769px) {
+    z-index: 5;
     padding-top: 40px;
     height: 446px;
     background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
@@ -46,6 +47,7 @@
   }
 
   @media screen and (min-width: 1280px) {
+    z-index: 5;
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
