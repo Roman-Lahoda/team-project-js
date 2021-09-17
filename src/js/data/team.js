@@ -27,7 +27,7 @@ export default [
   {
     fullName: 'Dmitry Dramaretsky',
     position: 'Developer',
-    photo: `./${img3}`,
+    photo: img3,
     linkedIn: '#',
     gitHub: 'https://github.com/DmitryDr-dev',
   },
