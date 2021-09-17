@@ -1,3 +1,14 @@
+.js-search-form {
+  position: absolute;
+  top: 147px;
+  z-index: 20;
+  @media screen and (min-width: 1280px) {
+    top: 214px;
+  }
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .search {
   display: flex;
   flex-direction: column;
@@ -12,7 +23,6 @@
 }
 
 .search-event {
-
   background-color: var(--input-bg-color);
   backdrop-filter: blur(20px);
   border-radius: 20px;
@@ -20,7 +30,6 @@
   outline: none;
   padding: 10px 30px;
   color: var(--input-text-color);
-
 }
 
 .search-event::placeholder,
@@ -30,7 +39,12 @@
 
 .wrap {
   position: relative;
-  margin-right: 30px;
+  @media screen and (max-width: 767.98px) {
+    margin-bottom: 25px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-right: 30px;
+  }
 }
 
 .search-icon {
@@ -80,6 +94,7 @@
     left: 0;
     right: 0;
     max-height: 170px;
+    z-index: 20;
 
     border: none;
     padding: 7px 0;
