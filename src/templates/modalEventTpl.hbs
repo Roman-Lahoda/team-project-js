@@ -4,7 +4,7 @@
     <div class="event-wrap">
         <div class="event__img-wrap">
             <img class="event__img" 
-            src="{{ this.images.[1].url}} "
+            src="{{ this.images.[7].url}} "
             alt="Event poster">
         </div>
         <div class="event__text-content">
@@ -44,9 +44,9 @@
                     <h2 class="event__subtitle">prices</h2>
                     {{#each this.priceRanges}}
                     <p class="event__text event__text-icon">
-                        <svg class="event__price-icon" width = "24" height = "16">
+                        {{!-- <svg class="event__price-icon" width = "24" height = "16">
                             <use href="../images/svg/symbol-defs.svg#icon-ticket"></use>
-                        </svg>
+                        </svg> --}}
                         {{this.type}} {{this.min}} - {{this.max}}
                         {{this.currency}}
                     </p>
