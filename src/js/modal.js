@@ -20,11 +20,11 @@ refs.eventsItem.addEventListener('click', onEventClick);
 // открытие модального окна при клике на галерею
 function onEventClick(e) {
    e.preventDefault();
-
   refs.modalOverlay.classList.remove("visually-hidden");
   refs.modalOverlay.classList.add("is-open");
   refs.body.classList.add("overflow-hidden");
 // добавила строки для рендеринга события в модалке
+
   const eventId = e.target.getAttribute("id");
   console.log(eventId);
     modalEventService.fetchEventById(eventId)
