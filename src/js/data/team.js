@@ -13,7 +13,7 @@ export default [
   {
     fullName: 'Roman Lahoda',
     position: 'Team Lead',
-    photo: `./images/team/Roman_Lahoda.jpg`,
+    photo: img1,
     linkedIn: '#',
     gitHub: 'https://github.com/Roman-Lahoda/',
   },
