@@ -10,6 +10,7 @@ import refs from './js/refs';
 import './js/scrollUp';
 import './js/team-modal';
 import './js/pagination';
+import './js/theme-switch';
 
 const eventService = new EventService();
 
