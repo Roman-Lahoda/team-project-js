@@ -17,10 +17,11 @@ const modalEventService = new EventService();
 
 refs.eventsItem.addEventListener('click', onEventClick);
 
-// открытие модального окна при клике на галерею
+// открытие модального окна при клике на элемент галереи
 function onEventClick(e) {
    e.preventDefault();
 
+  if (e.target.nodeName !== "UL") {
   refs.modalOverlay.classList.remove("visually-hidden");
   refs.modalOverlay.classList.add("is-open");
   refs.body.classList.add("overflow-hidden");
@@ -29,7 +30,7 @@ function onEventClick(e) {
   console.log(eventId);
     modalEventService.fetchEventById(eventId)
         .then((event) => renderMarkupInModal(event));
-
+  }
 }
 // функция рендеринга
 function renderMarkupInModal(arr) {
