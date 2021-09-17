@@ -1,7 +1,5 @@
 import SelectTemplate from '../templates/countryList.hbs';
-import EventService from './events-service';
 
-const eventService = new EventService();
 export default class Select {
   constructor(selector, options) {
     this.selectEl = document.querySelector(selector);
@@ -25,37 +23,29 @@ export default class Select {
 
   open() {
     this.selectEl.classList.add('open');
-    this.arrow.classList.add('close');
     this.arrow.classList.remove('open');
   }
   close() {
     this.selectEl.classList.remove('open');
     this.arrow.classList.add('open');
-    this.arrow.classList.remove('close');
   }
 
-  // async handlerClick(e) {
-  //   const { type } = e.target.dataset;
-  //   if (type === 'input' || type === 'arrow') {
-  //     this.toggle();
-  //   } else if (type === 'item') {
-  //     eventService.country = e.target.dataset.code;
-  //     this.select(eventService.country);
-  //     eventService.page = 1;
-  //     await eventService.fetchEvents();
-  //   }
-  // }
 
-   // //-------------------------
   handlerClick(e) {
-        e.preventDefault();
-      const { type } = e.target.dataset;
+    const { type } = e.target.dataset;
 
-      if (type === 'input' || type === 'arrow') {
-        this.toggle();
-      } else if (type === 'item') {
-        this.countryCode = e.target.dataset.code;
-        this.select(this.countryCode);
+    if (type === 'input' || type === 'arrow') {
+      this.toggle();
+    } else if (type === 'item') {
+      this.countryCode = e.target.dataset.code;
+      this.select(this.countryCode);
+    }
+  }
+
+  alreadyChooseCountry() {
+    if (!this.selectValue.classList.contains('choose')) {
+      this.selectValue.classList.add('choose');
+
     }
     // console.log('this.countryCode = ', this.countryCode)
     
@@ -70,6 +60,7 @@ export default class Select {
   select(code) {
     this.selectedCode = code;
     this.selectValue.textContent = this.current.name;
+    this.alreadyChooseCountry();
     this.selectEl
       .querySelectorAll('[data-type="item"]')
       .forEach(el => el.classList.remove('selected'));
