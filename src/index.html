@@ -11,32 +11,40 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   </head>
 
-  <body class="body">
+  <body class="body dark-theme">
     <div class="bg"></div>
-    <header>
-      <include src="./partials/header.html"></include>
-    </header>
 
-    <!-- Поля для поиска -->
-    <include src="./partials/search-fields.html"></include>
+    <header class="header">
+      <include src="./partials/header.html"></include>
+      <!-- Поля для поиска -->
+      <include src="./partials/search-fields.html"></include>
+    </header>
 
     <!-- Сетка с карточками -->
     <include src="./partials/event-grid.html"></include>
 
+
     <!-- <button type="button" class="js-load-more">Search More</button> -->
 
-    <!-- Footer-->
+    <!-- Footer & team-modal-->
     <include src="./partials/footer.html"></include>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Decor elements-->
+    <include src="./partials/decor-elements.html"></include>
 
     <!--Модальное окно-->
     <div class="modal-overlay js-modal visually-hidden">
       <div class="modal">
         <button type="button" class="modal__btn-close" data-action="close-modal">X</button>
+        <div class="modal__event-card"></div>
         <!-- Данные о событии рендерятся сюда -->
       </div>
     </div>
+
 
     <script src="./index.js"></script>
   </body>
