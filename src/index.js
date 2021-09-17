@@ -13,8 +13,11 @@ import './js/pagination';
 import './js/theme-switch';
 
 const eventService = new EventService();
-
-refs.searchForm.addEventListener('submit', onSearchForm);
+const debounce = require('lodash.debounce');
+import { alert, defaultModules } from '../node_modules/@pnotify/core/dist/PNotify.js';
+import '@pnotify/core/dist/BrightTheme.css';
+// refs.searchForm.addEventListener('submit', onSearchForm);
+refs.searchInput.addEventListener('input', debounce(onInputChange, 500))
 // refs.loadMore.addEventListener('click', onLoadMore);
 
 //Логика поиска стран
@@ -50,30 +53,36 @@ countrySelectorRef.addEventListener('click', selectCountry.handlerClick);
 // });
 
 // Функция поиска по заданному слову
-function onSearchForm(e) {
+function onInputChange(e) {
   e.preventDefault();
 
-  eventService.query = e.currentTarget.elements.query.value;
+  eventService.query = e.target.value.trim('');
+  if (eventService.query === '') {
+    return alert({
+    text: 'Start searching for an event'
+  });
+  }
+  eventService.resetPage();
 
   //Проверка ширины экрана. Если Tablet-версия, то грузим 21 картинку, для остальных версий 20 картинок
-  if (document.documentElement.clientWidth > 768 && document.documentElement.clientWidth < 1280) {
+      if (document.documentElement.clientWidth > 768 && document.documentElement.clientWidth < 1280) {
     console.log('document.documentElement.clientWidth');
     eventService.eventsOnOnePage = 21;
   } else {
     eventService.eventsOnOnePage = 20;
   }
-
-  // в этой строке связывает выбранную страну с классом, который отправляет запрос на бекенд
-  eventService.сountryQueryKey = selectCountry.countryCode;
-
-  if (eventService.query === '') {
-    return alert('Введите что-то нормальное');
-  }
-  eventService.resetPage();
   eventService.fetchEvents(EventService).then(Events => {
     clearEventsContainer();
     eventsMarkUp(Events);
-  });
+  })
+    .catch(err => onFetchError(err));
+}
+
+function onFetchError(err) {
+    if (err.status === 404) {
+      error({ text: `Error! This event not find.` });
+      return;
+    } 
 }
 
 //  Функция рендеринга(отрисовки) массива событий/концертов
