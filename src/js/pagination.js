@@ -2,10 +2,10 @@ import { clearEventsContainer, eventsMarkUp } from '../index';
 import { refs, activeButton } from './refs';
 
 export class Pagination {
-  constructor({ numberPerPage, paginationContainer }) {
+  constructor({ paginationContainer }) {
     this.currentPage = 1;
     this.numberOfItems = 0;
-    this.numberPerPage = numberPerPage;
+    this.numberPerPage = 0;
     this.paginationContainer = paginationContainer;
     this.numberOfPages = 0;
     this.respData = [];
@@ -16,8 +16,23 @@ export class Pagination {
     this.respData.push(...data);
     this.numberOfItems = data.length;
 
+    this.getProperNumberPerPage();
+
+    console.log(this.numberPerPage);
+
     this.displayList(this.respData);
     this.displayPagination(this.respData);
+  }
+
+  getProperNumberPerPage() {
+    if (
+      document.documentElement.clientWidth >= 768 &&
+      document.documentElement.clientWidth < 1280
+    ) {
+      this.numberPerPage = 21;
+    } else {
+      this.numberPerPage = 20;
+    }
   }
 
   displayList(data) {

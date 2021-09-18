@@ -31,7 +31,7 @@ refs.searchInput.addEventListener('input', debounce(onInputChange, 500));
 
 // создаем новый экземпляр класса
 const pagination = new Pagination({
-  numberPerPage: 20,
+  // numberPerPage: 20,
   paginationContainer: refs.paginationContainer,
 });
 
