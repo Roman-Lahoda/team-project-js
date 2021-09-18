@@ -56,6 +56,9 @@ countrySelectorRef.addEventListener('click', selectCountry.handlerClick);
 function onInputChange(e) {
   e.preventDefault();
 
+   // в этой строке связывает выбранную страну с классом, который отправляет запрос на бекенд
+  eventService.сountryQueryKey = selectCountry.countryCode;
+
 eventService.query = e.target.value.trim('');
   eventService.resetPage();
   eventService.fetchEvents(EventService)
