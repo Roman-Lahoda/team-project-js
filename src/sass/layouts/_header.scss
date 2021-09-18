@@ -1,55 +1,59 @@
+// .head {
+//   display: flex;
+//   position: relative;
+//   margin-left: auto;
+//   margin-right: auto;
+//   overflow: hidden;
+//   max-width: 1280px;
+
+// background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+//   linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%),
+//   url('../images/background-mobile/bg-m.jpg'), url('../images/body-bg/noise-body.png');
+// @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+//   background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+//     linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%),
+//     url('../images/background-mobile/bg-m@2x.jpg');
+// }
+// height: 364px;
+// background-position: top center, bottom center, center center;
+// background-repeat: no-repeat;
+// background-size: cover, 767.98px 100px, cover;
+
+// @media screen and (min-width: 768px) and (max-width: 1279.98px) {
+//   background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+//     linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%),
+//     url('../images/background-tablet/bg-t.jpg');
+//   @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+//     background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+//       linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%),
+//       url('../images/background-tablet/bg-t@2x.jpg');
+//   }
+//   height: 364px;
+//   background-position: top center, bottom center, center center;
+//   background-repeat: no-repeat;
+//   background-size: cover, 1279.98px 100px, cover;
+// }
+
+// @media screen and (min-width: 1280px) {
+//   background: linear-gradient(rgba(11, 11, 11, 0.2), rgba(11, 11, 11, 0.2)),
+//     linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%),
+//     url('../images/background-desktop/bg-d.jpg');
+//   @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+//     background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+//       linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%),
+//       url('../images/background-desktop/bg-d@2x.jpg');
+//   }
+
+//   height: 446px;
+//   background-position: top center, bottom center, center center;
+//   background-repeat: no-repeat;
+//   background-size: cover, 1280px 100px, cover;
+//   box-shadow: 0px 0px 67px 59px rgba(0, 0, 0, 0.82) inset, 0px 0px 60px 31px rgba(0, 0, 0, 0.7);
+// }
+// }
 .head {
-  display: flex;
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  overflow: hidden;
-  max-width: 1280px;
-
-  background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
-    linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%),
-    url('../images/background-mobile/bg-m.jpg'), url('../images/body-bg/noise-body.png');
-  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-    background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
-      linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%),
-      url('../images/background-mobile/bg-m@2x.jpg');
-  }
-  height: 364px;
-  background-position: top center, bottom center, center center;
-  background-repeat: no-repeat;
-  background-size: cover, 767.98px 100px, cover;
-
-  @media screen and (min-width: 768px) and (max-width: 1279.98px) {
-    background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
-      linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%),
-      url('../images/background-tablet/bg-t.jpg');
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-      background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
-        linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%),
-        url('../images/background-tablet/bg-t@2x.jpg');
-    }
-    height: 364px;
-    background-position: top center, bottom center, center center;
-    background-repeat: no-repeat;
-    background-size: cover, 1279.98px 100px, cover;
-  }
-
-  @media screen and (min-width: 1280px) {
-    background: linear-gradient(rgba(11, 11, 11, 0.2), rgba(11, 11, 11, 0.2)),
-      linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%),
-      url('../images/background-desktop/bg-d.jpg');
-    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-      background: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
-        linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%),
-        url('../images/background-desktop/bg-d@2x.jpg');
-    }
-
-    height: 446px;
-    background-position: top center, bottom center, center center;
-    background-repeat: no-repeat;
-    background-size: cover, 1280px 100px, cover;
-    box-shadow: 0px 0px 67px 59px rgba(0, 0, 0, 0.82) inset, 0px 0px 60px 31px rgba(0, 0, 0, 0.7);
-  }
+  z-index: 5;
 }
 
 .box-blur {
@@ -68,6 +72,7 @@
   height: 180px;
   top: -90px;
   left: -105px;
+  z-index: 20;
 
   @media screen and (min-width: 768px) and (max-width: 1279.98px) {
     width: 360px;
@@ -90,6 +95,7 @@
   height: 30px;
   top: 115px;
   left: 120px;
+  z-index: 15;
 
   @media screen and (min-width: 768px) and (max-width: 1279.98px) {
     width: 100px;
@@ -115,6 +121,8 @@
   padding-top: 78px;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 0;
+  margin-bottom: 0;
 
   color: var(--secondary-color);
 }
