@@ -21,16 +21,18 @@ refs.eventsItem.addEventListener('click', onEventClick);
 function onEventClick(e) {
    e.preventDefault();
 
-  if (e.target.nodeName !== "UL") {
+
+  // if (e.target.nodeName !== "UL") {
+
   refs.modalOverlay.classList.remove("visually-hidden");
   refs.modalOverlay.classList.add("is-open");
   refs.body.classList.add("overflow-hidden");
 // добавила строки для рендеринга события в модалке
+
   const eventId = e.target.getAttribute("id");
   console.log(eventId);
     modalEventService.fetchEventById(eventId)
         .then((event) => renderMarkupInModal(event));
-  }
 }
 // функция рендеринга
 function renderMarkupInModal(arr) {

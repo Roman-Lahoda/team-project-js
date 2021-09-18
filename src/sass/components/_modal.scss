@@ -72,15 +72,21 @@
 
 .modal__btn-close {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 25px;
+  right: 25px;
   width: 20px;
   height: 20px;
   background: transparent;
   border: none;
   cursor: pointer;
+  padding: 0;
 }
-
+// добавила стили на иконку - Люда
+// .btn-close__icon {
+//   fill: var(--modal-accent-color);
+//   width: 17px;
+//   height: 17px;
+// }
 .overflow-hidden {
   overflow: hidden;
 }
