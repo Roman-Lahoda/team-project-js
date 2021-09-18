@@ -1,5 +1,6 @@
 import SelectTemplate from '../templates/countryList.hbs';
 
+
 export default class Select {
   constructor(selector, options) {
     this.selectEl = document.querySelector(selector);
@@ -11,6 +12,7 @@ export default class Select {
   }
 
   #render() {
+    this.options.data.sort( (a, b) => a.name > b.name ? 1 : -1);
     this.selectEl.innerHTML = SelectTemplate(this.options);
   }
 
@@ -32,26 +34,33 @@ export default class Select {
 
 
   handlerClick(e) {
+    this.clickNotSelect = this.clickNotSelect.bind(this)
+    window.addEventListener('click', this.clickNotSelect);
     const { type } = e.target.dataset;
-
+ 
     if (type === 'input' || type === 'arrow') {
       this.toggle();
     } else if (type === 'item') {
       this.countryCode = e.target.dataset.code;
       this.select(this.countryCode);
     }
+    
+  }
+
+  clickNotSelect(e){
+        const { type } = e.target.dataset;
+    if (!(type === 'input' || type === 'arrow' ||type === 'item' )) {
+      this.close();
+      window.removeEventListener('click', this.clickNotSelect);
+    }
   }
 
   alreadyChooseCountry() {
     if (!this.selectValue.classList.contains('choose')) {
       this.selectValue.classList.add('choose');
-
     }
-    // console.log('this.countryCode = ', this.countryCode)
-    
   }
-  // //-------------------------
-
+  
   get current() {
     return this.options.data.find(item => item.countryCode === this.selectedCode);
   }
@@ -66,15 +75,15 @@ export default class Select {
       .forEach(el => el.classList.remove('selected'));
     this.selectEl.querySelector(`[data-code=${code}]`).classList.add('selected');
     this.close();
+
   }
+
   get isOpen() {
     return this.selectEl.classList.contains('open');
   }
+
   toggle() {
     this.isOpen ? this.close() : this.open();
   }
 
-  destroy() {
-    this.selectEl.removeEventListener('click', this.handlerClick);
-  }
 }

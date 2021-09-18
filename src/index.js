@@ -18,20 +18,27 @@ import { alert, error, success, info, defaults } from '../node_modules/@pnotify/
 import '@pnotify/core/dist/BrightTheme.css';
 defaults.delay = 2000;
 
-refs.searchInput.addEventListener('input', debounce(onInputChange, 500));
-
 //Логика поиска стран
 const options = {
   placeholder: 'Choose country',
   data: countries,
 };
 
+refs.searchInput.addEventListener('input', debounce(onInputChange, 500));
+
 const selectCountry = new Select('#select', options);
 
-// // ----------------------
-const countrySelectorRef = document.querySelector('#select');
-countrySelectorRef.addEventListener('click', selectCountry.handlerClick);
-// // ----------------------------
+// Функция для ренденинга страницы после изменения страны в поле! 
+selectCountry.selectEl.addEventListener('click',onChangeSelect);
+
+function onChangeSelect(e) {
+  if (!e.target.classList.contains('select__item')) {
+    return
+  }
+  eventService.country = selectCountry.countryCode;
+  console.log(eventService.country);
+  console.log('ТУТ НУЖНО ВПИСАТЬ ФУНКЦИЮ ДЛЯ РЕНДЕРИНГА СТРАНИЦЫ ПО КОДУ СТРАНЫ');
+}
 
 //  -------------- Первая загрузка сайта   ------------------
 
