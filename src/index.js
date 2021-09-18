@@ -24,11 +24,10 @@ import {
 import '@pnotify/core/dist/BrightTheme.css';
 defaults.delay = 2000;
 
-
-  // start 
+// start
 refs.searchInput.addEventListener('input', debounce(onInputChange, 500));
 
-// start Пагинация и первичная отрисовка
+// *start Пагинация и первичная отрисовка
 
 // создаем новый экземпляр класса
 const pagination = new Pagination({
@@ -39,7 +38,7 @@ const pagination = new Pagination({
 // Первичная отрисовка. Просто передать данные на пагинацию
 eventService.fetchEventsFirstLoad().then(data => pagination.getData(data));
 
-// end Пагинация и первичная отрисовка
+// *end Пагинация и первичная отрисовка
 // the end
 
 //Логика поиска стран
@@ -52,12 +51,12 @@ refs.searchInput.addEventListener('input', debounce(onInputChange, 500));
 
 const selectCountry = new Select('#select', options);
 
-// Функция для ренденинга страницы после изменения страны в поле! 
-selectCountry.selectEl.addEventListener('click',onChangeSelect);
+// Функция для ренденинга страницы после изменения страны в поле!
+selectCountry.selectEl.addEventListener('click', onChangeSelect);
 
 function onChangeSelect(e) {
   if (!e.target.classList.contains('select__item')) {
-    return
+    return;
   }
   eventService.country = selectCountry.countryCode;
   console.log(eventService.country);
@@ -87,11 +86,10 @@ function onChangeSelect(e) {
 function onInputChange(e) {
   e.preventDefault();
 
-
-   // в этой строке связывает выбранную страну с классом, который отправляет запрос на бекенд
+  // в этой строке связывает выбранную страну с классом, который отправляет запрос на бекенд
   eventService.сountryQueryKey = selectCountry.countryCode;
 
-eventService.query = e.target.value.trim('');
+  eventService.query = e.target.value.trim('');
 
   eventService.resetPage();
   eventService
@@ -106,18 +104,13 @@ eventService.query = e.target.value.trim('');
 function renderEventsList(events) {
   if (eventService.query === '') {
     return info({
-
-    text: `Пожалуйста, введите ваш запрос в поле поиска ...`
+      text: `Пожалуйста, введите ваш запрос в поле поиска ...`,
     });
-    
-  }
-  else if (events === undefined) {
+  } else if (events === undefined) {
     return error({
-      text: `По запросу ничего не найдено`
-    })
-   }
-  else {
-
+      text: `По запросу ничего не найдено`,
+    });
+  } else {
     eventsMarkUp(events);
     checkingScreenWidth();
     success({

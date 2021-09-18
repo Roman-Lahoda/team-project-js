@@ -1,5 +1,5 @@
 import { clearEventsContainer, eventsMarkUp } from '../index';
-import refs from './refs';
+import { refs, activeButton } from './refs';
 
 export class Pagination {
   constructor({ numberPerPage, paginationContainer }) {
@@ -43,8 +43,9 @@ export class Pagination {
     let button = document.createElement('button');
     button.innerText = page;
     button.dataset.number = page;
+    button.classList.add('pagination__button');
 
-    if (this.currentPage === page) button.classList.add('active');
+    if (this.currentPage === page) button.classList.add('pagination__button--active');
     return button;
   }
 
@@ -54,7 +55,11 @@ export class Pagination {
     }
 
     this.currentPage = e.target.dataset.number;
-
     this.displayList(this.respData, this.currentPage);
+
+    let activeBtn = document.querySelector('.pagination__button--active');
+    activeBtn.classList.remove('pagination__button--active');
+
+    e.target.classList.add('pagination__button--active');
   }
 }
