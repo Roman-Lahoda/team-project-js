@@ -89,9 +89,18 @@ function onInputChange(e) {
 function renderEventsList(events) {
   if (eventService.query === '') {
     return info({
-      text: `Пожалуйста, введите ваш запрос в поле поиска ...`,
+
+    text: `Пожалуйста, введите ваш запрос в поле поиска ...`
     });
-  } else {
+    
+  }
+  else if (events === undefined) {
+    return error({
+      text: `По запросу ничего не найдено`
+    })
+   }
+  else {
+
     eventsMarkUp(events);
     checkingScreenWidth();
     success({
