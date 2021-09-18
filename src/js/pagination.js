@@ -1,10 +1,7 @@
-import EventService from './events-service';
 import { clearEventsContainer, eventsMarkUp } from '../index';
 import refs from './refs';
 
-const eventService = new EventService();
-
-class Pagination {
+export class Pagination {
   constructor({ numberPerPage, paginationContainer }) {
     this.currentPage = 1;
     this.numberOfItems = 0;
@@ -15,10 +12,8 @@ class Pagination {
     this.paginationContainer.addEventListener('click', this.onPaginationBtnClick.bind(this));
   }
 
-  async getData() {
-    const data = await eventService.fetchEventsFirstLoad();
+  getData(data) {
     this.respData.push(...data);
-
     this.numberOfItems = data.length;
 
     this.displayList(this.respData);
@@ -26,13 +21,13 @@ class Pagination {
   }
 
   displayList(data) {
-    clearEventsContainer(); //? neue Funktion schaffen
+    clearEventsContainer();
 
     const start = (this.currentPage - 1) * this.numberPerPage;
     const end = start + this.numberPerPage;
     const paginatedEvents = data.slice(start, end);
 
-    eventsMarkUp(paginatedEvents); //? neue Funktion schaffen
+    eventsMarkUp(paginatedEvents);
   }
 
   displayPagination(data) {
@@ -50,7 +45,6 @@ class Pagination {
     button.dataset.number = page;
 
     if (this.currentPage === page) button.classList.add('active');
-
     return button;
   }
 
@@ -64,10 +58,3 @@ class Pagination {
     this.displayList(this.respData, this.currentPage);
   }
 }
-
-const pagination = new Pagination({
-  numberPerPage: 20,
-  paginationContainer: refs.paginationContainer,
-});
-
-pagination.getData();
