@@ -12,8 +12,12 @@
       referrerpolicy="no-referrer"
     />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <link href="../node_modules/@pnotify/core/dist/PNotify.css" rel="stylesheet" type="text/css" />
-  <link href="../node_modules/@pnotify/mobile/dist/PNotifyMobile.css" rel="stylesheet" type="text/css" />
+    <link href="../node_modules/@pnotify/core/dist/PNotify.css" rel="stylesheet" type="text/css" />
+    <link
+      href="../node_modules/@pnotify/mobile/dist/PNotifyMobile.css"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
 
   <body class="body dark-theme">
@@ -28,34 +32,28 @@
     <!-- Сетка с карточками -->
     <include src="./partials/event-grid.html"></include>
 
-
     <!-- <button type="button" class="js-load-more">Search More</button> -->
 
     <!-- Footer & team-modal-->
     <include src="./partials/footer.html"></include>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+
     <!-- Decor elements-->
     <include src="./partials/decor-elements.html"></include>
 
     <!--Модальное окно-->
     <div class="modal-overlay js-modal visually-hidden">
       <div class="modal">
-
-        <button type="button" class="modal__btn-close" data-action="close-modal">
-            X
+        <button type="button" class="close modal__btn-close" data-action="close-modal">
           <!-- <svg class="btn-close__icon">
             <use href="./images/svg/symbol-defs.svg#icon-close"></use>
           </svg> -->
-          </button>
-
-       // <button type="button" class="modal__btn-close" data-action="close-modal">X</button>
+        </button>
 
         <div class="modal__event-card"></div>
         <!-- Данные о событии рендерятся сюда -->
       </div>
     </div>
-
 
     <script src="./index.js"></script>
   </body>
