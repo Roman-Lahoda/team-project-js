@@ -13,9 +13,12 @@ import './js/pagination';
 import './js/theme-switch';
 
 const eventService = new EventService();
+const debounce = require('lodash.debounce');
+import { alert, error, success, info, defaults } from '../node_modules/@pnotify/core/dist/PNotify.js';
+import '@pnotify/core/dist/BrightTheme.css';
+defaults.delay = 2000;
 
-refs.searchForm.addEventListener('submit', onSearchForm);
-// refs.loadMore.addEventListener('click', onLoadMore);
+refs.searchInput.addEventListener('input', debounce(onInputChange, 500));
 
 //Логика поиска стран
 const options = {
@@ -50,31 +53,50 @@ countrySelectorRef.addEventListener('click', selectCountry.handlerClick);
 // });
 
 // Функция поиска по заданному слову
-function onSearchForm(e) {
+function onInputChange(e) {
   e.preventDefault();
 
-  eventService.query = e.currentTarget.elements.query.value;
+eventService.query = e.target.value.trim('');
+  eventService.resetPage();
+  eventService.fetchEvents(EventService)
+    .then(events => {
+      clearEventsContainer();
+    renderEventsList(events);
+  })
+  .catch(error => onFetchError(error));
+}
 
-  //Проверка ширины экрана. Если Tablet-версия, то грузим 21 картинку, для остальных версий 20 картинок
-  if (document.documentElement.clientWidth > 768 && document.documentElement.clientWidth < 1280) {
+function renderEventsList(events) {
+  if (eventService.query === '') {
+    return info({
+    text: `Пожалуйста, введите ваш запрос в поле поиска ...`
+  });
+  } else {
+    eventsMarkUp(events);
+    checkingScreenWidth();
+    success({
+      text: `Результаты поиска:`
+    });
+  }
+}
+
+function onFetchError(error) {
+  if (error.status === 404) {
+    return error({
+    text: `Упс! Событий с заданным поисковым словом не найдено!`
+  });  
+  } 
+}
+
+//Проверка ширины экрана. Если Tablet-версия, то грузим 21 картинку, для остальных версий 20 картинок
+ export function checkingScreenWidth() {
+        if (document.documentElement.clientWidth > 768 && document.documentElement.clientWidth < 1280) {
     console.log('document.documentElement.clientWidth');
     eventService.eventsOnOnePage = 21;
   } else {
     eventService.eventsOnOnePage = 20;
   }
-
-  // в этой строке связывает выбранную страну с классом, который отправляет запрос на бекенд
-  eventService.сountryQueryKey = selectCountry.countryCode;
-
-  if (eventService.query === '') {
-    return alert('Введите что-то нормальное');
-  }
-  eventService.resetPage();
-  eventService.fetchEvents(EventService).then(Events => {
-    clearEventsContainer();
-    eventsMarkUp(Events);
-  });
-}
+     }
 
 //  Функция рендеринга(отрисовки) массива событий/концертов
 export function eventsMarkUp(array) {
