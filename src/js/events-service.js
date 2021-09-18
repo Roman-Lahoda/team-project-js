@@ -23,8 +23,10 @@ class EventService {
           return data._embedded.events;
         })
       .catch(error => {
+
           // console.log('Упс! Событий с заданным поисковым словом не найдено!', error);
           // return setTimeout( "alert('Упс! Событий с заданным поисковым словом не найдено!')", 4000);
+
         });
     } else {
       return fetch(
