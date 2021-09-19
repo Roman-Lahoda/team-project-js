@@ -92,10 +92,10 @@ function onInputChange(e) {
   eventService.resetPage();
   eventService
     .fetchEvents(EventService)
-    // .then(events => {
-    //   clearEventsContainer();
-    //   renderEventsList(events);
-    // })
+    //.then(events => {
+      // clearEventsContainer();
+     // renderEventsList(events);
+   // })
     .then(events => pagination.getData(events))
     .catch(error => onFetchError(error));
 }
@@ -111,6 +111,7 @@ function renderEventsList(events) {
     });
   } else {
     eventsMarkUp(events);
+    // pagination.getData(events);
     checkingScreenWidth();
     success({
       text: `Результаты поиска:`,
