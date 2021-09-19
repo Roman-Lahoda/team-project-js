@@ -12,7 +12,9 @@ const refs = {
     event: document.querySelector('.events__image'),
     eventCard:document.querySelector(".events__link"),
     modal: document.querySelector('.modal'),
-    modalContainer: document.querySelector('.modal__event-card')
+  modalContainer: document.querySelector('.modal__event-card'),
+    // добавлена блокировка кнопки скроллАп
+  scrollUp: document.querySelector('.scroll-up'),
 }   
 const modalEventService = new EventService();
 
@@ -26,6 +28,7 @@ function onEventClick(e) {
   if (e.target.nodeName !== "UL") {
 
     refs.modalOverlay.classList.remove("visually-hidden");
+    refs.scrollUp.classList.remove('scroll-up--active');
     refs.modalOverlay.classList.add("is-open");
     refs.body.classList.add("overflow-hidden");
     // добавила строки для рендеринга события в модалке
@@ -45,6 +48,7 @@ function onEventClick(e) {
 function onModalCloseBtn() {
   refs.modalOverlay.classList.remove("is-open");
   refs.modalOverlay.classList.add("visually-hidden");
+  refs.scrollUp.classList.add('scroll-up--active');
   refs.body.classList.remove("overflow-hidden");
 
   refs.modalOverlay.removeEventListener("click", onModalCloseBtn);
