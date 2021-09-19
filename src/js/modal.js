@@ -22,7 +22,9 @@ function onEventClick(e) {
    e.preventDefault();
 
 
-  // if (e.target.nodeName !== "UL") {
+  if (e.target.nodeName === "UL") {
+    return;
+  }
 
   refs.modalOverlay.classList.remove("visually-hidden");
   refs.modalOverlay.classList.add("is-open");
