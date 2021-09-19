@@ -13,12 +13,13 @@ export class Pagination {
   }
 
   getData(data) {
+    this.respData.splice(0, this.respData.length);
+
     this.respData.push(...data);
-    this.numberOfItems = data.length;
+
+    this.numberOfItems = this.respData.length;
 
     this.getProperNumberPerPage();
-
-    console.log(this.numberPerPage);
 
     this.displayList(this.respData);
     this.displayPagination(this.respData);
@@ -46,6 +47,8 @@ export class Pagination {
   }
 
   displayPagination(data) {
+    this.resetPagination();
+
     this.numberOfPages = Math.ceil(this.numberOfItems / this.numberPerPage);
 
     for (let i = 1; i < this.numberOfPages + 1; i += 1) {
@@ -54,13 +57,20 @@ export class Pagination {
     }
   }
 
-  createPaginationButton(page, data) {
+  resetPagination() {
+    this.currentPage = 1;
+    this.paginationContainer.innerHTML = '';
+  }
+
+  createPaginationButton(page) {
     let button = document.createElement('button');
     button.innerText = page;
     button.dataset.number = page;
     button.classList.add('pagination__button');
 
-    if (this.currentPage === page) button.classList.add('pagination__button--active');
+    if (this.currentPage === page) {
+      button.classList.add('pagination__button--active');
+    }
     return button;
   }
 
