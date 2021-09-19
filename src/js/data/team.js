@@ -28,7 +28,7 @@ export default [
     fullName: 'Dmitry Dramaretsky',
     position: 'Developer',
     photo: img3,
-    linkedIn: '#',
+    linkedIn:'https://www.linkedin.com/in/dmitry-dramaretsky/',
     gitHub: 'https://github.com/DmitryDr-dev',
   },
   {
@@ -42,7 +42,7 @@ export default [
     fullName: 'Roman Korotaev',
     position: 'Developer',
     photo: img5,
-    linkedIn: '#',
+    linkedIn:'#',
     gitHub: 'https://github.com/RomanKorotaev',
   },
   {
@@ -54,7 +54,7 @@ export default [
   },
   {
     fullName: 'Aleksey Dibikov',
-    position: 'Developer',
+    position: "Developer",
     photo: img7,
     linkedIn: 'https://www.linkedin.com/in/aleksey-dibikov-377a6921a/',
     gitHub: 'https://github.com/Aleksey-Dibikov',

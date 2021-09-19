@@ -1,39 +1,38 @@
-.modal {
-  position: absolute;
-  z-index: 1001;
+// .modal {
+//   position: absolute;
+//   z-index: 1001;
 
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
 
-  transition: all 400ms var(--transition-cube-function);
+//   transition: all 400ms var(--transition-cube-function);
 
-  width: 85%;
-  max-width: 270px;
-  max-height: 915px;
-  background: #fff2fd;
-  border-radius: 150px 0px;
+//   width: 85%;
+//   max-width: 270px;
+//   // max-height: 915px;
+//   background: #fff2fd;
+//   border-radius: 150px 0px;
 
-  @media screen and (max-width: 767.98px) {
-    width: 272px;
-    max-height: 915px;
-    padding: 25px 15px 50px 50px;
-  }
-  @media screen and (min-width: 768px) {
-    width: 595px;
-    max-height: 831px;
-    padding: 25px 15px 50px 50px;
-  }
+//   @media screen and (max-width: 767.98px) {
+//     max-width: 272px;
+//     padding: 25px 15px 50px 50px;
+//   }
+//   @media screen and (min-width: 768px) {
+//     max-width: 595px;
+//     padding: 25px 15px 50px 50px;
+//   }
 
-  @media screen and (min-width: 1280px) {
-    max-width: 950px;
-    max-height: 1020px;
-    padding: 60px 30px;
-  }
-}
+//   @media screen and (min-width: 1280px) {
+//     max-width: 950px;
+//     padding: 60px 30px;
+//   }
+// }
+
 .event__img--circle {
   margin-left: auto;
   margin-right: auto;
+  object-fit: cover;
   border-radius: 50%;
   @media screen and (max-width: 767.98px) {
     width: 102px;
@@ -136,6 +135,18 @@
     margin-bottom: 5px;
   }
 }
+
+.event__text-icon {
+  display: inline-flex;
+}
+
+.icon-barcode {
+  margin-right: 13px;
+  @media screen and(min-width:1280px) {
+    width: 29px;
+    height: 19px;
+  }
+}
 // .event__text-icon::before {
 //   content: '';
 //   background-image: url('../../images/svg/ticket.svg');
@@ -150,18 +161,32 @@
 //     height: 20px;
 //   }
 // }
-.event__price-icon {
-  display: inline-block;
-  fill: var(--modal-text-color);
-  @media screen and(max-width:1279.98px) {
-    width: 24px;
-    height: 16px;
-  }
-  @media screen and(min-width:1280px) {
-    width: 30px;
-    height: 20px;
-  }
-}
+
+// .event__price-icon {
+//   display: inline-block;
+//   fill: var(--modal-text-color);
+//   @media screen and(max-width:1279.98px) {
+//     width: 24px;
+//     height: 16px;
+//   }
+//   @media screen and(min-width:1280px) {
+//     width: 30px;
+//     height: 20px;
+//   }
+// }
+// .modal-icon {
+//   display: inline-block;
+//   background-image: url(../../images/svg/ticket.svg);
+//   @media screen and(max-width:1279.98px) {
+//     width: 24px;
+//     height: 16px;
+//   }
+//   @media screen and(min-width:1280px) {
+//     width: 30px;
+//     height: 20px;
+//   }
+// }
+
 .button {
   height: 40px;
   font-family: inherit;
@@ -172,21 +197,40 @@
 
   border-radius: 5px;
 }
-
-.event__button {
-  // margin-bottom: 25px;
+.event__link {
+  display: block;
   width: 145px;
-
   background-color: var(--modal-accent-color);
   color: #ffffff;
   border: transparent;
-
-  // @media screen and (min-width: 768px) {
-  //   margin-bottom: 45px;
-  // }
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 0;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background-color var(--transition-delay) var(--transition-cube-function),
+    transform var(--transition-delay) var(--transition-cube-function);
 }
+.event__link:hover {
+  background-color: var(--accent-color);
+  transform: scale(1.25);
+}
+// .event__button {
+//   // margin-bottom: 25px;
+//   width: 145px;
+
+//   background-color: var(--modal-accent-color);
+//   color: #ffffff;
+//   border: transparent;
+
+// @media screen and (min-width: 768px) {
+//   margin-bottom: 45px;
+// }
+// }
 
 .modal__btn-more {
+  text-align: center;
+  padding: 10px 0;
   display: block;
   margin-right: auto;
   margin-left: auto;
@@ -195,12 +239,24 @@
   background-color: transparent;
   color: var(--modal-accent-color);
   border: solid 1px var(--modal-accent-color);
+  transition: border-color var(--transition-delay) var(--transition-cube-function),
+    transform var(--transition-delay) var(--transition-cube-function),
+    color var(--transition-delay) var(--transition-cube-function);
 
   @media screen and (min-width: 768px) {
     width: 255px;
     border-color: var(--accent-color);
   }
   @media screen and (min-width: 1280px) {
+    border-color: var(--modal-accent-color);
+  }
+}
+.modal__btn-more:hover {
+  transform: scale(1.25);
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  @media screen and (min-width: 768px) and (max-width: 1279.8px) {
+    color: var(--accent-color);
     border-color: var(--modal-accent-color);
   }
 }
