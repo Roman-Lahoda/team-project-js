@@ -22,10 +22,12 @@ class EventService {
           this.numberOfEvens = data.page.totalElements;
           return data._embedded.events;
         })
+
         .catch(error => {
           return error;
           // console.log('Упс! Событий с заданным поисковым словом не найдено!', error);
           // return alert('Упс! Событий с заданным поисковым словом не найдено!');
+
         });
     } else {
       return fetch(
@@ -37,11 +39,8 @@ class EventService {
           return data._embedded.events;
         })
         .catch(error => {
-          console.log(
-            'Упс! В данной стране событий с заданным поисковым словом не найдено!',
-            error,
-          );
-          return alert('Упс! В данной стране событий с заданным поисковым словом не найдено!');
+          // console.log('Упс! В данной стране событий с заданным поисковым словом не найдено!', error);
+          // return setTimeout ( "alert('Упс! В данной стране событий с заданным поисковым словом не найдено!'), 4000);
         });
     }
   }

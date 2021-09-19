@@ -3,12 +3,14 @@
   right: 10px;
   bottom: 20px;
 
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
 
   @media screen and (min-width: 768px) {
     right: 30px;
     bottom: 30px;
+    width: 50px;
+    height: 50px;
   }
 
   visibility: hidden;
@@ -52,7 +54,7 @@
   box-sizing: border-box;
   fill: #0e0e0e;
   stroke: rgb(255, 13, 191);
-  stroke-width: 0.5px;
+  stroke-width: 1px;
   transition: 0.2s;
   stroke-linecap: square;
 }
@@ -60,10 +62,17 @@
 .scroll-up__svg-arrow {
   position: absolute;
 
-  width: 32px;
-  height: 32px;
-  top: 17%;
-  left: 17%;
+  width: 25px;
+  height: 25px;
+  top: 25%;
+  left: 25%;
+
+  @media screen and (min-width: 768px) {
+    width: 32px;
+    height: 32px;
+    top: 17%;
+    left: 17%;
+  }
 
   fill: rgb(255, 13, 191);
   opacity: 0.8;

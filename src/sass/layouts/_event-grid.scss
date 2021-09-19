@@ -1,17 +1,12 @@
-// ! Удалить потом сделано для теста
-// body {
-//background-color: rgba(0, 0, 0, 0.192);
-// }
-// -----
-
 .events {
   margin-top: -30px;
   position: relative;
-  z-index: 10;
+  z-index: 12;
 }
 
 .events__list {
   display: grid;
+  padding-bottom: 60px;
 
   @media screen and (max-width: 767.98px) {
     grid-template-columns: repeat(2, 128px);
@@ -35,14 +30,14 @@
 .events__item {
   position: relative;
 
-  animation: 2000ms fadeIn;
+  animation: 200ms fadeIn;
   @keyframes fadeIn {
     0% {
       //появление с лева на право
       // width: 0%;
-      // transition: width 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+      // transition: width 2000ms cubic-bezier(0.4, 0, 0.2, 1);
       transform: scale(0, 0);
-      transition: transform 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 2000ms cubic-bezier(0.4, 0, 0.2, 1);
     }
     100% {
       //width: 100%;

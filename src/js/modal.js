@@ -1,6 +1,7 @@
 // Импорт класса и шаблона
 import EventService from "./events-service";
 import modalEventTpl from  "../templates/modalEventTpl.hbs"
+import { debounce } from "lodash";
 
 const refs = {
     body: document.querySelector("body"),
@@ -19,29 +20,27 @@ refs.eventsItem.addEventListener('click', onEventClick);
 
 // открытие модального окна при клике на элемент галереи
 function onEventClick(e) {
-   e.preventDefault();
+  e.preventDefault();
+// console.log('target name', e.target.nodeName);
+  
+  if (e.target.nodeName !== "UL") {
 
+    refs.modalOverlay.classList.remove("visually-hidden");
+    refs.modalOverlay.classList.add("is-open");
+    refs.body.classList.add("overflow-hidden");
+    // добавила строки для рендеринга события в модалке
 
-  if (e.target.nodeName === "UL") {
-    return;
-  }
-
-  refs.modalOverlay.classList.remove("visually-hidden");
-  refs.modalOverlay.classList.add("is-open");
-  refs.body.classList.add("overflow-hidden");
-// добавила строки для рендеринга события в модалке
-
-  const eventId = e.target.getAttribute("id");
-  console.log(eventId);
+    const eventId = e.target.getAttribute("id");
+    console.log(eventId);
     modalEventService.fetchEventById(eventId)
-        .then((event) => renderMarkupInModal(event));
-}
-// функция рендеринга
-function renderMarkupInModal(arr) {
+      .then((event) => renderMarkupInModal(event));
+  }
+  // функция рендеринга
+  function renderMarkupInModal(arr) {
     const markup = modalEventTpl(arr[0]);
     refs.modalContainer.insertAdjacentHTML("beforeend", markup);
+  }
 }
-
 
 function onModalCloseBtn() {
   refs.modalOverlay.classList.remove("is-open");
@@ -49,7 +48,7 @@ function onModalCloseBtn() {
   refs.body.classList.remove("overflow-hidden");
 
   refs.modalOverlay.removeEventListener("click", onModalCloseBtn);
-  refs.modalContainer.innerHTML = ''; 
+  refs.modalContainer.innerHTML = '';
   // очистка контейнера, чтобы карточка исчезала при закрытии окна
 }
 

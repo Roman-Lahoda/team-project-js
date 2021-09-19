@@ -24,20 +24,20 @@ import {
 import '@pnotify/core/dist/BrightTheme.css';
 defaults.delay = 2000;
 
+// start
 refs.searchInput.addEventListener('input', debounce(onInputChange, 500));
 
-// start Пагинация и первичная отрисовка
+// *start Пагинация и первичная отрисовка
 
-// создаем новый экземпляр класса
 const pagination = new Pagination({
-  numberPerPage: 20,
   paginationContainer: refs.paginationContainer,
 });
 
 // Первичная отрисовка. Просто передать данные на пагинацию
 eventService.fetchEventsFirstLoad().then(data => pagination.getData(data));
 
-// end Пагинация и первичная отрисовка
+// *end Пагинация и первичная отрисовка
+// the end
 
 //Логика поиска стран
 const options = {
@@ -45,12 +45,21 @@ const options = {
   data: countries,
 };
 
+refs.searchInput.addEventListener('input', debounce(onInputChange, 500));
+
 const selectCountry = new Select('#select', options);
 
-// // ----------------------
-const countrySelectorRef = document.querySelector('#select');
-countrySelectorRef.addEventListener('click', selectCountry.handlerClick);
-// // ----------------------------
+// Функция для ренденинга страницы после изменения страны в поле!
+selectCountry.selectEl.addEventListener('click', onChangeSelect);
+
+function onChangeSelect(e) {
+  if (!e.target.classList.contains('select__item')) {
+    return;
+  }
+  eventService.country = selectCountry.countryCode;
+  console.log(eventService.country);
+  console.log('ТУТ НУЖНО ВПИСАТЬ ФУНКЦИЮ ДЛЯ РЕНДЕРИНГА СТРАНИЦЫ ПО КОДУ СТРАНЫ');
+}
 
 //  -------------- Первая загрузка сайта   ------------------
 
@@ -75,14 +84,22 @@ countrySelectorRef.addEventListener('click', selectCountry.handlerClick);
 function onInputChange(e) {
   e.preventDefault();
 
+
+
+  // в этой строке связывает выбранную страну с классом, который отправляет запрос на бекенд
+  eventService.сountryQueryKey = selectCountry.countryCode;
+
   eventService.query = e.target.value.trim();
+
+
   eventService.resetPage();
   eventService
     .fetchEvents(EventService)
-    .then(events => {
-      clearEventsContainer();
-      renderEventsList(events);
-    })
+    // .then(events => {
+    //   clearEventsContainer();
+    //   renderEventsList(events);
+    // })
+    .then(events => pagination.getData(events))
     .catch(error => onFetchError(error));
 }
 
@@ -96,6 +113,10 @@ function renderEventsList(events) {
     eventsMarkUp(events)
     info({
       text: `Пожалуйста, введите ваш запрос в поле поиска ...`,
+    });
+  } else if (events === undefined) {
+    return error({
+      text: `По запросу ничего не найдено`,
     });
   } else {
     eventsMarkUp(events);
