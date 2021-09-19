@@ -1,33 +1,44 @@
 .modal-overlay {
   position: fixed;
   width: 0;
-  height: 0;
+  //height: 0;
+  height: 2px;
   background: rgba(32, 13, 29, 0.6);
   backdrop-filter: blur(3px);
   z-index: 1000;
-  top: 0;
-  left: 0;
+  // top: 0;
+  // left: 0;
+  top: 50%;
+  left: 50%;
   bottom: 0;
   right: 0;
 
-  overflow-y: auto;
-  overflow-x: hidden;
+  // overflow-y: auto;
+  // overflow-x: hidden;
+  overflow: hidden;
 
-  opacity: 0;
-  visibility: hidden;
+  // opacity: 0;
+  // visibility: hidden;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease 0.5s, height 0.5s ease;
 
+  // было закомментированно, не трогать
   // transition: visibility 400ms var(--transition-cube-function);
   // transition: all 400ms var(--transition-cube-function);
 }
 
 .modal-overlay.is-open {
-  opacity: 1;
-  visibility: visible;
+  height: 100%;
   width: 100%;
-  height: 100vh;
-  // transition: width 0.5s ease, height 0.5s ease 0.5s;
-  transition: visibility 500ms var(--transition-cube-function);
-  transition: opacity 600ms var(--transition-cube-function);
+  transition: width 0.5s ease, height 0.5s ease 0.5s;
+
+  //   opacity: 1;
+  //   visibility: visible;
+  //   width: 100%;
+  //   height: 100vh;
+  //   // transition: width 0.5s ease, height 0.5s ease 0.5s;
+  //   transition: visibility 500ms var(--transition-cube-function);
+  //   transition: opacity 600ms var(--transition-cube-function);
 }
 
 .modal {
@@ -87,6 +98,7 @@
 //   width: 17px;
 //   height: 17px;
 // }
+
 .overflow-hidden {
   overflow: hidden;
 }
