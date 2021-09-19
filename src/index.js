@@ -45,7 +45,7 @@ const options = {
   data: countries,
 };
 
-refs.searchInput.addEventListener('input', debounce(onInputChange, 500));
+
 
 const selectCountry = new Select('#select', options);
 
