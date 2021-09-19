@@ -6,32 +6,24 @@
   background: rgba(32, 13, 29, 0.6);
   backdrop-filter: blur(3px);
   z-index: 1000;
-
   top: 50%;
   left: 50%;
   // bottom: 0;
   // right: 0;
 
+  overflow-y: auto;
+  overflow-x: hidden;
 
-  // overflow-y: auto;
-  // overflow-x: hidden;
-  overflow: hidden;
-
-  // opacity: 0;
-  // visibility: hidden;
-  transform: translate(-50%, -50%);
-  transition: width 0.5s ease 0.5s, height 0.5s ease;
-
+  opacity: 0;
+  visibility: hidden;
 
   transform: translate(-50%, -50%);
   transition: width 0.5s ease 0.5s, height 0.5s ease;
-
   // transition: visibility 400ms var(--transition-cube-function);
   // transition: all 400ms var(--transition-cube-function);
 }
 
 .modal-overlay.is-open {
-
   opacity: 1;
   width: 100%;
   height: 100vh;
@@ -41,14 +33,13 @@
   transition: width 0.5s ease, height 0.5s ease 0.5s;
   // transition: visibility 500ms var(--transition-cube-function);
   // transition: opacity 600ms var(--transition-cube-function);
-
 }
 
 .modal {
   position: absolute;
   z-index: 1001;
 
-  top: 65%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -25%);
 

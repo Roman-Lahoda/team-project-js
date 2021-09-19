@@ -30,10 +30,8 @@ function onEventClick(e) {
     refs.body.classList.add("overflow-hidden");
     // добавила строки для рендеринга события в модалке
 
-
     const eventId = e.target.getAttribute("id");
     console.log(eventId);
-
     modalEventService.fetchEventById(eventId)
       .then((event) => renderMarkupInModal(event));
   }
