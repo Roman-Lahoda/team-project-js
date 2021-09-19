@@ -69,6 +69,15 @@
         border-radius: 20px 20px 0 0;
       }
     }
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 100;
+      width: 225px;
+      height: 0px;
+      border: 1px solid #939393;
+      margin: 0 22.5px;
+    }
   }
   &__header {
     display: flex;

@@ -22,9 +22,10 @@ class EventService {
           this.numberOfEvens = data.page.totalElements;
           return data._embedded.events;
         })
-      .catch(error => {
-          console.log('Упс! Событий с заданным поисковым словом не найдено!', error);
-          return alert('Упс! Событий с заданным поисковым словом не найдено!');
+        .catch(error => {
+          return error;
+          // console.log('Упс! Событий с заданным поисковым словом не найдено!', error);
+          // return alert('Упс! Событий с заданным поисковым словом не найдено!');
         });
     } else {
       return fetch(

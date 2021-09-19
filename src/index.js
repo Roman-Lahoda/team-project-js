@@ -75,7 +75,7 @@ countrySelectorRef.addEventListener('click', selectCountry.handlerClick);
 function onInputChange(e) {
   e.preventDefault();
 
-  eventService.query = e.target.value.trim('');
+  eventService.query = e.target.value.trim();
   eventService.resetPage();
   eventService
     .fetchEvents(EventService)
@@ -87,8 +87,14 @@ function onInputChange(e) {
 }
 
 function renderEventsList(events) {
-  if (eventService.query === '') {
-    return info({
+  // if (eventService.query === '') {
+  //   return info({
+  //     text: `Пожалуйста, введите ваш запрос в поле поиска ...`,
+  //   });
+  // }
+  if (eventService.query.length === 0) {
+    eventsMarkUp(events)
+    info({
       text: `Пожалуйста, введите ваш запрос в поле поиска ...`,
     });
   } else {
@@ -100,13 +106,13 @@ function renderEventsList(events) {
   }
 }
 
-function onFetchError(error) {
-  if (error.status === 404) {
-    return error({
-      text: `Упс! Событий с заданным поисковым словом не найдено!`,
-    });
-  }
-}
+// function onFetchError(error) {
+//   if (error.status === 404) {
+//     return error({
+//       text: `Упс! Событий с заданным поисковым словом не найдено!`,
+//     });
+//   }
+// }
 
 //Проверка ширины экрана. Если Tablet-версия, то грузим 21 картинку, для остальных версий 20 картинок
 export function checkingScreenWidth() {
