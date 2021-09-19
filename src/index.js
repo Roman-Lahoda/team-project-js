@@ -29,9 +29,7 @@ refs.searchInput.addEventListener('input', debounce(onInputChange, 500));
 
 // *start Пагинация и первичная отрисовка
 
-// создаем новый экземпляр класса
 const pagination = new Pagination({
-  // numberPerPage: 20,
   paginationContainer: refs.paginationContainer,
 });
 
@@ -94,10 +92,11 @@ function onInputChange(e) {
   eventService.resetPage();
   eventService
     .fetchEvents(EventService)
-    .then(events => {
-      clearEventsContainer();
-      renderEventsList(events);
-    })
+    // .then(events => {
+    //   clearEventsContainer();
+    //   renderEventsList(events);
+    // })
+    .then(events => pagination.getData(events))
     .catch(error => onFetchError(error));
 }
 
