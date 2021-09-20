@@ -37,7 +37,7 @@ function onEventClick(e) {
   refs.modalOverlay.classList.remove("visually-hidden");
   refs.modalOverlay.classList.add("is-open");
   refs.body.classList.add("overflow-hidden");
-    
+  console.log(e.current.target);
     const eventId = e.target.getAttribute("id");
   console.log(eventId);
     modalEventService.fetchEventById(eventId)

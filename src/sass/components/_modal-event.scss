@@ -1,34 +1,3 @@
-// .modal {
-//   position: absolute;
-//   z-index: 1001;
-
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-
-//   transition: all 400ms var(--transition-cube-function);
-
-//   width: 85%;
-//   max-width: 270px;
-//   // max-height: 915px;
-//   background: #fff2fd;
-//   border-radius: 150px 0px;
-
-//   @media screen and (max-width: 767.98px) {
-//     max-width: 272px;
-//     padding: 25px 15px 50px 50px;
-//   }
-//   @media screen and (min-width: 768px) {
-//     max-width: 595px;
-//     padding: 25px 15px 50px 50px;
-//   }
-
-//   @media screen and (min-width: 1280px) {
-//     max-width: 950px;
-//     padding: 60px 30px;
-//   }
-// }
-
 .event__img--circle {
   margin-left: auto;
   margin-right: auto;
@@ -141,51 +110,15 @@
 }
 
 .icon-barcode {
+  fill: var(--modal-text-color);
   margin-right: 13px;
+  width: 24px;
+  height: 16px;
   @media screen and(min-width:1280px) {
     width: 29px;
     height: 19px;
   }
 }
-// .event__text-icon::before {
-//   content: '';
-//   background-image: url('../../images/svg/ticket.svg');
-//   fill: var(--modal-text-color);
-//   margin-right: 13px;
-//   @media screen and(max-width:1279.98px) {
-//     width: 24px;
-//     height: 16px;
-//   }
-//   @media screen and(min-width:1280px) {
-//     width: 30px;
-//     height: 20px;
-//   }
-// }
-
-// .event__price-icon {
-//   display: inline-block;
-//   fill: var(--modal-text-color);
-//   @media screen and(max-width:1279.98px) {
-//     width: 24px;
-//     height: 16px;
-//   }
-//   @media screen and(min-width:1280px) {
-//     width: 30px;
-//     height: 20px;
-//   }
-// }
-// .modal-icon {
-//   display: inline-block;
-//   background-image: url(../../images/svg/ticket.svg);
-//   @media screen and(max-width:1279.98px) {
-//     width: 24px;
-//     height: 16px;
-//   }
-//   @media screen and(min-width:1280px) {
-//     width: 30px;
-//     height: 20px;
-//   }
-// }
 
 .button {
   height: 40px;
@@ -213,28 +146,16 @@
 }
 .event__link:hover {
   background-color: var(--accent-color);
-  transform: scale(1.25);
+  transform: scale(1.15);
 }
-// .event__button {
-//   // margin-bottom: 25px;
-//   width: 145px;
-
-//   background-color: var(--modal-accent-color);
-//   color: #ffffff;
-//   border: transparent;
-
-// @media screen and (min-width: 768px) {
-//   margin-bottom: 45px;
-// }
-// }
 
 .modal__btn-more {
   text-align: center;
+  text-decoration: none;
   padding: 10px 0;
   display: block;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 5px;
   min-width: 230px;
   background-color: transparent;
   color: var(--modal-accent-color);
@@ -252,10 +173,11 @@
   }
 }
 .modal__btn-more:hover {
-  transform: scale(1.25);
+  transform: scale(1.08);
   color: var(--accent-color);
   border-color: var(--accent-color);
   @media screen and (min-width: 768px) and (max-width: 1279.8px) {
+    transform: scale(1.15);
     color: var(--accent-color);
     border-color: var(--modal-accent-color);
   }
