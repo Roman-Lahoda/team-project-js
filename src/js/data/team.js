@@ -55,7 +55,7 @@ export default [
     fullName: 'Dina Yermakova',
     position: 'Developer',
     photo: img6,
-    linkedIn: '#',
+    linkedIn: 'https://www.linkedin.com/in/dina-yermakova-6aa94020b/',
     gitHub: 'https://github.com/YermakovaDina', 
   },
   {

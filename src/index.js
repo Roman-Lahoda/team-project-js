@@ -11,6 +11,7 @@ import './js/scrollUp';
 import './js/team-modal';
 import './js/pagination';
 import './js/theme-switch';
+import './js/animation-cards';
 
 const eventService = new EventService();
 
