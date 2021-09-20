@@ -290,6 +290,28 @@ body.light-theme {
       transform: scale(1);
     }
   }
+
+  & .pagination__button {
+    color: rgb(26, 2, 26);
+    font-weight: 700;
+
+    &:hover {
+      color: rgb(255, 13, 191);
+      box-shadow: 1px 1px 2px 1px rgb(255, 13, 191);
+    }
+  }
+
+  & .pagination__button--active {
+    border: 2px solid rgb(255, 13, 191);
+    color: rgb(170, 9, 127);
+  }
+
+  & .pagination__move-button {
+    color: rgb(170, 9, 127);
+    &:hover {
+      color: rgb(255, 13, 191);
+    }
+  }
 }
 
 .toolbar {
