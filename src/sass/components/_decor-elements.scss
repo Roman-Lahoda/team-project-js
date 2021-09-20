@@ -6,6 +6,7 @@
   position: absolute;
   border: 1px solid #212121;
   background-color: #0e0e0e;
+  background-image: url(../images/body-element/noise-body.png);
   box-sizing: border-box;
   border-radius: 50%;
   z-index: 10;
@@ -59,6 +60,7 @@
   position: absolute;
   border: 1px solid #212121;
   background-color: #0e0e0e;
+  background-image: url(../images/body-element/noise-body.png);
   box-sizing: border-box;
   border-radius: 50%;
   z-index: 3;
@@ -193,7 +195,7 @@ footer {
     content: '';
     display: inline-block;
     position: absolute;
-    z-index: 10;
+    z-index: -10;
     width: 1px;
     background: #212121;
     box-sizing: border-box;
@@ -297,6 +299,7 @@ footer {
     z-index: 1;
     width: 1px;
     background: #212121;
+    // background-image: url(../images/body-element/noise-body.png);
     box-sizing: border-box;
 
     @media screen and (min-width: 768px) {
