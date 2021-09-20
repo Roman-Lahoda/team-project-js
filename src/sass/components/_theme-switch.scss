@@ -187,8 +187,9 @@ body.light-theme {
   }
 
   .events__name,
-  .events__location-icon {
+  .icon-local {
     color: rgb(170, 9, 127);
+    fill: currentColor;
     // text-shadow: 1px 1px 1px #dc56c5;
   }
 
