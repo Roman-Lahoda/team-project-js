@@ -193,7 +193,7 @@ footer {
     content: '';
     display: inline-block;
     position: absolute;
-    z-index: 10;
+    z-index: -10;
     width: 1px;
     background: #212121;
     box-sizing: border-box;

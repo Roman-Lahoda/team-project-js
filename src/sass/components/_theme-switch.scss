@@ -47,6 +47,10 @@
   }
 
   @media screen and (min-width: 1280px) {
+    max-width: 1280px;
+    margin-right: auto;
+    margin-left: auto;
+    overflow: hidden;
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
@@ -117,6 +121,10 @@ body.light-theme {
   }
   @media screen and (min-width: 1280px) {
     .hero-bg {
+      max-width: 1280px;
+      margin-right: auto;
+      margin-left: auto;
+      overflow: hidden;
       background-image: linear-gradient(
           165deg,
           rgba(14, 14, 14, 1) 0%,
@@ -201,7 +209,7 @@ body.light-theme {
   position: absolute;
   background-color: none;
   top: 5px;
-  right: -56px;
+  right: -115px;
   z-index: 8;
   border-radius: 50%;
 }
@@ -209,7 +217,7 @@ body.light-theme {
 .sun {
   position: absolute;
   background-color: none;
-  right: -34px;
+  right: -84px;
   z-index: 8;
   border-radius: 50%;
 }
@@ -223,7 +231,7 @@ body.light-theme {
 .theme-switch__control {
   z-index: 10;
   display: flex;
-  right: -60px;
+  right: -110px;
   align-items: center;
   flex-shrink: 0;
   position: absolute;
@@ -251,7 +259,7 @@ body.light-theme {
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
+  width: 120%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.685);
   user-select: none;
@@ -259,7 +267,7 @@ body.light-theme {
   border-radius: inherit;
   z-index: 1;
   cursor: pointer;
-  border: 2px solid white;
+  border: 1.7px solid white;
   // box-shadow: 0 0 7px #e081d0;
 }
 
@@ -283,7 +291,7 @@ body.light-theme {
 }
 
 .theme-switch__toggle:checked ~ .theme-switch__marker {
-  transform: translateX(26px);
+  transform: translateX(35px);
 
   @media screen and (max-width: 767px) {
     transform: translateX(30px);
