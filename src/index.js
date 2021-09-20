@@ -11,6 +11,7 @@ import refs from './js/refs';
 import './js/scrollUp';
 import './js/team-modal';
 import './js/theme-switch';
+import './js/animation-cards';
 
 const eventService = new EventService();
 const debounce = require('lodash.debounce');
