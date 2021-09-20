@@ -150,7 +150,7 @@ export function clearEventsContainer() {
   refs.eventsContainer.innerHTML = '';
 }
 
-// ==================== Тестовые функции.  ============
+// ==================== Start: Тестовые функции. (Пока не использовали) ============
 
 // Функция для пагинации, когда кликаем на СЛЕДУЮЩУЮ страничку и догружаем
 // следующую порцию карточек с событиями / концертами
@@ -167,7 +167,17 @@ function onPreviousPage() {
   eventService.fetchEvents(EventService).then(eventsMarkUp);
 }
 
-// if (eventService.page > 1) {
-//   eventService.decrementPage();
-// }
-// eventService.fetchEvents(EventService).then(eventsMarkUp);
+// ====================  End: Тестовые функции.  ============
+
+
+
+
+// Устраняем перезагрузку страницы, если прльзователь нажал Enter в инпуте с поисковым словом
+refs.searchInput.addEventListener('keydown', onEnterInKeyWordInput );
+
+function onEnterInKeyWordInput(e) {
+    if (e.keyCode === 13) {
+    e.preventDefault();
+    // console.log('Был клик на Enter', e.keyCode)
+  }
+}
