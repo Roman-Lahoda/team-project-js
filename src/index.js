@@ -59,6 +59,10 @@ function onChangeSelect(e) {
   eventService.country = selectCountry.countryCode;
   console.log(eventService.country);
   console.log('ТУТ НУЖНО ВПИСАТЬ ФУНКЦИЮ ДЛЯ РЕНДЕРИНГА СТРАНИЦЫ ПО КОДУ СТРАНЫ');
+  eventService
+    .fetchEvents()
+    .then(events => pagination.getData(events))
+    .catch(error => onFetchError(error));
 }
 
 //  -------------- Первая загрузка сайта   ------------------
