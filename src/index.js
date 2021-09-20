@@ -72,10 +72,12 @@ function onChangeSelect(e) {
   console.log('ТУТ НУЖНО ВПИСАТЬ ФУНКЦИЮ ДЛЯ РЕНДЕРИНГА СТРАНИЦЫ ПО КОДУ СТРАНЫ');
   eventService
     .fetchEvents()
+
     .then(events => {
       console.log(events);
       eventsPagination.createPagination(events);
     })
+
     .catch(error => onFetchError(error));
 }
 
