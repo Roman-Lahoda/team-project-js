@@ -69,10 +69,10 @@ export default [
     gitHub: 'https://github.com/LarisaShatil',
   },
   {
-    fullName: 'Liudmyla Kozachenko',
+    fullName: 'Liudmila Kozachenko',
     position: 'Developer',
     photo: img9,
-    linkedIn: '#',
+    linkedIn: 'https://www.linkedin.com/in/liudmila-kozachenko-16905bb7/',
     gitHub: 'https://github.com/Liucie',
   },
   {
