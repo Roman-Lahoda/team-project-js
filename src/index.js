@@ -72,7 +72,10 @@ function onChangeSelect(e) {
   console.log('ТУТ НУЖНО ВПИСАТЬ ФУНКЦИЮ ДЛЯ РЕНДЕРИНГА СТРАНИЦЫ ПО КОДУ СТРАНЫ');
   eventService
     .fetchEvents()
-    .then(events => pagination.getData(events))
+    .then(events => {
+      console.log(events);
+      eventsPagination.createPagination(events);
+    })
     .catch(error => onFetchError(error));
 }
 
@@ -111,7 +114,7 @@ function onInputChange(e) {
     // clearEventsContainer();
     // renderEventsList(events);
     // })
-    .then(events => pagination.getData(events))
+    .then(events => eventsPagination.createPagination(events))
     .catch(error => onFetchError(error));
 }
 

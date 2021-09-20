@@ -43,7 +43,8 @@ class EventService {
             console.log('В данной стране событий с заданным поисковым словом не найдено!');
             return alert('В данной стране событий с заданным поисковым словом не найдено!');
           }
-          return data._embedded.events;
+          return data;
+          // return data._embedded.events;
         })
         .catch(error => {
           console.log(error);
