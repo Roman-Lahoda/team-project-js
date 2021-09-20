@@ -4,7 +4,7 @@
   background-image: url(../images/body-element/noise-body.png);
 
   @media screen and (max-width: 320px) {
-    padding-top: 78px;
+    // padding-top: 78px;
     height: 364px;
     background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
       url('../images/background-mobile/back-mobile.jpg');
@@ -19,7 +19,7 @@
   }
 
   @media screen and (min-width: 321px) {
-    padding-top: 78px;
+    // padding-top: 78px;
     height: 364px;
     background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
       url('../images/background-tablet/back-tablet.jpg');
@@ -33,7 +33,7 @@
   }
 
   @media screen and (min-width: 769px) {
-    padding-top: 40px;
+    // padding-top: 40px;
     height: 446px;
     background-image: linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(13, 13, 13, 0)),
       url('../images/background-desktop/back-desktop.jpg');

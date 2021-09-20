@@ -20,12 +20,14 @@ class EventService {
         .then(response => response.json())
         .then(data => {
           this.numberOfEvens = data.page.totalElements;
+            if (!data.hasOwnProperty('_embedded')) {
+              console.log('Событий с заданным поисковым словом не найдено!');
+              return alert('Событий с заданным поисковым словом не найдено!');
+            }
           return data._embedded.events;
         })
-        .catch(error => {
-          console.log('Упс! Событий с заданным поисковым словом не найдено!', error);
-          return alert('Упс! Событий с заданным поисковым словом не найдено!');
-        });
+
+        .catch(error => { console.log(error) });
     } else {
       return fetch(
         `${BASE_URL}/events.json?size=${this.eventsOnOnePage}&keyword=${this.searchQuery}&countryCode=${this.country}&page=${this.page}&apikey=${apikey}`,
@@ -33,15 +35,13 @@ class EventService {
         .then(response => response.json())
         .then(data => {
           this.numberOfEvens = data.page.totalElements;
+              if (!data.hasOwnProperty('_embedded')) {
+              console.log('В данной стране событий с заданным поисковым словом не найдено!');
+              return alert('В данной стране событий с заданным поисковым словом не найдено!');
+            }
           return data._embedded.events;
         })
-        .catch(error => {
-          console.log(
-            'Упс! В данной стране событий с заданным поисковым словом не найдено!',
-            error,
-          );
-          return alert('Упс! В данной стране событий с заданным поисковым словом не найдено!');
-        });
+        .catch(error => { console.log(error) });
     }
   }
 
@@ -86,7 +86,7 @@ class EventService {
   }
 
   resetPage() {
-    this.page = 1;
+    this.page = 0;
   }
 
   get query() {

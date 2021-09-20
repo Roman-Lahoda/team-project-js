@@ -1,63 +1,86 @@
 .modal-overlay {
   position: fixed;
-  width: 100%;
-  height: 100vh;
+  display: flex;
   background: rgba(32, 13, 29, 0.6);
   backdrop-filter: blur(3px);
   z-index: 1000;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
 
   overflow-y: auto;
   overflow-x: hidden;
 
-  opacity: 1;
-  visibility: visible;
+  opacity: 0;
+  visibility: hidden;
+  // transition: all 400ms var(--transition-cube-function);
 
-  transition: all 400ms var(--transition-cube-function);
-}
-
-.modal {
-  position: absolute;
-  z-index: 1001;
-
+  //добавление появления
+  width: 0;
+  height: 2px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: width 0.5s ease 0.5s, height 0.5s ease;
+}
 
-  transition: all 400ms var(--transition-cube-function);
+.modal-overlay.is-open {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  visibility: visible;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 120;
 
-  width: 85%;
-  max-width: 270px;
-  max-height: 915px;
+  // добавление появления
+  transition: width 0.5s ease, height 0.5s ease 0.5s;
+}
+
+.modal {
+  margin: 15% 0 15%;
+  position: relative;
+  width: 768px;
+  z-index: 125;
+
   background: #fff2fd;
   border-radius: 150px 0px;
 
-  @media screen and (min-width: 480px) {
+  // transition: all 400ms var(--transition-cube-function);
+
+  @media screen and (max-width: 767.98px) {
+    width: 275px;
+    max-width: 100%;
+    max-height: 915px;
+    padding: 75px 15px 105px 15px;
+  }
+  @media screen and (min-width: 768px) {
     width: 595px;
-    max-height: 830px;
-    padding: 25px 15px 50px 50px;
+    max-width: 100%;
+    max-height: 831px;
+    padding: 30px 15px 55px 50px;
+    border-radius: 300px 0px;
   }
 
-  @media screen and (min-width: 1200px) {
-    max-width: 930px;
-    max-height: 1200px;
-    padding: 60px 30px;
+  @media screen and (min-width: 1280px) {
+    width: 930px;
+    max-width: 100%;
+    max-height: 1020px;
+    padding: 62px 30px;
+    border-radius: 300px 0px;
+  }
+
+  & .modal__btn-close {
+    padding: 3px;
+    cursor: pointer;
+  }
+
+  & .modal__btn-close:before,
+  .modal__btn-close:after {
+    background-color: var(--modal-accent-color);
   }
 }
 
-.modal__btn-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 20px;
-  height: 20px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
+// если добавлять стили, то согласовать с Людой
+// .modal__event-card {
+// }
 
 .overflow-hidden {
   overflow: hidden;
