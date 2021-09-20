@@ -177,6 +177,7 @@ body.light-theme {
 
   & .footer-content {
     color: rgb(26, 2, 26);
+    font-weight: 600;
   }
 
   & .btn-animate {
@@ -189,6 +190,8 @@ body.light-theme {
   .events__name,
   .events__location-icon {
     color: rgb(170, 9, 127);
+    fill: rgb(170, 9, 127);
+    stroke: rgb(255, 13, 191);
     // text-shadow: 1px 1px 1px #dc56c5;
   }
 
