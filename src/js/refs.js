@@ -4,7 +4,6 @@ const refs = {
   eventsContainer: document.querySelector('.js-events-container'),
   paginationContainer: document.querySelector('#pagination'),
   loadMore: document.querySelector('.js-load-more'),
-  elements: document.querySelector('.elements'),
 };
 
 export default refs;
