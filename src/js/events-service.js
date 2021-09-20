@@ -6,7 +6,8 @@ class EventService {
     this.searchQuery = ''; //поиск по ключевому слову. Проверял на именах исполнителей: Bob, Martim, Iglesias
     this.country = null; // ключ для поиска по странам.
     this.page = 0; // номер страницы (для пагинации)
-    this.eventsOnOnePage = 100; // число карточек о событиях на одной странице. ВНИМАНИЕ для экрана размера Tablet должно быть 21 карточка событий
+    // this.eventsOnOnePage = 100; // число карточек о событиях на одной странице. ВНИМАНИЕ для экрана размера Tablet должно быть 21 карточка событий
+    this.eventsOnOnePage = 20; // число карточек о событиях на одной странице. ВНИМАНИЕ для экрана размера Tablet должно быть 21 карточка событий
     this.eventID = ''; // переменная с ID события/концерта (возможно совсем не понадобится при работе с данным классом)
     this.numberOfEvens = 0; // число событий/концертов, которіе вернулись от бекенда
   }
@@ -20,14 +21,17 @@ class EventService {
         .then(response => response.json())
         .then(data => {
           this.numberOfEvens = data.page.totalElements;
-            if (!data.hasOwnProperty('_embedded')) {
-              console.log('Событий с заданным поисковым словом не найдено!');
-              return alert('Событий с заданным поисковым словом не найдено!');
-            }
-          return data._embedded.events;
+          if (!data.hasOwnProperty('_embedded')) {
+            console.log('Событий с заданным поисковым словом не найдено!');
+            return alert('Событий с заданным поисковым словом не найдено!');
+          }
+          return data;
+          // return data._embedded.events;
         })
 
-        .catch(error => { console.log(error) });
+        .catch(error => {
+          console.log(error);
+        });
     } else {
       return fetch(
         `${BASE_URL}/events.json?size=${this.eventsOnOnePage}&keyword=${this.searchQuery}&countryCode=${this.country}&page=${this.page}&apikey=${apikey}`,
@@ -35,13 +39,15 @@ class EventService {
         .then(response => response.json())
         .then(data => {
           this.numberOfEvens = data.page.totalElements;
-              if (!data.hasOwnProperty('_embedded')) {
-              console.log('В данной стране событий с заданным поисковым словом не найдено!');
-              return alert('В данной стране событий с заданным поисковым словом не найдено!');
-            }
+          if (!data.hasOwnProperty('_embedded')) {
+            console.log('В данной стране событий с заданным поисковым словом не найдено!');
+            return alert('В данной стране событий с заданным поисковым словом не найдено!');
+          }
           return data._embedded.events;
         })
-        .catch(error => { console.log(error) });
+        .catch(error => {
+          console.log(error);
+        });
     }
   }
 
