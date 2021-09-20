@@ -1,6 +1,7 @@
 import './sass/main.scss';
 import EventService from './js/events-service';
-import { Pagination } from './js/pagination';
+import { EventsPagination } from './js/events-pagination';
+// import { Pagination } from './js/pagination'; // ! старая версия пагинации
 import eventTpl from './templates/eventTpl.hbs';
 import countries from './js/data/countryList.json';
 import Select from './js/search-fields';
@@ -30,12 +31,23 @@ refs.searchInput.addEventListener('input', debounce(onInputChange, 500));
 
 // *start Пагинация и первичная отрисовка
 
-const pagination = new Pagination({
+// *старая
+// const pagination = new Pagination({
+//   paginationContainer: refs.paginationContainer,
+// });
+
+const eventsPagination = new EventsPagination({
+  visiblePages: 5,
+  page: 1,
+  centerAlign: true,
   paginationContainer: refs.paginationContainer,
 });
 
 // Первичная отрисовка. Просто передать данные на пагинацию
-eventService.fetchEventsFirstLoad().then(data => pagination.getData(data));
+// *старая
+// eventService.fetchEventsFirstLoad().then(data => pagination.getData(data));
+
+eventService.fetchEvents().then(data => eventsPagination.createPagination(data));
 
 // *end Пагинация и первичная отрисовка
 // the end
@@ -45,8 +57,6 @@ const options = {
   placeholder: 'Choose country',
   data: countries,
 };
-
-
 
 const selectCountry = new Select('#select', options);
 
@@ -62,7 +72,10 @@ function onChangeSelect(e) {
   console.log('ТУТ НУЖНО ВПИСАТЬ ФУНКЦИЮ ДЛЯ РЕНДЕРИНГА СТРАНИЦЫ ПО КОДУ СТРАНЫ');
   eventService
     .fetchEvents()
-    .then(events => pagination.getData(events))
+    .then(events => {
+      console.log(events);
+      eventsPagination.createPagination(events);
+    })
     .catch(error => onFetchError(error));
 }
 
@@ -98,10 +111,10 @@ function onInputChange(e) {
   eventService
     .fetchEvents(EventService)
     //.then(events => {
-      // clearEventsContainer();
-     // renderEventsList(events);
-   // })
-    .then(events => pagination.getData(events))
+    // clearEventsContainer();
+    // renderEventsList(events);
+    // })
+    .then(events => eventsPagination.createPagination(events))
     .catch(error => onFetchError(error));
 }
 
@@ -170,14 +183,11 @@ function onPreviousPage() {
 
 // ====================  End: Тестовые функции.  ============
 
-
-
-
 // Устраняем перезагрузку страницы, если прльзователь нажал Enter в инпуте с поисковым словом
-refs.searchInput.addEventListener('keydown', onEnterInKeyWordInput );
+refs.searchInput.addEventListener('keydown', onEnterInKeyWordInput);
 
 function onEnterInKeyWordInput(e) {
-    if (e.keyCode === 13) {
+  if (e.keyCode === 13) {
     e.preventDefault();
     // console.log('Был клик на Enter', e.keyCode)
   }
