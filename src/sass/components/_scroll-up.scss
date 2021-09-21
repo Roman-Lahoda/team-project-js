@@ -1,10 +1,12 @@
+/* Scroll-up to top page */
+
 .scroll-up {
   position: fixed;
-  right: 10px;
+  right: 20px;
   bottom: 20px;
 
-  width: 45px;
-  height: 45px;
+  width: 30px;
+  height: 30px;
 
   @media screen and (min-width: 768px) {
     right: 30px;
@@ -16,10 +18,9 @@
   visibility: hidden;
 
   border-radius: 40% 0;
-  // border-radius: 50px;
 
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  z-index: 1000;
+  z-index: 100;
 }
 
 .scroll-up::before {
@@ -44,7 +45,6 @@
 
 .scroll-up:hover {
   cursor: pointer;
-  // transform: scale(1.1);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   -webkit-box-shadow: 0px 0px 5px 4px rgba(220, 86, 197, 0.5);
   -moz-box-shadow: 0px 0px 5px 4px rgba(220, 86, 197, 0.5);
@@ -63,10 +63,10 @@
 .scroll-up__svg-arrow {
   position: absolute;
 
-  width: 25px;
-  height: 25px;
-  top: 25%;
-  left: 25%;
+  width: 20px;
+  height: 20px;
+  top: 17%;
+  left: 17%;
 
   @media screen and (min-width: 768px) {
     width: 32px;
