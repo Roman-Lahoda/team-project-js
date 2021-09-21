@@ -1,53 +1,67 @@
+// .body {
+//   font-family: var(--main-font);
+//   background-color: #0e0e0e;
+
+//   max-width: 100%;
+//   margin: 0 auto;
+//   background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
+//     url(../images/background-mobile/back-mobile.jpg);
+//   background-size: contain;
+//   background-repeat: no-repeat;
+
+//   @media screen and (min-width: 768px) {
+//     .body {
+//       background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
+//         url(../images/background-tablet/back-tablet.jpg);
+//     }
+//   }
+
+//   @media screen and (min-width: 1280px) {
+//     .body {
+//       background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
+//         url(../images/background-desktop/back-desktop.jpg);
+//     }
+//   }
+
+//   @media (min-device-pixel-ratio: 2),
+//     (-webkit-min-device-pixel-ratio: 2),
+//     (min-resolution: 192dpi),
+//     (min-resolution: 2dppx) {
+//     .body {
+//       background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
+//         url(../images/background-mobile/back-mobile@2x.jpg);
+//     }
+
+//     @media screen and (min-width: 768px) {
+//       .body {
+//         background-image: linear-gradient(
+//             180deg,
+//             rgba(13, 13, 13, 0) 0%,
+//             rgba(14, 14, 14, 0.8) 100%
+//           ),
+//           url(../images/background-tablet/back-tablet@2x.jpg);
+//       }
+//     }
+
+//     @media screen and (min-width: 1200px) {
+//       .body {
+//         background-image: linear-gradient(
+//             180deg,
+//             rgba(13, 13, 13, 0) 0%,
+//             rgba(14, 14, 14, 0.8) 100%
+//           ),
+//           url(../images/background-desktop/back-desktop@2x.jpg);
+//       }
+//     }
+//     // background-image: url('../images/body-bg/noise-body.png');
+//     background-color: #0e0e0e;
+//   }
+// }
+
 .body {
   font-family: var(--main-font);
-  // background-color: #0e0e0e;
-
-  // max-width: 100%;
-  // margin: 0 auto;
-  //   background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
-  //     url(../images/background-mobile/back-mobile.jpg);
-  //   background-size: contain;
-  //   background-repeat: no-repeat;
-  // }
-
-  // @media screen and (min-width: 768px) {
-  //   .body {
-  //     background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
-  //       url(../images/background-tablet/back-tablet.jpg);
-  //   }
-  // }
-
-  // @media screen and (min-width: 1280px) {
-  //   .body {
-  //     background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
-  //       url(../images/background-desktop/back-desktop.jpg);
-  //   }
-  // }
-
-  // @media (min-device-pixel-ratio: 2),
-  //   (-webkit-min-device-pixel-ratio: 2),
-  //   (min-resolution: 192dpi),
-  //   (min-resolution: 2dppx) {
-  //   .body {
-  //     background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
-  //       url(../images/background-mobile/back-mobile@2x.jpg);
-  //   }
-
-  //   @media screen and (min-width: 768px) {
-  //     .body {
-  //       background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
-  //         url(../images/background-tablet/back-tablet@2x.jpg);
-  //     }
-  //   }
-
-  //   @media screen and (min-width: 1200px) {
-  //     .body {
-  //       background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
-  //         url(../images/background-desktop/back-desktop@2x.jpg);
-  //     }
-  //   }
-  background-image: url('../images/body-bg/noise-body.png');
   background-color: #0e0e0e;
+  background-image: url('../images/body-bg/noise-body.png');
 }
 
 .bg {
