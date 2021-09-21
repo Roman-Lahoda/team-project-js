@@ -116,7 +116,9 @@ function onInputChange(e) {
     // clearEventsContainer();
     // renderEventsList(events);
     // })
+
     .then(events => eventsPagination.createPagination(events))
+
     .catch(error => onFetchError(error));
 }
 
