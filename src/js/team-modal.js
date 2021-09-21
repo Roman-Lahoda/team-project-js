@@ -8,6 +8,7 @@ $('.hover').mouseleave(function () {
 const openTeamModal = document.querySelector('.footer-open-modal');
 const teamModal = document.querySelector('.team-modal');
 const scrollUp = document.querySelector('.scroll-up');
+// const backdrop = document.querySelector('.backdrop'),
 
 openTeamModal.addEventListener('click', e => {
   e.preventDefault();

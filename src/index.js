@@ -14,7 +14,7 @@ import './js/team-modal';
 import './js/theme-switch';
 import './js/animation-cards';
 
-const eventService = new EventService();
+export const eventService = new EventService();
 const debounce = require('lodash.debounce');
 import {
   alert,
@@ -46,7 +46,7 @@ const eventsPagination = new EventsPagination({
 // Первичная отрисовка. Просто передать данные на пагинацию
 // *старая
 // eventService.fetchEventsFirstLoad().then(data => pagination.getData(data));
-
+checkingScreenWidth();
 eventService.fetchEvents().then(data => eventsPagination.createPagination(data));
 
 // *end Пагинация и первичная отрисовка
@@ -70,6 +70,8 @@ function onChangeSelect(e) {
   eventService.country = selectCountry.countryCode;
   console.log(eventService.country);
   console.log('ТУТ НУЖНО ВПИСАТЬ ФУНКЦИЮ ДЛЯ РЕНДЕРИНГА СТРАНИЦЫ ПО КОДУ СТРАНЫ');
+  checkingScreenWidth();
+  eventService.resetPage();
   eventService
     .fetchEvents()
 
@@ -108,7 +110,7 @@ function onInputChange(e) {
   eventService.сountryQueryKey = selectCountry.countryCode;
 
   eventService.query = e.target.value.trim('');
-
+  checkingScreenWidth();
   eventService.resetPage();
   eventService
     .fetchEvents(EventService)
