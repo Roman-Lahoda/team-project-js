@@ -1,8 +1,8 @@
-import { clearEventsContainer, eventsMarkUp } from '../index';
+import { clearEventsContainer, eventsMarkUp, eventService } from '../index';
 import Pagination from 'tui-pagination';
-import EventService from './events-service';
+// import EventService from './events-service';
 
-const eventService = new EventService();
+// const eventService = new EventService();
 
 export class EventsPagination {
   constructor({ visiblePages, page, centerAlign, paginationContainer }) {
@@ -51,7 +51,7 @@ export class EventsPagination {
     const pagination = new Pagination('pagination', obj);
     pagination.on('beforeMove', e => {
       const { page } = e;
-      eventService.page = page;
+      eventService.page = page - 1;
       eventService.fetchEvents().then(data => this.renderMarkup(data));
     });
   }
@@ -62,7 +62,7 @@ export class EventsPagination {
   }
 
   resetPagination() {
-    eventService.number = 1;
+    eventService.number = 0;
   }
 
   onPaginationClick(e) {
