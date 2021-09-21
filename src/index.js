@@ -71,6 +71,7 @@ function onChangeSelect(e) {
   console.log(eventService.country);
   console.log('ТУТ НУЖНО ВПИСАТЬ ФУНКЦИЮ ДЛЯ РЕНДЕРИНГА СТРАНИЦЫ ПО КОДУ СТРАНЫ');
   checkingScreenWidth();
+  eventService.resetPage();
   eventService
     .fetchEvents()
 
