@@ -1,16 +1,19 @@
 <div class='content'>
     <button class='close'></button>
+    <h2 class="team-name">Team-3</h2>
     {{#each this}}
-    <figure class='snip1344'>
-        <img src='{{photo}}' class='background' />
+    <figure class='team-card'>
         <img src='{{photo}}' alt={{fullName}} class='profile' />
         <figcaption>
-            <h3>{{fullName}}<span>{{position}}</span></h3>
+            <h3 >{{firstName}}</h3>
+            <h3>{{secondName}}<span>{{position}}</span></h3>
             <div class='icons'>
                 <a href='{{linkedIn}}' target="_blank" rel="noopener noreferrer">
                     <i class='ion-social-linkedin-outline'></i></a>
                 <a href='{{gitHub}}' target="_blank" rel="noopener noreferrer"> 
                     <i class='ion-social-github-outline'></i></a>
+                    <a href='{{telegram}}' target="_blank" rel="noopener noreferrer">
+                        <i class='ion-paper-airplane'></i></a>
             </div>
         </figcaption>
     </figure>
