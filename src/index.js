@@ -1,6 +1,7 @@
 import './sass/main.scss';
 import EventService from './js/events-service';
-import { Pagination } from './js/pagination';
+import { EventsPagination } from './js/events-pagination';
+// import { Pagination } from './js/pagination'; // ! старая версия пагинации
 import eventTpl from './templates/eventTpl.hbs';
 import countries from './js/data/countryList.json';
 import Select from './js/search-fields';
@@ -11,6 +12,7 @@ import refs from './js/refs';
 import './js/scrollUp';
 import './js/team-modal';
 import './js/theme-switch';
+import './js/animation-cards';
 
 const eventService = new EventService();
 const debounce = require('lodash.debounce');
@@ -29,12 +31,23 @@ refs.searchInput.addEventListener('input', debounce(onInputChange, 500));
 
 // *start Пагинация и первичная отрисовка
 
-const pagination = new Pagination({
+// *старая
+// const pagination = new Pagination({
+//   paginationContainer: refs.paginationContainer,
+// });
+
+const eventsPagination = new EventsPagination({
+  visiblePages: 5,
+  page: 1,
+  centerAlign: true,
   paginationContainer: refs.paginationContainer,
 });
 
 // Первичная отрисовка. Просто передать данные на пагинацию
-eventService.fetchEventsFirstLoad().then(data => pagination.getData(data));
+// *старая
+// eventService.fetchEventsFirstLoad().then(data => pagination.getData(data));
+
+eventService.fetchEvents().then(data => eventsPagination.createPagination(data));
 
 // *end Пагинация и первичная отрисовка
 // the end
@@ -59,7 +72,12 @@ function onChangeSelect(e) {
   console.log('ТУТ НУЖНО ВПИСАТЬ ФУНКЦИЮ ДЛЯ РЕНДЕРИНГА СТРАНИЦЫ ПО КОДУ СТРАНЫ');
   eventService
     .fetchEvents()
-    .then(events => pagination.getData(events))
+
+    .then(events => {
+      console.log(events);
+      eventsPagination.createPagination(events);
+    })
+
     .catch(error => onFetchError(error));
 }
 
@@ -98,7 +116,9 @@ function onInputChange(e) {
     // clearEventsContainer();
     // renderEventsList(events);
     // })
-    .then(events => pagination.getData(events))
+
+    .then(events => eventsPagination.createPagination(events))
+
     .catch(error => onFetchError(error));
 }
 
@@ -148,7 +168,7 @@ export function clearEventsContainer() {
   refs.eventsContainer.innerHTML = '';
 }
 
-// ==================== Тестовые функции.  ============
+// ==================== Start: Тестовые функции. (Пока не использовали) ============
 
 // Функция для пагинации, когда кликаем на СЛЕДУЮЩУЮ страничку и догружаем
 // следующую порцию карточек с событиями / концертами
@@ -165,7 +185,14 @@ function onPreviousPage() {
   eventService.fetchEvents(EventService).then(eventsMarkUp);
 }
 
-// if (eventService.page > 1) {
-//   eventService.decrementPage();
-// }
-// eventService.fetchEvents(EventService).then(eventsMarkUp);
+// ====================  End: Тестовые функции.  ============
+
+// Устраняем перезагрузку страницы, если прльзователь нажал Enter в инпуте с поисковым словом
+refs.searchInput.addEventListener('keydown', onEnterInKeyWordInput);
+
+function onEnterInKeyWordInput(e) {
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    // console.log('Был клик на Enter', e.keyCode)
+  }
+}
