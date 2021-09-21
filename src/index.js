@@ -22,6 +22,7 @@ import {
   success,
   info,
   defaults,
+  defaultStack,
 } from '../node_modules/@pnotify/core/dist/PNotify.js';
 import '@pnotify/core/dist/BrightTheme.css';
 defaults.delay = 2000;
@@ -105,40 +106,39 @@ function onChangeSelect(e) {
 // Функция поиска по заданному слову
 function onInputChange(e) {
   e.preventDefault();
-
   // в этой строке связывает выбранную страну с классом, который отправляет запрос на бекенд
   eventService.сountryQueryKey = selectCountry.countryCode;
-
   eventService.query = e.target.value.trim('');
   checkingScreenWidth();
   eventService.resetPage();
   eventService
     .fetchEvents(EventService)
-    //.then(events => {
-    // clearEventsContainer();
-    // renderEventsList(events);
-    // })
-
-    .then(events => eventsPagination.createPagination(events))
-
+    .then(events => {
+      console.log(events);
+      renderEventsList(events);
+    })
     .catch(error => onFetchError(error));
 }
 
 function renderEventsList(events) {
   if (eventService.query === '') {
+    defaultStack.close();
+    refs.searchInput.value = '';
+    defaultStack.close();
     return info({
-      text: `Пожалуйста, введите ваш запрос в поле поиска ...`,
+      text: `Please enter your request in the search field ...`,
     });
-  } else if (events === undefined) {
+  } else if (events._embedded === undefined) {
+    defaultStack.close();
     return error({
-      text: `По запросу ничего не найдено`,
+      text: `No results were found for your search.`,
     });
   } else {
-    eventsMarkUp(events);
-    // pagination.getData(events);
     checkingScreenWidth();
+    eventsPagination.createPagination(events);
+    defaultStack.close();
     success({
-      text: `Результаты поиска:`,
+      text: `Searching results`,
     });
   }
 }

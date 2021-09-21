@@ -23,7 +23,7 @@ class EventService {
           this.numberOfEvens = data.page.totalElements;
           if (!data.hasOwnProperty('_embedded')) {
             console.log('Событий с заданным поисковым словом не найдено!');
-            return alert('Событий с заданным поисковым словом не найдено!');
+            // return alert('Событий с заданным поисковым словом не найдено!');
           }
           return data;
           // return data._embedded.events;
@@ -41,7 +41,7 @@ class EventService {
           this.numberOfEvens = data.page.totalElements;
           if (!data.hasOwnProperty('_embedded')) {
             console.log('В данной стране событий с заданным поисковым словом не найдено!');
-            return alert('В данной стране событий с заданным поисковым словом не найдено!');
+            // return alert('В данной стране событий с заданным поисковым словом не найдено!');
           }
           return data;
           // return data._embedded.events;
