@@ -144,7 +144,7 @@ function renderEventsList(events) {
       text: `По запросу ничего не найдено`,
     });
   } else {
-    eventsMarkUp(events);
+    // eventsMarkUp(events);
     // pagination.getData(events);
     checkingScreenWidth();
     success({
