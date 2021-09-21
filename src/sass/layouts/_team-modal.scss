@@ -13,8 +13,8 @@
 
   overflow: hidden;
 
-  background-color: rgba(32, 13, 29, 0.8);
-  backdrop-filter: blur(5px);
+  background-color: rgba(32, 13, 29, 0.281);
+  backdrop-filter: blur(15px);
 
   border-radius: 20px;
   box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.5);
@@ -25,11 +25,28 @@
   transform: translate(-50%, -50%);
   transition: width 0.5s ease 0.5s, height 0.5s ease;
 
-  z-index: 30;
+  z-index: 3000;
+}
+
+body.light-theme {
+  & .team-modal {
+    background-color: rgba(48, 44, 47, 0.76);
+  }
+}
+
+.team-name {
+  // width: 100%;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 18px;
+  color: white;
+  text-shadow: 2px 3px 2px rgba(238, 6, 199, 0.5);
 }
 
 .team-modal.is-open {
-  height: 90%;
+  height: 87%;
   width: 90%;
   transition: width 0.5s ease, height 0.5s ease 0.5s;
 }
@@ -38,13 +55,13 @@
   // background-color: #dc56c6;
   display: flex;
   // border: transparent;
-  border: 1.5px solid rgb(255, 13, 191);
+  border: 1px solid rgb(255, 13, 191);
   border-radius: 20px;
   justify-content: center;
   align-items: center;
   flex-flow: wrap;
   margin: 1px;
-  height: 99.5%;
+  height: 99.8%;
   padding: 25px;
 
   overflow: auto;
@@ -59,7 +76,7 @@
 }
 
 .content::-webkit-scrollbar {
-  width: 0px;
+  width: 4px;
   height: 0px;
 }
 
@@ -106,22 +123,15 @@
   }
 }
 
-// team scroll
-
 //team-modal (Little Snippets)
-
-figure {
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 1000ms cubic-bezier(0.4, 0, 0.2, 1);
-}
 
 figure:hover,
 figure:focus {
-  transform: scale(1.01);
-  box-shadow: 4px -4px 12px 2px rgba(220, 86, 197, 0.5);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  border: 0.7px solid rgb(255, 13, 191);
+  transform: scale(1.05);
+  box-shadow: 4px -2px 12px 2px rgba(220, 86, 197, 0.5);
+  //   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  //     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  //   // border: 0.08px solid rgb(37, 37, 37);
 }
 
 .team-card {
@@ -129,8 +139,8 @@ figure:focus {
   position: relative;
   overflow: hidden;
   margin: 15px;
-  min-width: 200px;
-  max-width: 250px;
+  min-width: 100px;
+  max-width: 170px;
   height: 280px;
   width: 100%;
   color: #ffffff;
@@ -138,23 +148,11 @@ figure:focus {
   line-height: 1.4em;
 
   // background-color: #141414;
+  border-radius: 40px 0 40px 0;
   background-color: rgba(255, 255, 255, 0);
+  box-shadow: 4px 4px 10px 1px rgba(220, 86, 198, 0.295);
   // background-color: #0e0e0e;
-  border-radius: 40% 0px;
-}
-
-.our-team__item {
-  @media screen and (min-width: 768px) {
-    &:first-child {
-      grid-column: 1 / 3;
-      justify-self: end;
-    }
-
-    &:nth-child(2) {
-      grid-column: 3 / 5;
-      justify-self: start;
-    }
-  }
+  // border-radius: 40% 0px;
 }
 
 .team-card * {
@@ -166,11 +164,11 @@ figure:focus {
 
 .team-card .background {
   width: 100%;
-  //   vertical-align: top;
-  opacity: 0.3;
-  //   -webkit-filter: grayscale(100%) blur(10px);
+  vertical-align: top;
+  opacity: 0.2;
+  -webkit-filter: grayscale(50%) blur(10px);
   filter: grayscale(50%) blur(10px);
-  //   -webkit-transition: all 2s ease;
+  -webkit-transition: all 2s ease;
   transition: all 2s ease;
 }
 
@@ -188,11 +186,10 @@ figure:focus {
   bottom: 50%;
   left: 50%;
   object-fit: cover;
-  width: 120px;
-  height: 120px;
-  opacity: 1;
+  width: 140px;
+  height: 140px;
   box-shadow: 0px 5px 12px #e0a5d788;
-  border: 2px solid rgba(255, 255, 255, 0.349);
+  border: 1.5px solid rgba(255, 255, 255, 0.288);
   -webkit-transform: translate(-50%, 0%);
   transform: translate(-50%, 0%);
 }
@@ -213,10 +210,11 @@ figure:focus {
 .team-card i {
   padding: 10px 5px;
   display: inline-block;
-  font-size: 30px;
-  color: #ffffff;
+  font-size: 20px;
+  // color: #ffffff;
+  color: #e0a5d7;
   text-align: center;
-  opacity: 0.85;
+  opacity: 0.5;
 }
 
 .team-card a {
@@ -228,9 +226,3 @@ figure:focus {
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
-
-// .snip1344:hover .background,
-// .snip1344.hover .background {
-//   // -webkit-transform: scale(1.3);
-//   // transform: scale(1.1);
-// }

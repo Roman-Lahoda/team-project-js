@@ -12,6 +12,8 @@ import img10 from '../../images/team/Yevhenia_Mikhailova.jpg';
 export default [
   {
     fullName: 'Roman Lahoda',
+    firstName: 'Roman',
+    secondName: 'Lahoda',
     position: 'Team Lead',
     photo: img1,
     linkedIn: '#',
@@ -20,6 +22,8 @@ export default [
   },
   {
     fullName: 'Anna Prutnik',
+    firstName: 'Anna',
+    secondName: 'Prutnik',
     position: 'Scrum master',
     photo: img2,
     linkedIn: '#',
@@ -28,6 +32,8 @@ export default [
   },
   {
     fullName: 'Dmitry Dramaretsky',
+    firstName: 'Dmitry',
+    secondName: 'Dramaretsky',
     position: 'Developer',
     photo: img3,
     linkedIn:'https://www.linkedin.com/in/dmitry-dramaretsky/',
@@ -36,6 +42,8 @@ export default [
   },
   {
     fullName: 'Natalia Pavlova',
+    firstName: 'Natalia',
+    secondName: 'Pavlova',
     position: 'Developer',
     photo: img4,
     linkedIn: 'https://www.linkedin.com/in/natalia-pavlova/',
@@ -44,6 +52,8 @@ export default [
   },
   {
     fullName: 'Roman Korotaev',
+    firstName: 'Roman',
+    secondName: 'Korotaev',
     position: 'Developer',
     photo: img5,
     linkedIn:'#',
@@ -52,6 +62,8 @@ export default [
   },
   {
     fullName: 'Dina Yermakova',
+    firstName: 'Dina',
+    secondName: 'Yermakova',
     position: 'Developer',
     photo: img6,
     linkedIn: 'https://www.linkedin.com/in/dina-yermakova-6aa94020b/',
@@ -61,6 +73,8 @@ export default [
   },
   {
     fullName: 'Aleksey Dibikov',
+    firstName: 'Aleksey',
+    secondName: 'Dibikov',
     position: "Developer",
     photo: img7,
     linkedIn: 'https://www.linkedin.com/in/aleksey-dibikov-377a6921a/',
@@ -69,6 +83,8 @@ export default [
   },
   {
     fullName: 'Larisa Shatil',
+    firstName: 'Larisa',
+    secondName: 'Shatil',
     position: 'Developer',
     photo: img8,
     linkedIn: '#',
@@ -77,6 +93,8 @@ export default [
   },
   {
     fullName: 'Liudmila Kozachenko',
+    firstName: 'Liudmila',
+    secondName: 'Kozachenko',
     position: 'Developer',
     photo: img9,
     linkedIn: 'https://www.linkedin.com/in/liudmila-kozachenko-16905bb7/',
@@ -85,6 +103,8 @@ export default [
   },
   {
     fullName: 'Yevhenia Mikhailova',
+    firstName: 'Yevhenia',
+    secondName: 'Mikhailova',
     position: 'Developer',
     photo: img10,
     linkedIn: '#',

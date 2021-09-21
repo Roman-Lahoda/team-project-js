@@ -1,10 +1,12 @@
 <div class='content'>
-    <button class='close'></button>   
+    <button class='close'></button>
+    <h2 class="team-name">Team-3</h2>
     {{#each this}}
     <figure class='team-card'>
         <img src='{{photo}}' alt={{fullName}} class='profile' />
         <figcaption>
-            <h3 class="team-name">{{fullName}}<span>{{position}}</span></h3>
+            <h3 >{{firstName}}</h3>
+            <h3>{{secondName}}<span>{{position}}</span></h3>
             <div class='icons'>
                 <a href='{{linkedIn}}' target="_blank" rel="noopener noreferrer">
                     <i class='ion-social-linkedin-outline'></i></a>
