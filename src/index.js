@@ -78,7 +78,8 @@ function onChangeSelect(e) {
 
     .then(events => {
       console.log(events);
-      eventsPagination.createPagination(events);
+      // eventsPagination.createPagination(events);
+      renderEventsList(events);
     })
 
     .catch(error => onFetchError(error));
@@ -124,7 +125,6 @@ function renderEventsList(events) {
   if (eventService.query === '') {
     defaultStack.close();
     refs.searchInput.value = '';
-    defaultStack.close();
     return info({
       text: `Please enter your request in the search field ...`,
     });
