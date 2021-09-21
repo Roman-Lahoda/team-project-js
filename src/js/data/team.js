@@ -16,6 +16,7 @@ export default [
     photo: img1,
     linkedIn: '#',
     gitHub: 'https://github.com/Roman-Lahoda/',
+    telegram:'https://t.me/Roman_Lagoda5991',
   },
   {
     fullName: 'Anna Prutnik',
@@ -23,6 +24,7 @@ export default [
     photo: img2,
     linkedIn: '#',
     gitHub: 'https://github.com/AnnaPrutnik',
+    telegram:'https://t.me/AnnaPrutnik',
   },
   {
     fullName: 'Dmitry Dramaretsky',
@@ -30,6 +32,7 @@ export default [
     photo: img3,
     linkedIn:'https://www.linkedin.com/in/dmitry-dramaretsky/',
     gitHub: 'https://github.com/DmitryDr-dev',
+    telegram: 'https://t.me/dmitrydrm',
   },
   {
     fullName: 'Natalia Pavlova',
@@ -37,6 +40,7 @@ export default [
     photo: img4,
     linkedIn: 'https://www.linkedin.com/in/natalia-pavlova/',
     gitHub: 'https://github.com/Lia-Pavlova',
+    telegram: 'https://t.me/Lia_Pavlova',
   },
   {
     fullName: 'Roman Korotaev',
@@ -44,14 +48,15 @@ export default [
     photo: img5,
     linkedIn:'#',
     gitHub: 'https://github.com/RomanKorotaev',
+    telegram: 'https://t.me/Roma_Kor',
   },
   {
     fullName: 'Dina Yermakova',
     position: 'Developer',
     photo: img6,
-
     linkedIn: 'https://www.linkedin.com/in/dina-yermakova-6aa94020b/',
-    gitHub: 'https://github.com/YermakovaDina', 
+    gitHub: 'https://github.com/YermakovaDina',
+    telegram: 'https://t.me/dina_yermakova',
 
   },
   {
@@ -60,6 +65,7 @@ export default [
     photo: img7,
     linkedIn: 'https://www.linkedin.com/in/aleksey-dibikov-377a6921a/',
     gitHub: 'https://github.com/Aleksey-Dibikov',
+    telegram: '#',
   },
   {
     fullName: 'Larisa Shatil',
@@ -67,6 +73,7 @@ export default [
     photo: img8,
     linkedIn: '#',
     gitHub: 'https://github.com/LarisaShatil',
+    telegram: '#',
   },
   {
     fullName: 'Liudmila Kozachenko',
@@ -74,6 +81,7 @@ export default [
     photo: img9,
     linkedIn: 'https://www.linkedin.com/in/liudmila-kozachenko-16905bb7/',
     gitHub: 'https://github.com/Liucie',
+    telegram: 'https://t.me/LiudmilaKozachenko',
   },
   {
     fullName: 'Yevhenia Mikhailova',
@@ -81,5 +89,6 @@ export default [
     photo: img10,
     linkedIn: '#',
     gitHub: 'https://github.com/EvgeniiaMikhailova',
+    telegram: '#',
   },
 ];
