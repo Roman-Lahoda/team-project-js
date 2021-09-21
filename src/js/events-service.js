@@ -7,7 +7,7 @@ class EventService {
     this.country = null; // ключ для поиска по странам.
     this.page = 0; // номер страницы (для пагинации)
     // this.eventsOnOnePage = 100; // число карточек о событиях на одной странице. ВНИМАНИЕ для экрана размера Tablet должно быть 21 карточка событий
-    this.eventsOnOnePage = 20; // число карточек о событиях на одной странице. ВНИМАНИЕ для экрана размера Tablet должно быть 21 карточка событий
+    this.eventsOnOnePage = 19; // число карточек о событиях на одной странице. ВНИМАНИЕ для экрана размера Tablet должно быть 21 карточка событий
     this.eventID = ''; // переменная с ID события/концерта (возможно совсем не понадобится при работе с данным классом)
     this.numberOfEvens = 0; // число событий/концертов, которіе вернулись от бекенда
   }
@@ -23,7 +23,7 @@ class EventService {
           this.numberOfEvens = data.page.totalElements;
           if (!data.hasOwnProperty('_embedded')) {
             console.log('Событий с заданным поисковым словом не найдено!');
-            return alert('Событий с заданным поисковым словом не найдено!');
+            return info('Событий с заданным поисковым словом не найдено!');
           }
           return data;
           // return data._embedded.events;
@@ -41,7 +41,7 @@ class EventService {
           this.numberOfEvens = data.page.totalElements;
           if (!data.hasOwnProperty('_embedded')) {
             console.log('В данной стране событий с заданным поисковым словом не найдено!');
-            return alert('В данной стране событий с заданным поисковым словом не найдено!');
+            return info('В данной стране событий с заданным поисковым словом не найдено!');
           }
           return data;
           // return data._embedded.events;
