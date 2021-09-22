@@ -1,14 +1,13 @@
-<div class='content'>
+<div class='team__content'>
     <button class='close'></button>
-    <h2 class="team-name">Team-3</h2>
-    <ul class="our-team list">
+    <h2 class="team__title">Team-3</h2>
+    <ul class="our-team team__grid list">
     {{#each this}}
-    <li class='team-card our-team__item'>
+    <li class='team__card our-team__item team__grid-item'>
         <img src='{{photo}}' alt={{fullName}} class='profile' />
         <figcaption>
-            <h3 >{{firstName}}</h3>
-            <h3>{{secondName}}<span>{{position}}</span></h3>
-            <div class='icons'>
+            <h3><span>{{position}}</span></h3>
+            <div class='icons'>  
                 <a href='{{linkedIn}}' target="_blank" rel="noopener noreferrer">
                     <i class='ion-social-linkedin-outline'></i></a>
                 <a href='{{gitHub}}' target="_blank" rel="noopener noreferrer"> 
@@ -16,6 +15,9 @@
                     <a href='{{telegram}}' target="_blank" rel="noopener noreferrer">
                         <i class='ion-paper-airplane'></i></a>
             </div>
+            <h3 >{{firstName}}</h3>
+            <h3>{{secondName}}</h3>
+            
         </figcaption>
     </li>
     {{/each}}
