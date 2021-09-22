@@ -22,6 +22,7 @@ import {
   success,
   info,
   defaults,
+  defaultStack,
 } from '../node_modules/@pnotify/core/dist/PNotify.js';
 import '@pnotify/core/dist/BrightTheme.css';
 defaults.delay = 2000;
@@ -77,6 +78,7 @@ function onChangeSelect(e) {
 
     .then(events => {
       console.log(events);
+      renderEventsList(events);
       eventsPagination.createPagination(events);
     })
 
@@ -121,8 +123,9 @@ function onInputChange(e) {
 
     .then(events => {
       eventsPagination.createPagination(events);
-    // clearEventsContainer();
+      // clearEventsContainer();
       renderEventsList(events);
+      // console.log(e);
     })
 
     .catch(error => onFetchError(error));
@@ -133,20 +136,23 @@ function renderEventsList(events) {
   //   return info({
   //     text: `Пожалуйста, введите ваш запрос в поле поиска ...`,
   //   });
-// } 
-   if (eventService.query.length === 0) {
+  // }
+  if (eventService.query.length === 0) {
+    refs.searchInput.value = '';
+    defaultStack.close();
     info({
       text: `Enter your request in the search field, please`,
     });
-  }
-  else if (events === undefined) {
-    info({
+  } else if (events === undefined) {
+    defaultStack.close();
+    error({
       text: `No results were found for your search.`,
     });
   } else {
     // eventsMarkUp(events);
     // pagination.getData(events);
-    checkingScreenWidth();
+    // checkingScreenWidth();
+    defaultStack.close();
     success({
       text: `Searching results:`,
     });
