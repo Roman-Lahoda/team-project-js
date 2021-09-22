@@ -109,7 +109,7 @@ function onInputChange(e) {
   // в этой строке связывает выбранную страну с классом, который отправляет запрос на бекенд
   eventService.сountryQueryKey = selectCountry.countryCode;
 
-  eventService.query = e.target.value.trim('');
+  eventService.query = e.target.value.trim();
   checkingScreenWidth();
   eventService.resetPage();
   eventService
@@ -119,37 +119,47 @@ function onInputChange(e) {
     // renderEventsList(events);
     // })
 
-    .then(events => eventsPagination.createPagination(events))
+    .then(events => {
+      eventsPagination.createPagination(events);
+    // clearEventsContainer();
+      renderEventsList(events);
+    })
 
     .catch(error => onFetchError(error));
 }
 
 function renderEventsList(events) {
-  if (eventService.query === '') {
-    return info({
-      text: `Пожалуйста, введите ваш запрос в поле поиска ...`,
+  // if (eventService.query === '') {
+  //   return info({
+  //     text: `Пожалуйста, введите ваш запрос в поле поиска ...`,
+  //   });
+// } 
+   if (eventService.query.length === 0) {
+    info({
+      text: `Enter your request in the search field, please`,
     });
-  } else if (events === undefined) {
-    return error({
-      text: `По запросу ничего не найдено`,
+  }
+  else if (events === undefined) {
+    info({
+      text: `No results were found for your search.`,
     });
   } else {
-    eventsMarkUp(events);
+    // eventsMarkUp(events);
     // pagination.getData(events);
     checkingScreenWidth();
     success({
-      text: `Результаты поиска:`,
+      text: `Searching results:`,
     });
   }
 }
 
-function onFetchError(error) {
-  if (error.status === 404) {
-    return error({
-      text: `Упс! Событий с заданным поисковым словом не найдено!`,
-    });
-  }
-}
+// function onFetchError(error) {
+//   if (error.status === 404) {
+//     return error({
+//       text: `Упс! Событий с заданным поисковым словом не найдено!`,
+//     });
+//   }
+// }
 
 //Проверка ширины экрана. Если Tablet-версия, то грузим 21 картинку, для остальных версий 20 картинок
 export function checkingScreenWidth() {
