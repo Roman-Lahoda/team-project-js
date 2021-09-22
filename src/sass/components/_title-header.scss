@@ -1,14 +1,7 @@
 .header-title {
   text-shadow: 1px 1px 3px rgba(255, 13, 190, 0.795), -1px 1px 3px rgba(255, 13, 190, 0.548),
     0 -15px 70px, 0 0 0.01em #dc56c5, 0 10px 3px #000;
-  // text-shadow: 1px 1px 1px silver, -1px 1px 1px silver;
-
   transition: all 0.5s;
-
-  //   &:hover {
-  //     text-shadow: -1px -1px 1px silver, 1px -1px 1px silver;
-  //     color: rgb(255, 13, 190);
-  //   }
 }
 
 .header-title b span {

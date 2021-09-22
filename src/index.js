@@ -30,13 +30,6 @@ defaults.delay = 2000;
 // start
 refs.searchInput.addEventListener('input', debounce(onInputChange, 500));
 
-// *start Пагинация и первичная отрисовка
-
-// *старая
-// const pagination = new Pagination({
-//   paginationContainer: refs.paginationContainer,
-// });
-
 const eventsPagination = new EventsPagination({
   visiblePages: 5,
   page: 1,
@@ -45,13 +38,9 @@ const eventsPagination = new EventsPagination({
 });
 
 // Первичная отрисовка. Просто передать данные на пагинацию
-// *старая
-// eventService.fetchEventsFirstLoad().then(data => pagination.getData(data));
+
 checkingScreenWidth();
 eventService.fetchEvents().then(data => eventsPagination.createPagination(data));
-
-// *end Пагинация и первичная отрисовка
-// the end
 
 //Логика поиска стран
 const options = {
@@ -69,45 +58,18 @@ function onChangeSelect(e) {
     return;
   }
   eventService.country = selectCountry.countryCode;
-  console.log(eventService.country);
-  // console.log('ТУТ НУЖНО ВПИСАТЬ ФУНКЦИЮ ДЛЯ РЕНДЕРИНГА СТРАНИЦЫ ПО КОДУ СТРАНЫ');
   checkingScreenWidth();
   eventService.resetPage();
   eventService
     .fetchEvents()
-
     .then(events => {
-      console.log(events);
-
-          if (events === undefined) {
-            info({ text: `No results were found for your search.` });
-          }
-
+      if (events === undefined) {
+        info({ text: `No results were found for your search.` });
+      }
       eventsPagination.createPagination(events);
     })
-
     .catch(error => onFetchError(error));
-
 }
-
-//  --------------Поиск по ключевому слову   ------------------
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   //Проверка ширины экрана. Если Tablet-версия, то грузим 21 картинку, для остальных версий 20 картинок
-//   if (document.documentElement.clientWidth > 768 && document.documentElement.clientWidth < 1280) {
-//     console.log('document.documentElement.clientWidth');
-//     eventService.eventsOnOnePage = 21;
-//   } else {
-//     eventService.eventsOnOnePage = 20;
-//   }
-
-//   // Загрузка происходит по событию  DOMContentLoaded
-//   //console.log('DOM полностью загружен и разобран');
-//   eventService.fetchEventsFirstLoad().then(Events => {
-//     clearEventsContainer();
-//     eventsMarkUp(Events);
-//   });
-// });
 
 // Функция поиска по заданному слову
 function onInputChange(e) {
@@ -121,20 +83,13 @@ function onInputChange(e) {
   eventService.resetPage();
   eventService
     .fetchEvents(EventService)
-
-    .then(events => { renderEventsList(events);
-
+    .then(events => {
+      renderEventsList(events);
     })
-
     .catch(error => onFetchError(error));
 }
 
 function renderEventsList(events) {
-  // if (eventService.query === '') {
-  //   return info({
-  //     text: `Пожалуйста, введите ваш запрос в поле поиска ...`,
-  //   });
-  // }
   if (eventService.query.length === 0) {
     refs.searchInput.value = '';
     defaultStack.close();
@@ -147,28 +102,18 @@ function renderEventsList(events) {
       text: `No results were found for your search.`,
     });
   } else {
-
-     checkingScreenWidth();
-     eventsPagination.createPagination(events);
-
+    checkingScreenWidth();
+    eventsPagination.createPagination(events);
+    defaultStack.close();
     success({
       text: `Searching results:`,
     });
   }
 }
 
-// function onFetchError(error) {
-//   if (error.status === 404) {
-//     return error({
-//       text: `Упс! Событий с заданным поисковым словом не найдено!`,
-//     });
-//   }
-// }
-
 //Проверка ширины экрана. Если Tablet-версия, то грузим 21 картинку, для остальных версий 20 картинок
 export function checkingScreenWidth() {
   if (document.documentElement.clientWidth > 768 && document.documentElement.clientWidth < 1280) {
-    console.log('document.documentElement.clientWidth');
     eventService.eventsOnOnePage = 21;
   } else {
     eventService.eventsOnOnePage = 20;
@@ -185,13 +130,11 @@ export function clearEventsContainer() {
   refs.eventsContainer.innerHTML = '';
 }
 
-
 // Устраняем перезагрузку страницы, если прльзователь нажал Enter в инпуте с поисковым словом
 refs.searchInput.addEventListener('keydown', onEnterInKeyWordInput);
 
 function onEnterInKeyWordInput(e) {
   if (e.keyCode === 13) {
     e.preventDefault();
-    // console.log('Был клик на Enter', e.keyCode)
   }
 }
