@@ -70,7 +70,7 @@ function onChangeSelect(e) {
   }
   eventService.country = selectCountry.countryCode;
   console.log(eventService.country);
-  console.log('ТУТ НУЖНО ВПИСАТЬ ФУНКЦИЮ ДЛЯ РЕНДЕРИНГА СТРАНИЦЫ ПО КОДУ СТРАНЫ');
+  // console.log('ТУТ НУЖНО ВПИСАТЬ ФУНКЦИЮ ДЛЯ РЕНДЕРИНГА СТРАНИЦЫ ПО КОДУ СТРАНЫ');
   checkingScreenWidth();
   eventService.resetPage();
   eventService
@@ -78,14 +78,19 @@ function onChangeSelect(e) {
 
     .then(events => {
       console.log(events);
-      renderEventsList(events);
+
+          if (events === undefined) {
+            info({ text: `No results were found for your search.` });
+          }
+
       eventsPagination.createPagination(events);
     })
 
     .catch(error => onFetchError(error));
+
 }
 
-//  -------------- Первая загрузка сайта   ------------------
+//  --------------Поиск по ключевому слову   ------------------
 
 // document.addEventListener('DOMContentLoaded', () => {
 //   //Проверка ширины экрана. Если Tablet-версия, то грузим 21 картинку, для остальных версий 20 картинок
@@ -116,16 +121,9 @@ function onInputChange(e) {
   eventService.resetPage();
   eventService
     .fetchEvents(EventService)
-    //.then(events => {
-    // clearEventsContainer();
-    // renderEventsList(events);
-    // })
 
-    .then(events => {
-      eventsPagination.createPagination(events);
-      // clearEventsContainer();
-      renderEventsList(events);
-      // console.log(e);
+    .then(events => { renderEventsList(events);
+
     })
 
     .catch(error => onFetchError(error));
@@ -149,10 +147,10 @@ function renderEventsList(events) {
       text: `No results were found for your search.`,
     });
   } else {
-    // eventsMarkUp(events);
-    // pagination.getData(events);
-    // checkingScreenWidth();
-    defaultStack.close();
+
+     checkingScreenWidth();
+     eventsPagination.createPagination(events);
+
     success({
       text: `Searching results:`,
     });
@@ -181,29 +179,12 @@ export function checkingScreenWidth() {
 export function eventsMarkUp(array) {
   refs.eventsContainer.insertAdjacentHTML('beforeend', eventTpl(array));
 }
+
 // Функция для очистки галереи событий (вызывается при вводе нового поискового слова)
 export function clearEventsContainer() {
   refs.eventsContainer.innerHTML = '';
 }
 
-// ==================== Start: Тестовые функции. (Пока не использовали) ============
-
-// Функция для пагинации, когда кликаем на СЛЕДУЮЩУЮ страничку и догружаем
-// следующую порцию карточек с событиями / концертами
-function onNextPage() {
-  eventService.incrementPage();
-  eventService.fetchEvents(EventService).then(eventsMarkUp);
-}
-
-// Функция для пагинации, когда кликаем на ПРЕДЫДУЩУЮ страничку
-function onPreviousPage() {
-  if (eventService.page < 1) {
-    eventService.decrementPage();
-  }
-  eventService.fetchEvents(EventService).then(eventsMarkUp);
-}
-
-// ====================  End: Тестовые функции.  ============
 
 // Устраняем перезагрузку страницы, если прльзователь нажал Enter в инпуте с поисковым словом
 refs.searchInput.addEventListener('keydown', onEnterInKeyWordInput);
