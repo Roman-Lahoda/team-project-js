@@ -136,19 +136,19 @@ function renderEventsList(events) {
 // } 
    if (eventService.query.length === 0) {
     info({
-      text: `Пожалуйста, введите ваш запрос в поле поиска ...`,
+      text: `Enter your request in the search field, please`,
     });
   }
   else if (events === undefined) {
     info({
-      text: `По запросу ничего не найдено`,
+      text: `No results were found for your search.`,
     });
   } else {
     // eventsMarkUp(events);
     // pagination.getData(events);
     checkingScreenWidth();
     success({
-      text: `Результаты поиска:`,
+      text: `Searching results:`,
     });
   }
 }
