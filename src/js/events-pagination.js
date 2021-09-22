@@ -1,9 +1,5 @@
 import { clearEventsContainer, eventsMarkUp, eventService } from '../index';
 import Pagination from 'tui-pagination';
-// import EventService from './events-service';
-
-// const eventService = new EventService();
-
 export class EventsPagination {
   constructor({ visiblePages, page, centerAlign, paginationContainer }) {
     this.visiblePages = visiblePages;

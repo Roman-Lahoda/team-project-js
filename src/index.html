@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,17 +12,12 @@
       referrerpolicy="no-referrer"
     />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-
     <link href="../node_modules/@pnotify/core/dist/PNotify.css" rel="stylesheet" type="text/css" />
-    <link
-      href="../node_modules/@pnotify/mobile/dist/PNotifyMobile.css"
-      rel="stylesheet"
-      type="text/css"
-    />
     <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css" />
+    <link rel="shortcut icon" type="image/png" href="./favicon.png" />
   </head>
 
-  <body class="body dark-theme">
+  <body class="body">
     <div class="bg"></div>
 
     <header class="header">
@@ -44,16 +39,11 @@
     <include src="./partials/decor-elements.html"></include>
 
     <!--Модальное окно-->
-    <div class="modal-overlay js-modal visually-hidden" id="modal-overlay">
+    <div class="modal-overlay js-modal" id="modal-overlay">
       <div class="modal">
-        <button type="button" class="close modal__btn-close" data-action="close-modal">
-          <!-- <svg class="btn-close__icon">
-            <use href="./images/svg/symbol-defs.svg#icon-close"></use>
-          </svg> -->
-        </button>
+        <button type="button" class="close modal__btn-close" data-action="close-modal"></button>
 
         <div class="modal__event-card"></div>
-        <!-- Данные о событии рендерятся сюда -->
       </div>
     </div>
 

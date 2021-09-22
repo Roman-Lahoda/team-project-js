@@ -22,19 +22,13 @@ import {
   success,
   info,
   defaults,
+  defaultStack,
 } from '../node_modules/@pnotify/core/dist/PNotify.js';
 import '@pnotify/core/dist/BrightTheme.css';
 defaults.delay = 2000;
 
 // start
 refs.searchInput.addEventListener('input', debounce(onInputChange, 500));
-
-// *start Пагинация и первичная отрисовка
-
-// *старая
-// const pagination = new Pagination({
-//   paginationContainer: refs.paginationContainer,
-// });
 
 const eventsPagination = new EventsPagination({
   visiblePages: 5,
@@ -44,13 +38,9 @@ const eventsPagination = new EventsPagination({
 });
 
 // Первичная отрисовка. Просто передать данные на пагинацию
-// *старая
-// eventService.fetchEventsFirstLoad().then(data => pagination.getData(data));
+
 checkingScreenWidth();
 eventService.fetchEvents().then(data => eventsPagination.createPagination(data));
-
-// *end Пагинация и первичная отрисовка
-// the end
 
 //Логика поиска стран
 const options = {
@@ -68,39 +58,18 @@ function onChangeSelect(e) {
     return;
   }
   eventService.country = selectCountry.countryCode;
-  console.log(eventService.country);
-  console.log('ТУТ НУЖНО ВПИСАТЬ ФУНКЦИЮ ДЛЯ РЕНДЕРИНГА СТРАНИЦЫ ПО КОДУ СТРАНЫ');
   checkingScreenWidth();
   eventService.resetPage();
   eventService
     .fetchEvents()
-
     .then(events => {
-      console.log(events);
+      if (events === undefined) {
+        info({ text: `No results were found for your search.` });
+      }
       eventsPagination.createPagination(events);
     })
-
     .catch(error => onFetchError(error));
 }
-
-//  -------------- Первая загрузка сайта   ------------------
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   //Проверка ширины экрана. Если Tablet-версия, то грузим 21 картинку, для остальных версий 20 картинок
-//   if (document.documentElement.clientWidth > 768 && document.documentElement.clientWidth < 1280) {
-//     console.log('document.documentElement.clientWidth');
-//     eventService.eventsOnOnePage = 21;
-//   } else {
-//     eventService.eventsOnOnePage = 20;
-//   }
-
-//   // Загрузка происходит по событию  DOMContentLoaded
-//   //console.log('DOM полностью загружен и разобран');
-//   eventService.fetchEventsFirstLoad().then(Events => {
-//     clearEventsContainer();
-//     eventsMarkUp(Events);
-//   });
-// });
 
 // Функция поиска по заданному слову
 function onInputChange(e) {
@@ -109,44 +78,35 @@ function onInputChange(e) {
   // в этой строке связывает выбранную страну с классом, который отправляет запрос на бекенд
   eventService.сountryQueryKey = selectCountry.countryCode;
 
-  eventService.query = e.target.value.trim('');
+  eventService.query = e.target.value.trim();
   checkingScreenWidth();
   eventService.resetPage();
   eventService
     .fetchEvents(EventService)
-    //.then(events => {
-    // clearEventsContainer();
-    // renderEventsList(events);
-    // })
-
-    .then(events => eventsPagination.createPagination(events))
-
+    .then(events => {
+      renderEventsList(events);
+    })
     .catch(error => onFetchError(error));
 }
 
 function renderEventsList(events) {
-  if (eventService.query === '') {
-    return info({
-      text: `Пожалуйста, введите ваш запрос в поле поиска ...`,
+  if (eventService.query.length === 0) {
+    refs.searchInput.value = '';
+    defaultStack.close();
+    info({
+      text: `Enter your request in the search field, please`,
     });
   } else if (events === undefined) {
-    return error({
-      text: `По запросу ничего не найдено`,
+    defaultStack.close();
+    error({
+      text: `No results were found for your search.`,
     });
   } else {
-    eventsMarkUp(events);
-    // pagination.getData(events);
     checkingScreenWidth();
+    eventsPagination.createPagination(events);
+    defaultStack.close();
     success({
-      text: `Результаты поиска:`,
-    });
-  }
-}
-
-function onFetchError(error) {
-  if (error.status === 404) {
-    return error({
-      text: `Упс! Событий с заданным поисковым словом не найдено!`,
+      text: `Searching results:`,
     });
   }
 }
@@ -154,7 +114,6 @@ function onFetchError(error) {
 //Проверка ширины экрана. Если Tablet-версия, то грузим 21 картинку, для остальных версий 20 картинок
 export function checkingScreenWidth() {
   if (document.documentElement.clientWidth > 768 && document.documentElement.clientWidth < 1280) {
-    console.log('document.documentElement.clientWidth');
     eventService.eventsOnOnePage = 21;
   } else {
     eventService.eventsOnOnePage = 20;
@@ -165,29 +124,11 @@ export function checkingScreenWidth() {
 export function eventsMarkUp(array) {
   refs.eventsContainer.insertAdjacentHTML('beforeend', eventTpl(array));
 }
+
 // Функция для очистки галереи событий (вызывается при вводе нового поискового слова)
 export function clearEventsContainer() {
   refs.eventsContainer.innerHTML = '';
 }
-
-// ==================== Start: Тестовые функции. (Пока не использовали) ============
-
-// Функция для пагинации, когда кликаем на СЛЕДУЮЩУЮ страничку и догружаем
-// следующую порцию карточек с событиями / концертами
-function onNextPage() {
-  eventService.incrementPage();
-  eventService.fetchEvents(EventService).then(eventsMarkUp);
-}
-
-// Функция для пагинации, когда кликаем на ПРЕДЫДУЩУЮ страничку
-function onPreviousPage() {
-  if (eventService.page < 1) {
-    eventService.decrementPage();
-  }
-  eventService.fetchEvents(EventService).then(eventsMarkUp);
-}
-
-// ====================  End: Тестовые функции.  ============
 
 // Устраняем перезагрузку страницы, если прльзователь нажал Enter в инпуте с поисковым словом
 refs.searchInput.addEventListener('keydown', onEnterInKeyWordInput);
@@ -195,6 +136,5 @@ refs.searchInput.addEventListener('keydown', onEnterInKeyWordInput);
 function onEnterInKeyWordInput(e) {
   if (e.keyCode === 13) {
     e.preventDefault();
-    // console.log('Был клик на Enter', e.keyCode)
   }
 }

@@ -7,7 +7,7 @@ class EventService {
     this.country = null; // ключ для поиска по странам.
     this.page = 0; // номер страницы (для пагинации)
     // this.eventsOnOnePage = 100; // число карточек о событиях на одной странице. ВНИМАНИЕ для экрана размера Tablet должно быть 21 карточка событий
-    this.eventsOnOnePage = 20; // число карточек о событиях на одной странице. ВНИМАНИЕ для экрана размера Tablet должно быть 21 карточка событий
+    this.eventsOnOnePage = 19; // число карточек о событиях на одной странице. ВНИМАНИЕ для экрана размера Tablet должно быть 21 карточка событий
     this.eventID = ''; // переменная с ID события/концерта (возможно совсем не понадобится при работе с данным классом)
     this.numberOfEvens = 0; // число событий/концертов, которіе вернулись от бекенда
   }
@@ -22,16 +22,12 @@ class EventService {
         .then(data => {
           this.numberOfEvens = data.page.totalElements;
           if (!data.hasOwnProperty('_embedded')) {
-            console.log('Событий с заданным поисковым словом не найдено!');
-            return alert('Событий с заданным поисковым словом не найдено!');
+            return info('No events found with the specified search word!');
           }
           return data;
-          // return data._embedded.events;
         })
 
-        .catch(error => {
-          console.log(error);
-        });
+        .catch(error => {});
     } else {
       return fetch(
         `${BASE_URL}/events.json?size=${this.eventsOnOnePage}&keyword=${this.searchQuery}&countryCode=${this.country}&page=${this.page}&apikey=${apikey}`,
@@ -40,26 +36,20 @@ class EventService {
         .then(data => {
           this.numberOfEvens = data.page.totalElements;
           if (!data.hasOwnProperty('_embedded')) {
-            console.log('В данной стране событий с заданным поисковым словом не найдено!');
-            return alert('В данной стране событий с заданным поисковым словом не найдено!');
+            return info('No events with the given search word were found in this country!');
           }
           return data;
-          // return data._embedded.events;
         })
-        .catch(error => {
-          console.log(error);
-        });
+        .catch(error => {});
     }
   }
 
   //Функция для получения промиса с одним объектом события/концерта по его ID
   fetchEventById(searchId) {
-    // console.log (this)
     this.eventID = searchId;
     return fetch(`${BASE_URL}/events.json?&id=${this.eventID}&apikey=${apikey}`)
       .then(response => response.json())
       .then(data => {
-        console.log('Event searched by Id', data._embedded.events);
         return data._embedded.events;
       })
       .catch(error => console.log(error));
@@ -76,7 +66,6 @@ class EventService {
     )
       .then(response => response.json())
       .then(data => {
-        // console.log('События по популярности (только США и Канада) : ', data._embedded.events);
         return data._embedded.events;
       })
       .catch(error => console.log(error));
@@ -84,12 +73,10 @@ class EventService {
 
   incrementPage() {
     this.page += 1;
-    console.log('Сработала функция incrementPage()   this.page= ', this.page);
   }
 
   decrementPage() {
     this.page -= 1;
-    console.log('Сработала функция decrementPage() this.page= ', this.page);
   }
 
   resetPage() {

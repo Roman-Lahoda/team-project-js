@@ -1,8 +1,9 @@
-<div class='content'>
+<div class='team__content'>
     <button class='close'></button>
-    <h2 class="team-name">Team-3</h2>
+    <h2 class="team__title">Team-3 🚀</h2>
+    <ul class="our-team list">
     {{#each this}}
-    <figure class='team-card'>
+    <li class='team__card our-team__item '>
         <img src='{{photo}}' alt={{fullName}} class='profile' />
         <figcaption>
             <h3 >{{firstName}}</h3>
@@ -16,6 +17,7 @@
                         <i class='ion-paper-airplane'></i></a>
             </div>
         </figcaption>
-    </figure>
+    </li>
     {{/each}}
+    </ul>
 </div>
