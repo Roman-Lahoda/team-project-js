@@ -12,8 +12,8 @@
 
   overflow: hidden;
 
-  background-color: rgba(32, 13, 29, 0.473);
-  backdrop-filter: blur(15px);
+  background-color: rgba(32, 13, 29, 0.5);
+  backdrop-filter: blur(25px);
 
   border-radius: 20px;
   box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.5);
@@ -71,7 +71,7 @@
 .team__title {
   width: 100%;
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 40px;
 
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 28px;
@@ -80,39 +80,26 @@
 }
 
 .team-modal.is-open {
+  display: flex;
+  align-items: center;
   height: 85%;
-  width: 90%;
-
-  @media screen and (max-width: 469.98px) {
-    width: 260px;
-  }
-  @media screen and (min-width: 470px) and (max-width: 939.98px) {
-    width: 500px;
-  }
-  @media screen and (min-width: 940px) and (max-width: 1149.98px) {
-    width: 820px;
-  }
-  @media screen and (min-width: 1150px) {
-    width: 1100px;
-  }
-
+  width: 85%;
   margin-top: auto;
   margin-bottom: auto;
 
   transition: width 0.5s ease, height 0.5s ease 0.5s;
+  // background-color: rgba(169, 169, 169, 0.397);
 }
 
 .team__content {
   display: flex;
   flex-direction: column;
-
-  border: 0.3px solid rgb(255, 13, 191);
+  padding: 25px;
+  // border: 0.3px solid rgb(255, 13, 191);
   border-radius: 20px;
   align-items: center;
-
-  height: 99.8%;
-  padding: 25px;
-
+  max-height: 100%;
+  // height: 99.8%;
   overflow: auto;
 }
 
@@ -123,25 +110,13 @@
 
 .our-team {
   display: flex;
+  align-items: center;
   justify-content: center;
   flex-wrap: wrap;
 
   margin-left: auto;
   margin-right: auto;
-  margin: -20px;
-
-  @media screen and (max-width: 469.98px) {
-    width: 260px;
-  }
-  @media screen and (min-width: 470px) and (max-width: 939.98px) {
-    width: 500px;
-  }
-  @media screen and (min-width: 940px) and (max-width: 1149.98px) {
-    width: 820px;
-  }
-  @media screen and (min-width: 1150px) {
-    width: 1100px;
-  }
+  margin: -25px;
 }
 
 /* Team-modal (Little Snippets) */
@@ -150,20 +125,18 @@
   font-family: 'Open Sans', Arial, sans-serif;
   position: relative;
   overflow: hidden;
-
   min-width: 155px;
   height: 250px;
 
-  margin: 20px;
+  margin: 25px;
   color: #ffffff;
   text-align: center;
   line-height: 1.4em;
 
   border: 1px solid rgb(255, 13, 191);
   border-radius: 40px 0 40px 0;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(88, 87, 87, 0.5);
   box-shadow: 4px 4px 10px 1px rgba(220, 86, 198, 0.295);
-  background-color: #0e0e0e31;
 
   &:hover,
   &:focus {
@@ -174,17 +147,10 @@
   }
 }
 
-.team__card * {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-}
-
 .team__card .background {
   width: 100%;
   vertical-align: top;
-  opacity: 0.2;
+  opacity: 0.5;
   -webkit-filter: grayscale(50%) blur(10px);
   filter: grayscale(50%) blur(10px);
   -webkit-transition: all 2s ease;
